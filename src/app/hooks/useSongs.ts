@@ -1,12 +1,15 @@
+'use client';
+
 import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 
 export function useSongs(limit: number) {
-    const [songs, setSongs] = useState([]);
     const {data: session} = useSession();
+    const [songs, setSongs] = useState([]);
+    const [next, setNext] = useState(undefined);
 
     useEffect(() => {
-        if (!songs.length) {
+        if (!songs.length && !!session) {
             (async () => {
                 const data =  await (await fetch('/api/spotify/get-top-items', {
                     method: 'POST',
@@ -16,10 +19,10 @@ export function useSongs(limit: number) {
                     })
                 })).json();
 
-                setSongs(data);
+                setSongs(data.items);
             })();
         }
-    }, [limit, session.access_token, songs.length]);
+    }, [limit, session, songs]);
 
     return {songs};
 }

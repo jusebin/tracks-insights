@@ -6,29 +6,41 @@ import {useProfile} from "@/app/hooks/useProfile";
 export default function Profile() {
     const {profile} = useProfile();
 
-    console.log(profile);
-
     if (!profile) {
         return null;
     }
 
+    const renderImage = () => {
+        if (!profile.images || !profile.images.length) {
+            return <Avatar
+                size={"xl"}
+                text={(profile.email).charAt(0).toUpperCase()}
+                color="secondary"
+                bordered
+            />
+        }
+
+        return <Avatar
+            size={"xl"}
+            src={profile.images[0].url}
+            color="secondary"
+            bordered
+        />
+    }
+
     return (
         <div>
-            <Row align={"center"} justify={'space-between'}>
+            <Row align={"center"} justify={'space-between'} wrap={"wrap"} fluid>
                 <Col>
                     <Row align={"center"}>
-                        <Col css={{width: '64px'}}>
-                            <Avatar
-                                size={"xl"}
-                                src={profile.images.length ? profile.images[0].url : undefined}
-                                text={profile.images.length ? undefined : (profile.email).charAt(0).toUpperCase()}
-                                color="secondary"
-                                bordered
-                            />
+                        <Col css={{width: '64px', border: "1px solid red"}}>
+                            {renderImage()}
                         </Col>
-                        <Col offset={1}>
-                            <Text>{profile.display_name ? profile.display_name : profile.id}</Text>
-                            <Text>{profile.email}</Text>
+                        <Col css={{border: "1px solid green"}}>
+                            <Text css={{
+                                pl: "10px"
+                            }}>{profile.display_name ? profile.display_name : profile.id}</Text>
+                            <Text css={{pl: "10px"}}>{profile.email}</Text>
                         </Col>
                     </Row>
                 </Col>
@@ -37,7 +49,7 @@ export default function Profile() {
                         <Button
                             size={"lg"}
                             color={"error"}
-                            shadow
+                            bordered
                             onClick={() => {
                                 signOut();
                             }}

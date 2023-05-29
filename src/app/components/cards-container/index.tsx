@@ -1,5 +1,5 @@
 import React from "react";
-import {Row, Spacer, Text} from "@nextui-org/react";
+import {Card, Grid, Spacer, Text} from "@nextui-org/react";
 
 export function CardsContainer({title, subtitle, children}: {
     title: string;
@@ -11,9 +11,9 @@ export function CardsContainer({title, subtitle, children}: {
             <Text h2>{title}</Text>
             <Text>{subtitle}</Text>
             <Spacer y={1}/>
-            <Row wrap={'wrap'}>
+            <Grid.Container gap={2} justify={"flex-start"}>
                 {children}
-            </Row>
+            </Grid.Container>
         </>
     )
 }

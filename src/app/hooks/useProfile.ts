@@ -1,12 +1,15 @@
+'use client';
+
 import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
+import UserObjectPrivate = SpotifyApi.UserObjectPrivate;
 
 export function useProfile() {
-    const [profile, setProfile] = useState(undefined);
+    const [profile, setProfile] = useState<UserObjectPrivate | undefined>(undefined);
     const {data: session} = useSession();
 
     useEffect(() => {
-        if (!profile) {
+        if (!profile && !!session) {
             (async () => {
                 const data =  await (await fetch('/api/spotify/get-profile', {
                     method: 'POST',
@@ -18,7 +21,7 @@ export function useProfile() {
                 setProfile(data);
             })();
         }
-    }, [profile, session.access_token])
+    }, [profile, session])
 
     return {profile};
 }

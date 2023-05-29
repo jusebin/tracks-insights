@@ -3,50 +3,52 @@ import {Card, Col, Row, Spacer, Text} from "@nextui-org/react";
 
 export function CustomCard(
     {
-        cardType,
         imageSrc,
-        imageWidth,
-        imageHeight,
         title,
         subtitle,
         position,
         addSpacer
     }: {
-        cardType: string;
         imageSrc: string;
-        imageWidth: number;
-        imageHeight: number;
         title: string;
         subtitle?: string;
         position: number;
         addSpacer?: boolean;
     }) {
     return (
-        <React.Fragment key={`${cardType}-${position}`}>
-            <Col>
-                <Card css={{width: '100%', maxWidth: '340px', boxSizing: 'border-box'}}>
+        <>
+            <Card>
+                <Card.Body css={{p: 0}}>
                     <Card.Image
                         src={imageSrc}
-                        width={imageWidth}
-                        height={imageHeight}
+                        objectFit="cover"
+                        width="100%"
+                        height="100%"
                     />
-                    <Card.Body>
-                        <Row align={'center'} gap={1}>
-                            <Col span={2}>
-                                <Text
-                                    size={'$3xl'}
-                                    weight={'bold'}
-                                >{position}</Text>
-                            </Col>
-                            <Col span={10}>
-                                <Text weight={'bold'}>{title}</Text>
-                                {subtitle && <Text>{subtitle}</Text>}
-                            </Col>
-                        </Row>
-                    </Card.Body>
-                </Card>
-                {addSpacer && <Spacer y={1}/>}
-            </Col>
-        </React.Fragment>
+                </Card.Body>
+                <Card.Footer
+                    isBlurred
+                    css={{
+                        position: "absolute",
+                        bgBlur: "#0f111466",
+                        bottom: 0,
+                        zIndex: 1,
+                    }}
+                >
+                    <Row align={'center'}>
+                        <Col span={2}>
+                            <Text
+                                size={'$3xl'}
+                                weight={'black'}
+                            >{position}</Text>
+                        </Col>
+                        <Col>
+                            <Text weight={'bold'} css={{ta: 'right'}}>{title}</Text>
+                            {subtitle && <Text css={{ta: 'right'}}>{subtitle}</Text>}
+                        </Col>
+                    </Row>
+                </Card.Footer>
+            </Card>
+        </>
     );
 }

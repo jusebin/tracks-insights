@@ -1,12 +1,13 @@
 'use client';
 
 import {Button, Container, Row, Text} from "@nextui-org/react";
-import {useSession, signIn, signOut} from "next-auth/react";
+import {useSession, signIn} from "next-auth/react";
 import {useCallback} from "react";
 import {UserData} from "@/app/components/user-data";
 
 export default function Home() {
     const {data: session} = useSession();
+    console.log(session?.access_token);
 
     const styleGradient = {
         textGradient: "45deg, $blue600 -20%, $pink600 50%"
@@ -33,7 +34,14 @@ export default function Home() {
 
     return (
         <main>
-            <Container direction={"column"} alignItems={"center"} justify={"center"} fluid>
+            <Container
+                display={session ? 'block' : 'flex'}
+                direction={"column"}
+                alignItems={"center"}
+                justify={"center"}
+                fluid
+                css={{height: '100vh'}}
+            >
                 <Row justify={"center"}>
                     <Text
                         h1

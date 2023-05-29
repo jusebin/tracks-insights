@@ -1,4 +1,9 @@
-export async function fetchSpotifyApi(endpoint, method, token, body = {}) {
+export async function fetchSpotifyApi(
+    endpoint: string,
+    method: 'GET' | 'POST',
+    token: string,
+    body: Object = {}
+) {
     const options: any = {
         headers: {
             'Authorization': `Bearer ${token}`

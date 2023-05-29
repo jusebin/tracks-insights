@@ -1,12 +1,16 @@
+'use client';
 import {useCallback, useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
+import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 
-export function useArtists(limit: number) {
-    const [artists, setArtists] = useState([]);
+export function useArtists(limit: number): {
+    artists: ArtistObjectFull[]
+} {
+    const [artists, setArtists] = useState<ArtistObjectFull[]>([]);
     const {data: session} = useSession();
 
     useEffect(() => {
-        if (!artists.length) {
+        if (!artists.length && !!session) {
             (async () => {
                 const data =  await (await fetch('/api/spotify/get-top-items', {
                     method: 'POST',
@@ -17,10 +21,10 @@ export function useArtists(limit: number) {
                     })
                 })).json();
 
-                setArtists(data);
+                setArtists(data.items);
             })();
         }
-    }, [session.access_token, artists.length, limit]);
+    }, [session, artists, limit]);
 
     return {artists};
 }
