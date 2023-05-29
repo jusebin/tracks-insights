@@ -8,7 +8,7 @@ import {UserData} from "@/app/components/user-data";
 export default function Home() {
     const {data: session} = useSession();
     console.log(session);
-    console.log('process env from the next config', process.env.TA_MERE_LA_PUTE);
+    console.log('process env from the next config', process.env.NEXTAUTH_URL);
 
     const styleGradient = {
         textGradient: "45deg, $blue600 -20%, $pink600 50%"
