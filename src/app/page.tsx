@@ -8,10 +8,7 @@ import {UserData} from "@/app/components/user-data";
 export default function Home() {
     const {data: session} = useSession();
     console.log(session);
-    console.log('process env NEXT_PUBLIC_SPOTIFY_CLIENT_ID', process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID);
-    console.log('process env NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET', process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET);
-    console.log('process env NEXT_PUBLIC_SPOTIFY_TOKEN', process.env.NEXT_PUBLIC_SPOTIFY_TOKEN);
-    console.log('process env NEXT_PUBLIC_SPOTIFY_URL', process.env.NEXT_PUBLIC_SPOTIFY_URL);
+    console.log('process env from the next config', process.env.TA_MERE_LA_PUTE);
 
     const styleGradient = {
         textGradient: "45deg, $blue600 -20%, $pink600 50%"
