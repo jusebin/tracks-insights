@@ -3,20 +3,22 @@
 import {Button, Container, Row, Text} from "@nextui-org/react";
 import {useSession, signIn} from "next-auth/react";
 import {useCallback} from "react";
-import {UserData} from "@/app/components/user-data";
+import {redirect} from "next/navigation";
+import {useTranslations} from "use-intl";
 
 export default function Home() {
     const {data: session} = useSession();
-    console.log(session);
-    console.log('process env from the next config', process.env.NEXTAUTH_URL);
+    const t = useTranslations('Buttons');
 
     const styleGradient = {
         textGradient: "45deg, $blue600 -20%, $pink600 50%"
     };
 
+    // console.log('session', session);
+
     const render = useCallback(() => {
             if (session) {
-                return <UserData />
+                return redirect('/dashboard');
             }
 
             return (
@@ -24,14 +26,13 @@ export default function Home() {
                     size={"lg"}
                     color={"gradient"}
                     shadow
-                    onClick={() => {
+                    onPress={() => {
                         signIn('spotify');
                     }}
-                >Sign in with Spotify</Button>
+                >{t('signIn')}</Button>
             );
-        },[session],
+        }, [session],
     );
-
 
     return (
         <main>

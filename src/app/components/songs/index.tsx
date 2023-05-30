@@ -1,28 +1,15 @@
-import {useSongs} from "@/app/hooks/useSongs";
 import {CardsContainer} from "@/app/components/cards-container";
 import React, {useCallback} from "react";
 import {CustomCard} from "@/app/components/custom-card";
 import {Grid} from "@nextui-org/react";
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
-import ArtistObjectSimplified = SpotifyApi.ArtistObjectSimplified;
+import {getArtistsNames} from "@/app/helpers/getArtistsNames";
+import {TimeRange} from "@/app/constants/timeRanges";
+import {useTranslations} from "use-intl";
 
-export function Songs({limit}: {limit: number}) {
-    const {songs} = useSongs(limit);
-    const title = `Top ${limit} tracks`;
-
-    const getArtistsNames = (artists: ArtistObjectSimplified[]): string => {
-        let names = '';
-
-        for (let i = 0; i < artists.length; i++) {
-            names+= artists[i].name;
-
-            if (i < artists.length - 1) (
-                names+= ', '
-            )
-        }
-
-        return names;
-    }
+export function Songs({songs, limit, timeRange}: {songs: TrackObjectFull[], limit: number, timeRange: TimeRange}) {
+    const handleTimeRangeT = useTranslations('HandleTimeRange');
+    const titleT = useTranslations('TitlesH2');
 
     const renderSongs = useCallback(() => {
         if (songs.length) {
@@ -46,8 +33,8 @@ export function Songs({limit}: {limit: number}) {
 
     return (
         <CardsContainer
-            title={title}
-            subtitle={"from the last 30 days"}
+            title={titleT("topTracks", {number: limit})}
+            subtitle={handleTimeRangeT(timeRange.labelKey)}
         >{renderSongs()}</CardsContainer>
     )
 }

@@ -1,0 +1,40 @@
+{
+  "Buttons": {
+    "signIn": "S'identifier avec Spotify",
+    "logOut": "Se déconnecter"
+  },
+  "TitlesH2": {
+    "topTracks": "Top {number} titres",
+    "topArtists": "Top {number} artistes",
+    "topGenres": "Top genres"
+  },
+  "AudioFeatures": {
+    "acousticness": "acoustique",
+    "danceability": "dansabilité",
+    "energy": "énergie",
+    "key": "clé",
+    "liveness": "authenticité",
+    "loudness": "intensité",
+    "speechiness": "parlant",
+    "tempo": "tempo",
+    "timeSignature": "signature rythmique",
+    "valence": "valence"
+  },
+  "Playback": {
+    "currentlyPlaying": "En cours de lecture"
+  },
+  "HandleTimeRange": {
+    "shortTerm": {
+      "label": "sur les 30 derniers jours",
+      "labelShort": "4 semaines"
+    },
+    "mediumTerm": {
+      "label": "sur les 6 derniers mois",
+      "labelShort": "6 mois"
+    },
+    "longTerm": {
+      "label": "depuis plusieurs années",
+      "labelShort": "Tout"
+    }
+  }
+}

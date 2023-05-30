@@ -4,17 +4,25 @@ import {JWT} from "next-auth/jwt";
 
 const handler = NextAuth({
     secret: process.env.NEXTAUTH_SECRET,
+    debug: process.env.NODE_ENV === 'development',
     providers: [
         SpotifyProvider({
             authorization:
-                'https://accounts.spotify.com/authorize?scope=user-read-email,user-read-private,user-top-read',
-            clientId: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID || '',
-            clientSecret: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET || '',
+                `https://accounts.spotify.com/authorize?scope=
+                user-read-email,
+                user-read-private,
+                user-top-read,
+                user-read-playback-state,
+                user-read-recently-played,
+                user-read-currently-playing
+                `,
+            clientId: process.env.SPOTIFY_CLIENT_ID || '',
+            clientSecret: process.env.SPOTIFY_CLIENT_SECRET || '',
         }),
     ],
     callbacks: {
         async jwt({token, account}: {token: JWT, account: Account |null}) {
-            // console.log('hi jwt', token, account)
+            console.log('hi jwt', account)
             if (account) {
                 token = {
                     ...token,
@@ -27,35 +35,36 @@ const handler = NextAuth({
             else if (Date.now() < token["expires_at"] * 1000) {
                 return token;
             }
-            // else {
-            //     const params = new URLSearchParams({
-            //         grant_type: 'refresh_token',
-            //         refresh_token: token["refresh_token"]
-            //     });
-            //
-            //     try {
-            //         fetch(process.env.NEXT_PUBLIC_SPOTIFY_TOKEN, {
-            //             method: 'POST',
-            //             headers: {
-            //                 'Authorization': `Basic ${(new Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64'))}`
-            //             },
-            //             body: params,
-            //         })
-            //             .then((response) => response.json())
-            //             .then((data) => {
-            //                 console.log('token data new', data);
-            //                 return {
-            //                     ...token,
-            //                     access_token: data.access_token,
-            //                     expires_at: (Date.now / 1000) + data.expires_in
-            //                 };
-            //             });
-            //
-            //     } catch(error) {
-            //         console.log('Error refreshing access token', error);
-            //         return {...token, error: "RefreshAccessTokenError" as const};
-            //     }
-            // }
+            else {
+                console.log('coucou');
+                const params = new URLSearchParams({
+                    grant_type: 'refresh_token',
+                    refresh_token: token["refresh_token"]
+                });
+                //
+                try {
+                    fetch(process.env.NEXT_PUBLIC_SPOTIFY_TOKEN, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Basic ${(new Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64'))}`
+                        },
+                        body: params,
+                    })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            console.log('token data new', token.access_token, data);
+                            return {
+                                ...token,
+                                access_token: data.access_token,
+                                expires_at: Number((Date.now / 1000)) + data.expires_in
+                            };
+                        });
+
+                } catch(error) {
+                    console.log('Error refreshing access token', error);
+                    return {...token, error: "RefreshAccessTokenError" as const};
+                }
+            }
 
             return token;
         },

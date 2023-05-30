@@ -1,0 +1,40 @@
+{
+  "Buttons": {
+    "signIn": "Spotifyでサインインしてください",
+    "logOut": "ログアウトする"
+  },
+  "TitlesH2": {
+    "topTracks": "トップ{number}曲",
+    "topArtists": "トップ{number}アーティスト",
+    "topGenres": "トップジャンル"
+  },
+  "AudioFeatures": {
+    "acousticness": "アコースティックさ",
+    "danceability": "ダンス性",
+    "energy": "エネルギー",
+    "key": "キー",
+    "liveness": "ライブ感",
+    "loudness": "音量",
+    "speechiness": "スピーチネス",
+    "tempo": "テンポ",
+    "timeSignature": "拍子記号",
+    "valence": "ヴァレンス"
+  },
+  "Playback": {
+    "currentlyPlaying": "現在再生中"
+  },
+  "HandleTimeRange": {
+    "shortTerm": {
+      "label": "過去30日間",
+      "labelShort": "過去4週間"
+    },
+    "mediumTerm": {
+      "label": "過去6ヶ月間",
+      "labelShort": "過去6ヶ月間"
+    },
+    "longTerm": {
+      "label": "数年間にわたり",
+      "labelShort": "利用期間"
+    }
+  }
+}

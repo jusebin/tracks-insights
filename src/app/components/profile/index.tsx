@@ -2,20 +2,21 @@ import {Avatar, Button, Col, Row, Text} from "@nextui-org/react";
 import {signOut} from "next-auth/react";
 import React from "react";
 import {useProfile} from "@/app/hooks/useProfile";
+import {useTranslations} from "use-intl";
 
 export default function Profile() {
     const {profile} = useProfile();
+    const t = useTranslations("Buttons");
 
     if (!profile) {
         return null;
     }
-
     const renderImage = () => {
         if (!profile.images || !profile.images.length) {
             return <Avatar
                 size={"xl"}
                 text={(profile.email).charAt(0).toUpperCase()}
-                color="secondary"
+                color="primary"
                 bordered
             />
         }
@@ -50,10 +51,10 @@ export default function Profile() {
                             size={"lg"}
                             color={"error"}
                             bordered
-                            onClick={() => {
+                            onPress={() => {
                                 signOut();
                             }}
-                        >Sign out</Button>
+                        >{t('logOut')}</Button>
                     </Row>
                 </Col>
             </Row>

@@ -1,5 +1,6 @@
 import React from "react";
-import {Card, Grid, Spacer, Text} from "@nextui-org/react";
+import {Row, Col, Grid, Link, Spacer, Text} from "@nextui-org/react";
+import {TitleSection} from "@/app/components/titleSection";
 
 export function CardsContainer({title, subtitle, children}: {
     title: string;
@@ -8,9 +9,7 @@ export function CardsContainer({title, subtitle, children}: {
 }) {
     return (
         <>
-            <Text h2>{title}</Text>
-            <Text>{subtitle}</Text>
-            <Spacer y={1}/>
+            <TitleSection title={title} subtitle={subtitle}/>
             <Grid.Container gap={2} justify={"flex-start"}>
                 {children}
             </Grid.Container>
