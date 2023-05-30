@@ -3,6 +3,7 @@ import SpotifyProvider from "next-auth/providers/spotify";
 import {JWT} from "next-auth/jwt";
 
 const handler = NextAuth({
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
         SpotifyProvider({
             authorization:
