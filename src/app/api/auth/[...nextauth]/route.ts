@@ -23,7 +23,6 @@ export const authOptions = {
     ],
     callbacks: {
         async jwt({token, account}: {token: JWT, account: Account |null}) {
-            console.log('hi jwt', account)
             if (account) {
                 return {
                     access_token: account.access_token,
@@ -64,8 +63,6 @@ export const authOptions = {
                     return {...token, error: "RefreshAccessTokenError" as const};
                 }
             }
-
-            return token;
         },
         async session({session, token}: {
             session: Session,

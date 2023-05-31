@@ -44,7 +44,7 @@ export function RecentlyPlayed() {
                                             <Image width={60} src={item.track.album.images[0].url} alt={`cover ${item.track.name}`}/>
                                         </Col>
                                         <Col css={{pl: "10px"}}>
-                                            <TrackNameAndArtists track={item.track} />
+                                            <TrackNameAndArtists track={item.track} lineClampArtist={1} lineClampTrack={1} />
                                         </Col>
                                     </Row>
                                 </Link>
@@ -58,7 +58,7 @@ export function RecentlyPlayed() {
                                     <Text>{item.track.album.name}</Text>
                                 </Link>
                             </Col>
-                            <Col css={{ta: 'right'}}>
+                            <Col span="4" css={{ta: 'right'}}>
                                 {getTimeText()}
                             </Col>
                         </Row>

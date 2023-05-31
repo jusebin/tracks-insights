@@ -12,11 +12,10 @@ import {useSongs} from "@/app/hooks/useSongs";
 import {useArtists} from "@/app/hooks/useArtists";
 import {TimeRange, timeRanges} from "@/app/constants/timeRanges";
 import {HandleTimeRange} from "@/app/components/handle-time-range";
-import {useAudioFeatures} from "@/app/hooks/useAudioFeatures";
 import {RecentlyPlayed} from "@/app/components/recently-played";
 
 export function UserData() {
-    const limitTopItems = 1;
+    const limitTopItems = 30;
     const spacerOffset = 2;
 
     // Main state

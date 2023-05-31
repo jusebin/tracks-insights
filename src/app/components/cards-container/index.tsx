@@ -10,7 +10,7 @@ export function CardsContainer({title, subtitle, children}: {
     return (
         <>
             <TitleSection title={title} subtitle={subtitle}/>
-            <Grid.Container gap={2} justify={"flex-start"}>
+            <Grid.Container gap={1} justify={"flex-start"}>
                 {children}
             </Grid.Container>
         </>

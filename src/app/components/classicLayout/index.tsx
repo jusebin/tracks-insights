@@ -17,7 +17,7 @@ export function ClassicLayout({children}: {
 
     return (
         <>
-            <Navbar variant={"sticky"}>
+            <Navbar shouldHideOnScroll variant={"sticky"}>
                 <Navbar.Brand>
                     <Text h1 size="$4xl" css={styleGradient}>Tracks Insights</Text>
                 </Navbar.Brand>

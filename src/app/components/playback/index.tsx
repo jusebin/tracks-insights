@@ -1,5 +1,5 @@
 import {TitleSection} from "@/app/components/titleSection";
-import {Card, Col, Image, Link, Row, Text} from "@nextui-org/react";
+import {Card, Col, Image, Link, Row} from "@nextui-org/react";
 import {useTranslations} from "use-intl";
 import {useTrack} from "@/app/hooks/useTrack";
 import React from "react";
@@ -10,28 +10,6 @@ export function Playback({id}: {
 }) {
     const {track} = useTrack(id);
     const t = useTranslations('Playback');
-    const renderImage = () => {
-        if (!track) {
-            return null;
-        }
-
-        return (
-            <Image
-                src={track.album.images[1].url}
-                alt={`Track ${track.name} by ${track.artists[0].name}`}
-            />
-        )
-    }
-
-    const renderTitleData = () => {
-        if (!track) {
-            return null;
-        }
-
-        return (
-            <TrackNameAndArtists track={track} isBold={true}/>
-        )
-    }
 
     if (!track) {
         return null;
@@ -40,15 +18,18 @@ export function Playback({id}: {
     return (
         <section>
             <TitleSection title={t('currentlyPlaying')}/>
-            <Link block href={`song/${track.id}`}>
+            <Link href={`song/${track.id}`}>
                 <Card>
                     <Card.Body>
                         <Row align={"center"}>
                             <Col css={{width: "100px"}}>
-                                {renderImage()}
+                                <Image
+                                    src={track.album.images[1].url}
+                                    alt={`Track ${track.name} by ${track.artists[0].name}`}
+                                />
                             </Col>
                             <Col css={{ml: '15px'}}>
-                                {renderTitleData()}
+                                <TrackNameAndArtists track={track} isBold={true}/>
                             </Col>
                         </Row>
                     </Card.Body>
