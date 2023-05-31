@@ -58,7 +58,7 @@ export function RecentlyPlayed() {
                                     <Text>{item.track.album.name}</Text>
                                 </Link>
                             </Col>
-                            <Col span="4" css={{ta: 'right'}}>
+                            <Col span={4} css={{ta: 'right'}}>
                                 {getTimeText()}
                             </Col>
                         </Row>
