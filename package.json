@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "ENVIRONMENT=envs/.env.development next dev",
+    "build": "ENVIRONMENT=envs/.env.production next build",
     "start": "next start",
     "check-types": "tsc --noemit",
     "lint": "yarn run check-types && next lint"
@@ -14,6 +14,7 @@
     "@types/node": "20.2.4",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
+    "dotenv": "^16.1.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
