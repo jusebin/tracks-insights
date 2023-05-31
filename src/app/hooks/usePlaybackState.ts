@@ -4,7 +4,7 @@ import {useSession} from "next-auth/react";
 
 export function usePlaybackState() {
     const {data: session} = useSession();
-    const [playbackState, setPlaybackState] = useState<CurrentlyPlayingObject |undefined>(undefined);
+    const [playbackState, setPlaybackState] = useState<CurrentlyPlayingObject | undefined>(undefined);
 
     useEffect(() => {
         (async () => {

@@ -41,7 +41,7 @@ export function UserData() {
         ) {
             return (
                 <>
-                    <Playback playbackState={playbackState}/>
+                    <Playback id={playbackState.item.id} />
                     <Spacer y={sizeBetWeenSections}/>
                 </>
             )

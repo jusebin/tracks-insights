@@ -20,7 +20,7 @@ export function HandleTimeRange({usedTimeRange, handleCta}: {
                     {t(timeRange.labelShortKey)}
                 </Button>
         });
-    }, [usedTimeRange, handleCta]);
+    }, [usedTimeRange, t, handleCta]);
 
     return (
         <section>

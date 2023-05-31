@@ -1,28 +1,36 @@
-import CurrentlyPlayingObject = SpotifyApi.CurrentlyPlayingObject;
 import {TitleSection} from "@/app/components/titleSection";
 import {Col, Image, Row, Text} from "@nextui-org/react";
-import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import {getArtistsNames} from "@/app/helpers/getArtistsNames";
 import {useTranslations} from "use-intl";
+import {useTrack} from "@/app/hooks/useTrack";
 
-export function Playback({playbackState}: {
-    playbackState: CurrentlyPlayingObject
+export function Playback({id}: {
+    id: string
 }) {
+    const {track} = useTrack(id);
     const t = useTranslations('Playback');
-    const renderImage = (item: TrackObjectFull) => {
+    const renderImage = () => {
+        if (!track) {
+            return null;
+        }
+
         return (
             <Image
-                src={item.album.images[1].url}
-                alt={`Track ${item.name} by ${item.artists[0].name}`}
+                src={track.album.images[1].url}
+                alt={`Track ${track.name} by ${track.artists[0].name}`}
             />
         )
     }
 
-    const renderTitleData = (item: TrackObjectFull) => {
+    const renderTitleData = () => {
+        if (!track) {
+            return null;
+        }
+
         return (
             <>
-                <Text size={"$lg"}>{item.name}</Text>
-                <Text css={{color: '$gray700'}}>{getArtistsNames(item.artists)}</Text>
+                <Text size={"$lg"}>{track.name}</Text>
+                <Text css={{color: '$gray700'}}>{getArtistsNames(track.artists)}</Text>
             </>
         )
     }
@@ -33,10 +41,10 @@ export function Playback({playbackState}: {
             <div>
                 <Row align={"center"}>
                     <Col css={{width: "100px"}}>
-                        {renderImage(playbackState.item)}
+                        {renderImage()}
                     </Col>
                     <Col css={{ml: '15px'}}>
-                        {renderTitleData(playbackState.item)}
+                        {renderTitleData()}
                     </Col>
                 </Row>
             </div>
