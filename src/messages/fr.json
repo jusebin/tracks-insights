@@ -55,7 +55,8 @@
     "longTerm": {
       "label": "depuis plusieurs années",
       "labelShort": "Tout"
-    }
+    },
+    "modalTitle": "Filtrer par intervalle de temps"
   },
   "RecentlyPlayed": {
     "secs": "il y a {number, plural, =1 {1 seconde} other {# secondes}}",

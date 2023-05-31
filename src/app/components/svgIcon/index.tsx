@@ -1,8 +1,10 @@
-export function SvgIcon({name, fill}: {
+export function SvgIcon({name, width, height, fill}: {
     name: string,
+    width?: number;
+    height?: number;
     fill?: string
 }) {
-    const availableNames = ['moon', 'sun'];
+    const availableNames = ['moon', 'sun', 'filter'];
 
     if (!availableNames.includes(name)) {
         return null;
@@ -17,6 +19,10 @@ export function SvgIcon({name, fill}: {
                         fill={fill ? fill : 'currentColor'}
                     />
                 )
+            case 'filter':
+                return (
+                    <path d="M7 11h10v2H7zM4 7h16v2H4zm6 8h4v2h-4z" />
+                )
             default:
                 return (
                     <g fill={fill ? fill : 'currentColor'}>
@@ -30,8 +36,8 @@ export function SvgIcon({name, fill}: {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width={24}
-            height={24}
+            width={width || 24}
+            height={height || 24}
             viewBox="0 0 24 24">
             {renderIcon()}
         </svg>

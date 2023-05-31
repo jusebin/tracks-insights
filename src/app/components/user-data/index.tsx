@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useCallback, useState} from "react";
-import {Container, Spacer} from "@nextui-org/react";
+import {Container, Spacer, Text} from "@nextui-org/react";
 import {Artists} from "@/app/components/artists";
 import {Songs} from "@/app/components/songs";
 import Profile from "@/app/components/profile";
@@ -16,11 +16,11 @@ import {useAudioFeatures} from "@/app/hooks/useAudioFeatures";
 import {RecentlyPlayed} from "@/app/components/recently-played";
 
 export function UserData() {
-    const limitTopItems = 50;
+    const limitTopItems = 1;
     const spacerOffset = 2;
 
     // Main state
-    const [usedTimeRange, setUsedTimeRange] = useState<TimeRange>(timeRanges[2]);
+    const [usedTimeRange, setUsedTimeRange] = useState<TimeRange>(timeRanges[1]);
 
     // Custom hooks
     const {playbackState} = usePlaybackState();
@@ -41,7 +41,7 @@ export function UserData() {
         ) {
             return (
                 <>
-                    <Playback id={playbackState.item.id} />
+                    <Playback id={playbackState.item.id}/>
                     <Spacer y={spacerOffset}/>
                 </>
             )
@@ -50,26 +50,27 @@ export function UserData() {
         return null;
     }
 
-    return (<Container fluid>
-        <Profile/>
-        <Spacer y={spacerOffset} />
+    return (
+        <>
+            <Container fluid>
+                <Profile/>
+                <Spacer y={spacerOffset}/>
 
-        
+                {renderPlayback()}
 
-        {renderPlayback()}
+                <Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>
+                <Spacer y={spacerOffset}/>
 
-        <HandleTimeRange usedTimeRange={usedTimeRange} handleCta={handleTimeRangeCta} />
+                <Artists artists={artists} limit={limitTopItems} timeRange={usedTimeRange}/>
+                <Spacer y={spacerOffset}/>
 
-        <Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>
-        <Spacer y={spacerOffset}/>
+                <Genres artists={artists} timeRange={usedTimeRange}/>
+                <Spacer y={spacerOffset}/>
 
-        <Artists artists={artists} limit={limitTopItems} timeRange={usedTimeRange}/>
-        <Spacer y={spacerOffset}/>
-
-        <Genres artists={artists} timeRange={usedTimeRange}/>
-        <Spacer y={spacerOffset} />
-
-        <RecentlyPlayed />
-        <Spacer y={spacerOffset} />
-    </Container>)
+                <RecentlyPlayed/>
+                <Spacer y={spacerOffset}/>
+            </Container>
+            <HandleTimeRange usedTimeRange={usedTimeRange} handleCta={handleTimeRangeCta}/>
+        </>
+    )
 }

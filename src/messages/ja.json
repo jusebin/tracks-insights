@@ -55,7 +55,8 @@
     "longTerm": {
       "label": "数年間にわたり",
       "labelShort": "利用期間"
-    }
+    },
+    "modalTitle": "時間範囲でフィルターする"
   },
   "RecentlyPlayed": {
     "secs": "{number}秒前",

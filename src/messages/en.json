@@ -55,7 +55,8 @@
     "longTerm": {
       "label": "from several years",
       "labelShort": "lifetime"
-    }
+    },
+    "modalTitle": "Filter by time range"
   },
   "RecentlyPlayed": {
     "mins": "{number, plural, =0 {just now} =1 {1 minute ago} other {# minutes ago}}",

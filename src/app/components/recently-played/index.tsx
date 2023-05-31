@@ -1,12 +1,10 @@
-'use client';
-
-import {useRecentlyPlayed} from "@/app/hooks/useRecentlyPlayed";
-import React from "react";
-import {TitleSection} from "@/app/components/titleSection";
 import {useTranslations} from "use-intl";
-import {Col, Row, Image, Text, Spacer, Link} from "@nextui-org/react";
+import {useRecentlyPlayed} from "@/app/hooks/useRecentlyPlayed";
 import {calcDate} from "@/app/helpers/calcDate";
+import React from "react";
+import {Col, Image, Link, Row, Spacer, Text} from "@nextui-org/react";
 import {TrackNameAndArtists} from "@/app/components/trackNameAndArtists";
+import {TitleSection} from "@/app/components/titleSection";
 
 export function RecentlyPlayed() {
     const titlesT = useTranslations('TitlesH2');
@@ -52,11 +50,8 @@ export function RecentlyPlayed() {
                                 </Link>
                             </Col>
                             <Col css={{
-                                '@xs': {
+                                '@smMax': {
                                     d: 'none'
-                                },
-                                '@sm': {
-                                    d: 'block'
                                 }
                             }}>
                                 <Link href={`album/${item.track.album.id}`}>
