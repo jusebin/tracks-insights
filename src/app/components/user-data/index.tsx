@@ -58,8 +58,8 @@ export function UserData() {
 
         <HandleTimeRange usedTimeRange={usedTimeRange} handleCta={handleTimeRangeCta} />
 
-        <AudioScore audioFeatures={audioFeatures} />
-        <Spacer y={sizeBetWeenSections}/>
+        {/*<AudioScore audioFeatures={audioFeatures} />*/}
+        {/*<Spacer y={sizeBetWeenSections}/>*/}
 
         <Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>
         <Spacer y={sizeBetWeenSections}/>

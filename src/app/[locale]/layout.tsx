@@ -2,6 +2,8 @@ import React from "react";
 import Providers from "@/app/components/providers";
 import {notFound} from "next/navigation";
 import {NextIntlClientProvider} from "next-intl";
+import {HomeLayout} from "@/app/components/homeLayout";
+import {ClassicLayout} from "@/app/components/classicLayout";
 
 export const metadata = {
     title: 'Create Next App',

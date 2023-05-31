@@ -2,7 +2,8 @@ import NextAuth, {Account, Session} from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 import {JWT} from "next-auth/jwt";
 
-const handler = NextAuth({
+
+export const authOptions = {
     secret: process.env.NEXTAUTH_SECRET,
     debug: process.env.NODE_ENV === 'development',
     providers: [
@@ -84,6 +85,8 @@ const handler = NextAuth({
             return session;
         }
     }
-});
+}
+
+const handler = NextAuth(authOptions);
 
 export {handler as GET, handler as POST}

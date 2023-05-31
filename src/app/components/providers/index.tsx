@@ -1,12 +1,14 @@
 'use client';
 
 import React from "react";
-import {createTheme, NextUIProvider} from "@nextui-org/react";
+import {createTheme, Loading, NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
-import {SessionProvider} from "next-auth/react";
+import {SessionProvider, useSession} from "next-auth/react";
+import {HomeLayout} from "@/app/components/homeLayout";
+import {ClassicLayout} from "@/app/components/classicLayout";
 
 const lightTheme = createTheme({
-   type: 'light'
+    type: 'light'
 });
 const darkTheme = createTheme({
     type: "dark",
@@ -15,20 +17,29 @@ const darkTheme = createTheme({
 export default function Providers({children}: {
     children: React.ReactNode
 }) {
+    const {pathname} = window.location;
+    const renderLayout = () => {
+        if (pathname === '/') {
+            return <HomeLayout>{children}</HomeLayout>
+        }
+
+        return <ClassicLayout>{children}</ClassicLayout>
+    }
+
     return (
-        <NextThemesProvider
-            defaultTheme="system"
-            attribute="class"
-            value={{
-                light: lightTheme.className,
-                dark: darkTheme.className
-            }}
-        >
+        <SessionProvider>
             <NextUIProvider>
-                <SessionProvider>
-                    {children}
-                </SessionProvider>
+                <NextThemesProvider
+                    defaultTheme="system"
+                    attribute="class"
+                    value={{
+                        light: lightTheme.className,
+                        dark: darkTheme.className
+                    }}
+                >
+                    {renderLayout()}
+                </NextThemesProvider>
             </NextUIProvider>
-        </NextThemesProvider>
+        </SessionProvider>
     );
 }
