@@ -4,6 +4,7 @@ import {Button, Loading, Row, Text} from "@nextui-org/react";
 import {useSession, signIn} from "next-auth/react";
 import {useTranslations} from "use-intl";
 import {redirect} from "next/navigation";
+import {HomeLayout} from "@/app/components/homeLayout";
 
 export default function Home() {
     const {status} = useSession();
@@ -44,8 +45,8 @@ export default function Home() {
     }
 
     return (
-        <>
+        <HomeLayout>
             {render()}
-        </>
+        </HomeLayout>
     );
 }
