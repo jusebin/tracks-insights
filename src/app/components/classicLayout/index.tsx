@@ -3,7 +3,6 @@
 import React from "react";
 import {Navbar, Text, Switch, useTheme} from "@nextui-org/react";
 import {useTheme as useNextTheme} from 'next-themes'
-import 'boxicons';
 import {SvgIcon} from "@/app/components/svgIcon";
 
 export function ClassicLayout({children}: {
