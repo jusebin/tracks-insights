@@ -7,7 +7,8 @@
     "topTracks": "Top {number} titres",
     "topArtists": "Top {number} artistes",
     "topGenres": "Top genres",
-    "audioFeatures": "Caractéristiques audio"
+    "audioFeatures": "Caractéristiques audio",
+    "recentlyPlayed": "Récemment joué"
   },
   "AudioFeatures": {
     "titles": {
@@ -55,5 +56,12 @@
       "label": "depuis plusieurs années",
       "labelShort": "Tout"
     }
+  },
+  "RecentlyPlayed": {
+    "secs": "il y a {number, plural, =1 {1 seconde} other {# secondes}}",
+    "mins": "il y a {number, plural, =0 {à l'instant}, =1 {1 minute} other {# minutes}}",
+    "hours": "il y a {number, plural, =1 {1 heure} other {# heures}}",
+    "days": "il y a {number, plural, =1 {1 jour} other {# jours}}",
+    "seeMore": "Voir plus"
   }
 }

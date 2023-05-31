@@ -1,9 +1,9 @@
 import {TitleSection} from "@/app/components/titleSection";
-import {Card, Col, Image, Row, Text} from "@nextui-org/react";
-import {getArtistsNames} from "@/app/helpers/getArtistsNames";
+import {Card, Col, Image, Link, Row, Text} from "@nextui-org/react";
 import {useTranslations} from "use-intl";
 import {useTrack} from "@/app/hooks/useTrack";
 import React from "react";
+import {TrackNameAndArtists} from "@/app/components/trackNameAndArtists";
 
 export function Playback({id}: {
     id: string
@@ -29,28 +29,31 @@ export function Playback({id}: {
         }
 
         return (
-            <>
-                <Text size={"$lg"}>{track.name}</Text>
-                <Text css={{color: '$gray700'}}>{getArtistsNames(track.artists)}</Text>
-            </>
+            <TrackNameAndArtists track={track} isBold={true}/>
         )
+    }
+
+    if (!track) {
+        return null;
     }
 
     return (
         <section>
-            <TitleSection title={t('currentlyPlaying')} />
-            <Card>
-                <Card.Body>
-                    <Row align={"center"}>
-                        <Col css={{width: "100px"}}>
-                            {renderImage()}
-                        </Col>
-                        <Col css={{ml: '15px'}}>
-                            {renderTitleData()}
-                        </Col>
-                    </Row>
-                </Card.Body>
-            </Card>
+            <TitleSection title={t('currentlyPlaying')}/>
+            <Link block href={`song/${track.id}`}>
+                <Card>
+                    <Card.Body>
+                        <Row align={"center"}>
+                            <Col css={{width: "100px"}}>
+                                {renderImage()}
+                            </Col>
+                            <Col css={{ml: '15px'}}>
+                                {renderTitleData()}
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                </Card>
+            </Link>
         </section>
     )
 }

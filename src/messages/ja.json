@@ -7,7 +7,8 @@
     "topTracks": "トップ{number}曲",
     "topArtists": "トップ{number}アーティスト",
     "topGenres": "トップジャンル",
-    "audioFeatures": "オーディオ特徴"
+    "audioFeatures": "オーディオ特徴",
+    "recentlyPlayed": "最近再生した曲"
   },
   "AudioFeatures": {
     "titles": {
@@ -55,5 +56,12 @@
       "label": "数年間にわたり",
       "labelShort": "利用期間"
     }
+  },
+  "RecentlyPlayed": {
+    "secs": "{number}秒前",
+    "mins": "{number, plural, =0 {ちょうど今} other {#分前}}",
+    "hours": "{number}時間前",
+    "days": "{number}日前",
+    "seeMore": "詳細を見る"
   }
 }

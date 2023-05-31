@@ -7,7 +7,8 @@
     "topTracks": "Top {number} tracks",
     "topArtists": "Top {number} artists",
     "topGenres": "Top genres",
-    "audioFeatures": "Audio features"
+    "audioFeatures": "Audio features",
+    "recentlyPlayed": "Recently played"
   },
   "AudioFeatures": {
     "titles": {
@@ -55,5 +56,11 @@
       "label": "from several years",
       "labelShort": "lifetime"
     }
+  },
+  "RecentlyPlayed": {
+    "mins": "{number, plural, =0 {just now} =1 {1 minute ago} other {# minutes ago}}",
+    "hours": "{number, plural, =1 {1 hour} other {# hours}} ago",
+    "days": "{number, plural, =1 {1 day} other {# days}} ago",
+    "seeMore": "See more"
   }
 }

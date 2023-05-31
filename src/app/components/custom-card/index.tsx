@@ -16,7 +16,7 @@ export function CustomCard(
         url: string;
     }) {
     return (
-        <Link href={url} css={{display: "block"}}>
+        <Link block href={url} css={{display: "block"}}>
             <div>
                 <Image
                     showSkeleton

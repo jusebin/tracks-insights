@@ -14,7 +14,6 @@ export function Songs({songs, limit, timeRange}: {songs: TrackObjectFull[], limi
     const renderSongs = useCallback(() => {
         if (songs.length) {
             return songs.map((song: TrackObjectFull, index: number) => {
-                console.log('song', song);
                 return (
                     <Grid xs={12} sm={6} md={4} lg={3} key={`song-${index}`}>
                         <CustomCard
