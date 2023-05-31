@@ -1,6 +1,9 @@
 import AudioFeaturesObject = SpotifyApi.AudioFeaturesObject;
 
-export function getAudioScore(property: string, audioFeatures: AudioFeaturesObject[]): number {
+export type property = 'acousticness' | 'danceability' | 'energy' | 'instrumentalness' | 'key'
+| 'liveness' | 'loudness' | 'speechiness' | 'tempo' | 'time_signature' | 'valence';
+
+export function getAudioScore(property: property, audioFeatures: AudioFeaturesObject[]): number {
     let score = 0;
 
     for (const feature of audioFeatures) {
