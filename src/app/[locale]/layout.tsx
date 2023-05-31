@@ -15,7 +15,12 @@ export function generateStaticParams() {
     return [{locale: 'en'}, {locale: 'fr'}];
 }
 
-export default async function RootLayout({children, params: {locale}}) {
+export default async function RootLayout({children, params: {locale}}: {
+    children: React.ReactNode,
+    params: {
+        locale: string
+    }
+}) {
     let messages;
 
     try {

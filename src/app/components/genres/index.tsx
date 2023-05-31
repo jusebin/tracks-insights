@@ -35,7 +35,10 @@ export function Genres({artists, timeRange}: {
 
     return (
         <section>
-            <TitleSection title={titleT("topGenres")} subtitle={handleTimeRangeT(timeRange.labelKey)} />
+            <TitleSection
+                title={titleT("topGenres")}
+                subtitle={handleTimeRangeT(timeRange.labelKey)}
+            />
             <Row wrap={"wrap"} justify={"center"}>
                 {renderGenres()}
             </Row>

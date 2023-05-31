@@ -1,4 +1,5 @@
 'use client';
+
 import React, {useCallback, useState} from "react";
 import {Container, Spacer} from "@nextui-org/react";
 import {Artists} from "@/app/components/artists";
@@ -9,17 +10,16 @@ import {Playback} from "@/app/components/playback";
 import {Genres} from "@/app/components/genres";
 import {useSongs} from "@/app/hooks/useSongs";
 import {useArtists} from "@/app/hooks/useArtists";
-import {timeRanges} from "@/app/constants/timeRanges";
+import {TimeRange, timeRanges} from "@/app/constants/timeRanges";
 import {HandleTimeRange} from "@/app/components/handle-time-range";
 import {useAudioFeatures} from "@/app/hooks/useAudioFeatures";
-import {AudioScore} from "@/app/components/audio-score";
 
 export function UserData() {
     const limitTopItems = 5;
     const sizeBetWeenSections = 2;
 
     // Main state
-    const [usedTimeRange, setUsedTimeRange] = useState(timeRanges.find(t => t.value === 'medium_term'));
+    const [usedTimeRange, setUsedTimeRange] = useState<TimeRange>(timeRanges[2]);
 
     // Custom hooks
     const {playbackState} = usePlaybackState();
@@ -27,7 +27,7 @@ export function UserData() {
     const {artists, setArtistsLoading} = useArtists(limitTopItems, usedTimeRange.value);
     const {audioFeatures} = useAudioFeatures(songs);
 
-    const handleTimeRangeCta = useCallback((timeRange) => {
+    const handleTimeRangeCta = useCallback((timeRange: TimeRange) => {
         setUsedTimeRange(timeRange);
         setSongsLoading(true);
         setArtistsLoading(true);

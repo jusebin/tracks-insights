@@ -5,7 +5,7 @@ import {useTranslations} from "use-intl";
 
 export function HandleTimeRange({usedTimeRange, handleCta}: {
     usedTimeRange: TimeRange,
-    handleCta: () => void
+    handleCta: (v: TimeRange) => void
 }) {
     const t = useTranslations('HandleTimeRange');
     const renderTimeRanges = useCallback(() => {

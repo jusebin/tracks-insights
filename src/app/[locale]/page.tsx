@@ -18,7 +18,7 @@ export default function Home() {
     }
 
     const render = () => {
-        if (status === 'loading' || status === 'authenticated') {
+        if (['loading', 'authenticated'].includes(status)) {
             return <Loading size={"xl"} />
         }
 

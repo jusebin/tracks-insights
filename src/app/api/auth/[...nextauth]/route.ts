@@ -40,24 +40,24 @@ export const authOptions = {
                 console.log('coucou');
                 const params = new URLSearchParams({
                     grant_type: 'refresh_token',
-                    refresh_token: token["refresh_token"]
+                    refresh_token: token.refresh_token || ''
                 });
                 //
                 try {
-                    fetch(process.env.NEXT_PUBLIC_SPOTIFY_TOKEN, {
+                    fetch(process.env.NEXT_PUBLIC_SPOTIFY_TOKEN || '', {
                         method: 'POST',
                         headers: {
-                            'Authorization': `Basic ${(new Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64'))}`
+                            'Authorization': `Basic ${(Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64'))}`
                         },
                         body: params,
                     })
                         .then((response) => response.json())
                         .then((data) => {
-                            console.log('token data new', token.access_token, data);
+                            const dateNow = Number(Date.now());
                             return {
                                 ...token,
                                 access_token: data.access_token,
-                                expires_at: Number((Date.now / 1000)) + data.expires_in
+                                expires_at: dateNow + data.expires_in
                             };
                         });
 
