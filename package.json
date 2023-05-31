@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "ENVIRONMENT=envs/.env.development next dev",
-    "build": "ENVIRONMENT=envs/.env.production next build",
+    "dev": "NEXTAUTH_URL=http://localhost:3000 next dev",
+    "build": "next build",
     "start": "next start",
     "check-types": "tsc --noemit",
     "lint": "yarn run check-types && next lint"
