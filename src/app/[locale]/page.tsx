@@ -11,10 +11,8 @@ export default function Home() {
     const t = useTranslations('Buttons');
 
     const styleGradient = {
-        textGradient: "45deg, $blue600 -20%, $pink600 50%"
+        textGradient: "45deg, $purple600 -20%, $pink600 50%, $yellow600 70%, $red600 100%"
     };
-
-    // console.log('session', session);
 
     const render = useCallback(() => {
             if (session) {
@@ -31,7 +29,7 @@ export default function Home() {
                     }}
                 >{t('signIn')}</Button>
             );
-        }, [session],
+        }, [session, t],
     );
 
     return (
@@ -48,8 +46,8 @@ export default function Home() {
                     <Text
                         h1
                         css={styleGradient}
-                        weight={"bold"}
-                    >Data Spotify</Text>
+                        weight={"black"}
+                    >Tracks Insights</Text>
                 </Row>
                 <Row justify={"center"}>{render()}</Row>
             </Container>

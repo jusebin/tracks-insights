@@ -89,7 +89,7 @@ export function AudioScore({audioFeatures}: {
                 <Grid xs={4}>
                     <Card>
                         <Card.Body css={{ta: 'center'}}>
-                            <Text color={"primary"}>{loudness.toFixed(1)}</Text>
+                            <Text weight={"bold"} size={"$2xl"} color={"primary"}>{loudness.toFixed(1)}</Text>
                             <Text>{audioT("titles.loudness")}</Text>
                         </Card.Body>
                     </Card>
