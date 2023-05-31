@@ -12,32 +12,30 @@ export function ClassicLayout({children}: {
         textGradient: "45deg, $purple600 -20%, $pink600 50%, $yellow600 70%, $red600 100%"
     };
 
-    const {isDark, type} = useTheme();
+    const {isDark} = useTheme();
     const nextTheme = useNextTheme();
 
     return (
-        <div style={{position: 'relative'}}>
-            <header style={{maxWidth: '100%', boxSizing: "border-box"}}>
-                <Navbar isBordered variant={"sticky"}>
-                    <Navbar.Brand>
-                        <Text h1 css={styleGradient}>Tracks Insights</Text>
-                    </Navbar.Brand>
-                    <Navbar.Content>
-                        <Navbar.Item>
-                            <Switch
-                                checked={isDark}
-                                iconOn={<SvgIcon name={"moon"} />}
-                                iconOff={<SvgIcon name={"sun"} />}
-                                size={"xl"}
-                                onChange={(e) => nextTheme.setTheme(e.target.checked ? 'dark' : 'light')}
-                            />
-                        </Navbar.Item>
-                    </Navbar.Content>
-                </Navbar>
-            </header>
+        <>
+            <Navbar variant={"sticky"}>
+                <Navbar.Brand>
+                    <Text h1 size="$4xl" css={styleGradient}>Tracks Insights</Text>
+                </Navbar.Brand>
+                <Navbar.Content>
+                    <Navbar.Item>
+                        <Switch
+                            checked={isDark}
+                            iconOn={<SvgIcon name={"moon"} />}
+                            iconOff={<SvgIcon name={"sun"} />}
+                            size={"xl"}
+                            onChange={(e) => nextTheme.setTheme(e.target.checked ? 'dark' : 'light')}
+                        />
+                    </Navbar.Item>
+                </Navbar.Content>
+            </Navbar>
             <div>
                 {children}
             </div>
-        </div>
+        </>
     )
 }

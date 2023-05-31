@@ -8,7 +8,7 @@ declare module "next-auth/jwt" {
         /** The user's role. */
         userRole?: "admin";
         access_token?: string;
-        expires_at?: number;
+        expires_at: number;
         refresh_token?: string;
     }
 }
@@ -18,8 +18,13 @@ declare module "next-auth" {
         /** The user's role. */
         userRole?: "admin";
         access_token?: string;
-        expires_at?: number;
+        expires_at: number;
         refresh_token?: string;
+    }
+
+    interface TokenSet {
+        expires_in: number;
+        access_token?: string;
     }
 
     interface Session {

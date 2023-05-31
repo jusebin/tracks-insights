@@ -1,4 +1,4 @@
-import NextAuth, {Account, Session} from "next-auth";
+import NextAuth, {Account, Session, TokenSet} from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 import {JWT} from "next-auth/jwt";
 
@@ -25,41 +25,39 @@ export const authOptions = {
         async jwt({token, account}: {token: JWT, account: Account |null}) {
             console.log('hi jwt', account)
             if (account) {
-                token = {
-                    ...token,
+                return {
                     access_token: account.access_token,
                     refresh_token: account.refresh_token,
                     expires_at: account.expires_at
                 }
             }
-            // @ts-ignore
-            else if (Date.now() < token["expires_at"] * 1000) {
+
+            else if (Date.now() < token.expires_at * 1000) {
                 return token;
             }
             else {
-                console.log('coucou');
+                console.log('coucou', token.refresh_token);
                 const params = new URLSearchParams({
                     grant_type: 'refresh_token',
                     refresh_token: token.refresh_token || ''
                 });
-                //
+
                 try {
-                    fetch(process.env.NEXT_PUBLIC_SPOTIFY_TOKEN || '', {
+                    const response = await fetch(process.env.NEXT_PUBLIC_SPOTIFY_TOKEN || '', {
                         method: 'POST',
                         headers: {
                             'Authorization': `Basic ${(Buffer.from(`${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`).toString('base64'))}`
                         },
                         body: params,
-                    })
-                        .then((response) => response.json())
-                        .then((data) => {
-                            const dateNow = Number(Date.now());
-                            return {
-                                ...token,
-                                access_token: data.access_token,
-                                expires_at: dateNow + data.expires_in
-                            };
-                        });
+                    });
+
+                    const tokens: TokenSet = await response.json();
+
+                    return {
+                        ...token,
+                        access_token: tokens.access_token,
+                        expires_at: Math.floor(Date.now() / 1000 + tokens.expires_in)
+                    }
 
                 } catch(error) {
                     console.log('Error refreshing access token', error);
@@ -73,8 +71,6 @@ export const authOptions = {
             session: Session,
             token: JWT
         }) {
-            // console.log('hi session')
-            // console.log('TOKEN DATA IN SESSION', token);
             session = {
                 ...session,
                 access_token: token.access_token,

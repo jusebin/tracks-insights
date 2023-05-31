@@ -1,4 +1,4 @@
-import {Avatar, Button, Col, Row, Text} from "@nextui-org/react";
+import {Avatar, Grid, Button, Col, Row, Text} from "@nextui-org/react";
 import {signOut} from "next-auth/react";
 import React from "react";
 import {useProfile} from "@/app/hooks/useProfile";
@@ -31,31 +31,15 @@ export default function Profile() {
 
     return (
         <div>
-            <Row align={"center"} justify={'space-between'} wrap={"wrap"} fluid>
-                <Col>
-                    <Row align={"center"}>
-                        <Col css={{width: '64px', border: "1px solid red"}}>
-                            {renderImage()}
-                        </Col>
-                        <Col css={{border: "1px solid green"}}>
-                            <Text css={{
-                                pl: "10px"
-                            }}>{profile.display_name ? profile.display_name : profile.id}</Text>
-                            <Text css={{pl: "10px"}}>{profile.email}</Text>
-                        </Col>
-                    </Row>
+            <Row align={"center"}>
+                <Col css={{width: "64px"}}>
+                    {renderImage()}
                 </Col>
                 <Col>
-                    <Row justify={"flex-end"}>
-                        <Button
-                            size={"lg"}
-                            color={"error"}
-                            bordered
-                            onPress={() => {
-                                signOut();
-                            }}
-                        >{t('logOut')}</Button>
-                    </Row>
+                    <Text css={{
+                        pl: "10px"
+                    }}>{profile.display_name ? profile.display_name : profile.id}</Text>
+                    <Text css={{pl: "10px"}}>{profile.email}</Text>
                 </Col>
             </Row>
         </div>

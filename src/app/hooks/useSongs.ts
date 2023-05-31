@@ -39,5 +39,7 @@ export function useSongs(limit: number, timeRange: string) {
         }
     }, [limit, timeRange, session, songs, songsLoading]);
 
+    console.log(songs[4])
+
     return {songs, songsLoading, setSongsLoading}
 }

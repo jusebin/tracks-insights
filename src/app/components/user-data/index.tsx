@@ -15,7 +15,7 @@ import {HandleTimeRange} from "@/app/components/handle-time-range";
 import {useAudioFeatures} from "@/app/hooks/useAudioFeatures";
 
 export function UserData() {
-    const limitTopItems = 5;
+    const limitTopItems = 50;
     const sizeBetWeenSections = 2;
 
     // Main state
@@ -25,7 +25,6 @@ export function UserData() {
     const {playbackState} = usePlaybackState();
     const {songs, setSongsLoading} = useSongs(limitTopItems, usedTimeRange.value);
     const {artists, setArtistsLoading} = useArtists(limitTopItems, usedTimeRange.value);
-    const {audioFeatures} = useAudioFeatures(songs);
 
     const handleTimeRangeCta = useCallback((timeRange: TimeRange) => {
         setUsedTimeRange(timeRange);
@@ -57,9 +56,6 @@ export function UserData() {
         {renderPlayback()}
 
         <HandleTimeRange usedTimeRange={usedTimeRange} handleCta={handleTimeRangeCta} />
-
-        {/*<AudioScore audioFeatures={audioFeatures} />*/}
-        {/*<Spacer y={sizeBetWeenSections}/>*/}
 
         <Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>
         <Spacer y={sizeBetWeenSections}/>

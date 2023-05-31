@@ -23,7 +23,7 @@ export function Artists({artists, limit, timeRange}: {
                             imageSrc={artist.images[0].url}
                             title={artist.name}
                             position={index + 1}
-                            addSpacer={index < artists.length - 1}
+                            url={`artist/${artist.id}`}
                         />
                     </Grid>
                 )
