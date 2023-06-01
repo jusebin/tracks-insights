@@ -72,6 +72,7 @@
     "openInSpotify": "Open in Spotify",
     "duration": "Duration",
     "popularity": "Popularity",
-    "releaseDate": "Release date"
+    "releaseDate": "Release date",
+    "appearsOn": "Appears on"
   }
 }

@@ -73,6 +73,7 @@
     "openInSpotify": "Spotifyで開く",
     "duration": "演奏時間",
     "popularity": "人気指数",
-    "releaseDate": "発売日"
+    "releaseDate": "発売日",
+    "appearsOn": "～に登場する"
   }
 }

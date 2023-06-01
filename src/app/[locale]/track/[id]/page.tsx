@@ -2,18 +2,14 @@
 
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 import {useTrack} from "@/app/hooks/useTrack";
-import ItemLayout from "@/app/layouts/item-layout";
 import React from "react";
-import {Box} from "@/app/components/box";
-import {useColor} from "@/app/hooks/useColor";
-import {Grid, Image, Text, Row, Button, Link, Col, Spacer} from "@nextui-org/react";
-import ArtistsLinks from "@/app/components/artists-links";
+import {Row, Spacer} from "@nextui-org/react";
 import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
 import {useFormatter, useTranslations} from "use-intl";
 import {AudioScore} from "@/app/features/audio-score";
-import CustomContainer from "@/app/components/custom-container";
 import ClassicLayout from "@/app/layouts/classic-layout";
 import {ColValueTitle} from "@/app/components/col-value-title";
+import AlbumAppear from "@/app/features/album-appear/album-appear";
 
 export default function Track({params: {id}}: {
     params: Params
@@ -51,6 +47,8 @@ export default function Track({params: {id}}: {
                     />
                 </Row>
                 <Spacer y={3}/>
+                <AlbumAppear id={track.album.id} />
+                <Spacer y={2}/>
                 <AudioScore id={track.id}/>
             </>
         </ClassicLayout>
