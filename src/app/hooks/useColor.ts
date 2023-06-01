@@ -1,18 +1,27 @@
 import {useEffect, useState} from "react";
-import {prominent} from "color.js";
+import {average, prominent} from "color.js";
+import {hexToHsl, HSLColor} from "@/app/helpers/hexToHsl";
 
-export function useColor(imageUrl: string) {
-    const [colors, setColors] = useState<string[]>([]);
+export function useColor({imageUrl, amount = 3}: {
+    imageUrl?: string,
+    amount: number
+}) {
+    const [colors, setColors] = useState<HSLColor | undefined>(undefined);
 
     useEffect(() => {
-        if (imageUrl.length && !colors.length) {
+        if (imageUrl && !colors) {
             (async () => {
-                const data = await prominent(imageUrl, { amount: 3, format: 'hex' });
+                const data = await average(imageUrl, {
+                    amount,
+                    format: 'hex',
+                    group: 40,
+                    sample: 30
+                });
                 // @ts-ignore
-                setColors(data);
+                setColors(hexToHsl(data, 100, 60));
             })();
         }
-    }, [colors, imageUrl]);
+    }, [amount, colors, imageUrl]);
 
     return {colors}
 }

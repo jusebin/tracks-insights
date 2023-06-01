@@ -63,5 +63,12 @@
     "hours": "{number, plural, =1 {1 hour} other {# hours}} ago",
     "days": "{number, plural, =1 {1 day} other {# days}} ago",
     "seeMore": "See more"
+  },
+  "Song": {
+    "openInSpotify": "Open in Spotify",
+    "duration": "duration",
+    "popularity": "0 - 100 popularity",
+    "releaseDate": "release date",
+    "releaseDateFormat": "{date}"
   }
 }

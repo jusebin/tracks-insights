@@ -1,41 +1,31 @@
-import {useEffect, useMemo, useState} from "react";
-import AudioFeaturesObject = SpotifyApi.AudioFeaturesObject;
+import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
-import MultipleAudioFeaturesResponse = SpotifyApi.MultipleAudioFeaturesResponse;
-import TrackObjectFull = SpotifyApi.TrackObjectFull;
-import {useRouter} from "next/router";
+import AudioFeaturesResponse = SpotifyApi.AudioFeaturesResponse;
 
-export function useAudioFeatures(tracks: TrackObjectFull[]) {
+export function useAudioFeatures(id: string) {
     const {data: session} = useSession();
-    const [audioFeaturesLoading, setAudioFeaturesLoading] = useState<boolean>(false);
-    const [audioFeatures, setAudioFeatures] = useState<AudioFeaturesObject[]>([]);
+    const [audioFeatures, setAudioFeatures] = useState<AudioFeaturesResponse | undefined>(undefined);
 
     useEffect(() => {
-        if (!!session && tracks.length) {
-            const ids = tracks.map((track) => track.id);
-            const getData = async (): Promise<MultipleAudioFeaturesResponse> => {
+        if (!!session && id) {
+            const getData = async (): Promise<AudioFeaturesResponse> => {
                 return await (await fetch('/api/spotify/get-audio-features', {
                     method: 'POST',
                     body: JSON.stringify({
                         access_token: session.access_token,
-                        ids
+                        id
                     })
                 })).json();
             }
 
-            if (!audioFeatures.length) {
-                setAudioFeaturesLoading(true);
-            }
-
-            if (audioFeaturesLoading) {
+            if (!audioFeatures) {
                 (async () => {
                     const data = await getData();
-                    setAudioFeaturesLoading(false);
-                    setAudioFeatures(data.audio_features);
+                    setAudioFeatures(data);
                 })();
             }
         }
-    }, [session, audioFeaturesLoading, audioFeatures, tracks])
+    }, [session, audioFeatures, id])
 
-    return {audioFeatures, setAudioFeaturesLoading}
+    return {audioFeatures}
 }

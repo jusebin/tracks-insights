@@ -1,9 +1,7 @@
-'use client';
-
 import React from "react";
 import {Container} from "@nextui-org/react";
 
-export function HomeLayout({children}: {
+export default function HomeLayout({children}: {
     children: React.ReactNode
 }) {
     return (

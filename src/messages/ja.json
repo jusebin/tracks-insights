@@ -64,5 +64,12 @@
     "hours": "{number}時間前",
     "days": "{number}日前",
     "seeMore": "詳細を見る"
+  },
+  "Song": {
+    "openInSpotify": "Spotifyで開く",
+    "duration": "演奏時間",
+    "popularity": "0 - 100 人気指数",
+    "releaseDate": "発売日",
+    "releaseDateFormat": "{date}"
   }
 }

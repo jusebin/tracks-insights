@@ -2,7 +2,7 @@
 import {useSession} from "next-auth/react";
 import {UserData} from "@/app/components/user-data";
 import {redirect} from "next/navigation";
-import {ClassicLayout} from "@/app/components/classicLayout";
+import {DashboardLayout} from "@/app/layouts/dashboard-layout";
 
 export default function Dashboard() {
     const {status} = useSession();
@@ -12,8 +12,8 @@ export default function Dashboard() {
     }
 
     return (
-        <ClassicLayout>
+        <DashboardLayout>
             <UserData />
-        </ClassicLayout>
+        </DashboardLayout>
     );
 }
