@@ -6,7 +6,7 @@ import ItemLayout from "@/app/layouts/item-layout";
 import React from "react";
 import {Box} from "@/app/components/box";
 import {useColor} from "@/app/hooks/useColor";
-import {Grid, Image, Text, Row, Button, Link, Col, Spacer} from "@nextui-org/react";
+import {Grid, Image, Text, Row, Button, Link, Col, Spacer, Container} from "@nextui-org/react";
 import ArtistsLinks from "@/app/components/artists-links";
 import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
 import {useFormatter, useTranslations} from "use-intl";

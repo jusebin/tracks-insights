@@ -14,25 +14,29 @@ export default function Profile() {
     const renderImage = () => {
         if (!profile.images || !profile.images.length) {
             return <Avatar
-                size={"xl"}
                 text={(profile.email).charAt(0).toUpperCase()}
-                color="primary"
+                color="gradient"
                 bordered
+                css={{
+                    size: "$60"
+                }}
             />
         }
 
         return <Avatar
-            size={"xl"}
             src={profile.images[0].url}
-            color="secondary"
+            color="gradient"
             bordered
+            css={{
+                size: "$60"
+            }}
         />
     }
 
     return (
         <div>
             <Row align={"center"}>
-                <Col css={{width: "64px"}}>
+                <Col css={{width: "236px"}}>
                     {renderImage()}
                 </Col>
                 <Col>
