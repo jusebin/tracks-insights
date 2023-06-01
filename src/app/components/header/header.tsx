@@ -12,7 +12,7 @@ export default function Header() {
     const nextTheme = useNextTheme();
 
     return (
-        <Navbar shouldHideOnScroll variant={"sticky"}>
+        <Navbar variant={"sticky"} css={{border: "1px solid red"}}>
             <Navbar.Brand>
                 <Text h1 size="$4xl" css={styleGradient}>Tracks Insights</Text>
             </Navbar.Brand>

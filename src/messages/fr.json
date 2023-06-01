@@ -71,9 +71,8 @@
   },
   "Song": {
     "openInSpotify": "Ouvrir dans Spotify",
-    "duration": "durée",
-    "popularity": "0 - 100 popularité",
-    "releaseDate": "date de sortie",
-    "releaseDateFormat": "{date}"
+    "duration": "Durée",
+    "popularity": "Popularité",
+    "releaseDate": "Date de sortie"
   }
 }

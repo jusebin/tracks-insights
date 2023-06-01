@@ -70,9 +70,8 @@
   },
   "Song": {
     "openInSpotify": "Open in Spotify",
-    "duration": "duration",
-    "popularity": "0 - 100 popularity",
-    "releaseDate": "release date",
-    "releaseDateFormat": "{date}"
+    "duration": "Duration",
+    "popularity": "Popularity",
+    "releaseDate": "Release date"
   }
 }

@@ -2,31 +2,30 @@ import {useSession} from "next-auth/react";
 import {useEffect, useState} from "react";
 import UsersRecentlyPlayedTracksResponse = SpotifyApi.UsersRecentlyPlayedTracksResponse;
 
-export function useRecentlyPlayed(
-    limit: number,
-    timeValue: number,
-    label: 'before' | 'after'
-) {
+export function useRecentlyPlayed() {
     const {data: session} = useSession();
+    const [recentlyPlayedLoading, setRecentlyPlayedLoading] = useState<boolean>(false);
     const [recentlyPlayed, setRecentlyPlayed] = useState<UsersRecentlyPlayedTracksResponse | undefined>(undefined);
 
     useEffect(() => {
-        if (!!session && !recentlyPlayed) {
-            (async () => {
-                const data =  await (await fetch('/api/spotify/get-recently-played', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        access_token: session.access_token,
-                        timeValue,
-                        label,
-                        limit
-                    })
-                })).json();
+        if (!!session) {
+            if (!recentlyPlayed && !recentlyPlayedLoading) {
+                setRecentlyPlayedLoading(true);
+            }
 
-                setRecentlyPlayed(data);
-            })();
+            if (recentlyPlayedLoading && !recentlyPlayed) {
+                (async () => {
+                    const data = await (await fetch('/api/spotify/get-recently-played', {
+                        method: 'POST',
+                        body: JSON.stringify({access_token: session.access_token,})
+                    })).json();
+
+                    setRecentlyPlayedLoading(false);
+                    setRecentlyPlayed(data);
+                })();
+            }
         }
-    }, [recentlyPlayed, session, limit, timeValue, label]);
+    }, [recentlyPlayed, recentlyPlayedLoading, session]);
 
     return {recentlyPlayed}
 }

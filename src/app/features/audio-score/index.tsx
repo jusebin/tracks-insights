@@ -1,7 +1,5 @@
-
-import AudioFeaturesObject = SpotifyApi.AudioFeaturesObject;
 import React from "react";
-import {Card, Col, Grid, Row, Spacer, Text} from "@nextui-org/react";
+import {Grid, Spacer} from "@nextui-org/react";
 import {TitleSection} from "@/app/components/titleSection";
 import {useTranslations} from "use-intl";
 import {useAudioFeatures} from "@/app/hooks/useAudioFeatures";
@@ -29,9 +27,10 @@ export function AudioScore({id}: {
         return audioT('mode.major');
     }
 
+
     return (
         <section>
-            <TitleSection title={titleT('audioFeatures')} />
+            <TitleSection title={titleT('audioFeatures')}/>
             <Grid.Container gap={2}>
                 <Grid xs={6}>
                     <ProgressValue
@@ -70,7 +69,7 @@ export function AudioScore({id}: {
                         title={audioT("titles.liveness")}
                         min={0}
                         max={1}
-                        value={audioFeatures?.instrumentalness}
+                        value={audioFeatures?.liveness}
                     />
                 </Grid>
                 <Grid xs={6}>
@@ -98,9 +97,7 @@ export function AudioScore({id}: {
                     />
                 </Grid>
             </Grid.Container>
-
-            <Spacer y={3} />
-
+            <Spacer y={3}/>
             <Grid.Container gap={2}>
                 <Grid xs={4}>
                     <CardValueTitle

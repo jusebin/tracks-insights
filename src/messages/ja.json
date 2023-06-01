@@ -72,8 +72,7 @@
   "Song": {
     "openInSpotify": "Spotifyで開く",
     "duration": "演奏時間",
-    "popularity": "0 - 100 人気指数",
-    "releaseDate": "発売日",
-    "releaseDateFormat": "{date}"
+    "popularity": "人気指数",
+    "releaseDate": "発売日"
   }
 }

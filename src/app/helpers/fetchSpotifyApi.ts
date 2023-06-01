@@ -4,7 +4,7 @@ export async function fetchSpotifyApi(
     token: string,
     body: Object = {}
 ) {
-    const options: any = {
+    const options: RequestInit = {
         headers: {
             'Authorization': `Bearer ${token}`
         },

@@ -13,8 +13,6 @@ export default function TracksHistory({itemsHistory, trackId}: {
     const array = trackId ? itemsHistory.filter(
         (itemHistory) => itemHistory.track.id === trackId) : itemsHistory;
 
-    console.log(array)
-
     const renderItemsHistory = () => {
         if (!array.length) {
             return null;
