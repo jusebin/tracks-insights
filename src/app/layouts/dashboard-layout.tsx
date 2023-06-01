@@ -1,10 +1,9 @@
 'use client';
 
 import React from "react";
-import {Navbar, Text, Switch, useTheme} from "@nextui-org/react";
-import {useTheme as useNextTheme} from 'next-themes'
-import {SvgIcon} from "@/app/components/svgIcon";
 import Header from "@/app/components/header/header";
+import CustomContainer from "@/app/components/custom-container";
+import {Box} from "@/app/components/box";
 
 export function DashboardLayout({children}: {
     children: React.ReactNode
@@ -12,9 +11,11 @@ export function DashboardLayout({children}: {
     return (
         <>
             <Header />
-            <div>
-                {children}
-            </div>
+            <Box css={{paddingBottom: "60px"}}>
+                <CustomContainer>
+                    {children}
+                </CustomContainer>
+            </Box>
         </>
     )
 }
