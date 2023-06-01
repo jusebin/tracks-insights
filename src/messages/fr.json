@@ -38,6 +38,10 @@
       "tempo": "Le tempo estimé global d'une piste en battements par minute (BPM). En terminologie musicale, le tempo est la vitesse ou le rythme d'une pièce donnée et est directement dérivé de la durée moyenne des battements.",
       "timeSignature": "Une signature rythmique estimée. La signature rythmique (ou mesure) est une convention notée pour spécifier le nombre de temps dans chaque mesure. La signature rythmique varie de 3 à 7, indiquant des signatures rythmiques telles que \"3/4\" jusqu'à \"7/4\".",
       "valence": "Une mesure de 0.0 à 1.0 décrivant la positivité musicale transmise par une piste. Les pistes avec une valence élevée sont perçues comme plus positives (par exemple, joyeuses, gaies, euphoriques), tandis que les pistes avec une valence faible sont perçues comme plus négatives (par exemple, tristes, déprimées, en colère)."
+    },
+    "mode": {
+      "major": "Majeur",
+      "minor": "Mineur"
     }
   },
   "Playback": {

@@ -1,10 +1,13 @@
 
 import AudioFeaturesObject = SpotifyApi.AudioFeaturesObject;
 import React from "react";
-import {Card, Col, Grid, Progress, Row, Spacer, Text} from "@nextui-org/react";
+import {Card, Col, Grid, Row, Spacer, Text} from "@nextui-org/react";
 import {TitleSection} from "@/app/components/titleSection";
 import {useTranslations} from "use-intl";
 import {useAudioFeatures} from "@/app/hooks/useAudioFeatures";
+import ProgressValue from "@/app/components/progress-value";
+import CardValueTitle from "@/app/components/card-value-title";
+import {convertNumberToPitchClass} from "@/app/helpers/convertNumberToPitchClass";
 
 export function AudioScore({id}: {
     id: string
@@ -14,116 +17,124 @@ export function AudioScore({id}: {
 
     const {audioFeatures} = useAudioFeatures(id);
 
-    console.log(audioFeatures);
+    const getModeTranslation = () => {
+        if (!audioFeatures) {
+            return undefined
+        }
+
+        if (audioFeatures.mode === 0) {
+            audioT('mode.minor');
+        }
+
+        return audioT('mode.major');
+    }
 
     return (
         <section>
             <TitleSection title={titleT('audioFeatures')} />
-            <Row gap={1} wrap={"wrap"}>
-                <Col span={6}>
-                    <div>
-                        <Text>{audioT("titles.acousticness")}</Text>
-                        <Progress
-                            min={0}
-                            max={1}
-                            color={"primary"}
-                            value={audioFeatures?.acousticness}
-                            indeterminated={audioFeatures === undefined}
-                        />
-                    </div>
-                </Col>
-
-                <Col span={6}>
-                    <div>
-                        <Text>{audioT("titles.danceability")}</Text>
-                        <Progress min={0} max={1} color={"primary"} value={audioFeatures?.danceability} indeterminated={audioFeatures === undefined} />
-                    </div>
-                </Col>
-
-                <Col span={6}>
-                    <div>
-                        <Text>{audioT("titles.energy")}</Text>
-                        <Progress min={0} max={1} color={"primary"} value={audioFeatures?.energy} indeterminated={audioFeatures === undefined} />
-                    </div>
-                </Col>
-                <Col span={6}>
-                    <div>
-                        <Text>{audioT("titles.instrumentalness")}</Text>
-                        <Progress min={0} max={1} color={"primary"} value={audioFeatures?.instrumentalness} indeterminated={audioFeatures === undefined} />
-                    </div>
-                </Col>
-                <Col span={6}>
-                    <div>
-                        <Text>{audioT("titles.liveness")}</Text>
-                        <Progress min={0} max={1} color={"primary"} value={audioFeatures?.liveness} indeterminated={audioFeatures === undefined} />
-                    </div>
-                </Col>
-                <Col span={6}>
-                    <div>
-                        <Text>{audioT("titles.loudness")}</Text>
-                        <Progress min={-60} max={0} color={"primary"} value={audioFeatures?.loudness} indeterminated={audioFeatures === undefined} />
-                    </div>
-                </Col>
-                <Col span={6}>
-                    <div>
-                        <Text>{audioT("titles.speechiness")}</Text>
-                        <Progress min={0} max={1} color={"primary"} value={audioFeatures?.speechiness} indeterminated={audioFeatures === undefined} />
-                    </div>
-                </Col>
-                <Col span={6}>
-                    <div>
-                        <Text>{audioT("titles.valence")}</Text>
-                        <Progress min={0} max={1} color={"primary"} value={audioFeatures?.valence} indeterminated={audioFeatures === undefined} />
-                    </div>
-                </Col>
-            </Row>
-
+            <Grid.Container gap={2}>
+                <Grid xs={6}>
+                    <ProgressValue
+                        title={audioT("titles.acousticness")}
+                        min={0}
+                        max={1}
+                        value={audioFeatures?.acousticness}
+                    />
+                </Grid>
+                <Grid xs={6}>
+                    <ProgressValue
+                        title={audioT("titles.danceability")}
+                        min={0}
+                        max={1}
+                        value={audioFeatures?.danceability}
+                    />
+                </Grid>
+                <Grid xs={6}>
+                    <ProgressValue
+                        title={audioT("titles.energy")}
+                        min={0}
+                        max={1}
+                        value={audioFeatures?.energy}
+                    />
+                </Grid>
+                <Grid xs={6}>
+                    <ProgressValue
+                        title={audioT("titles.instrumentalness")}
+                        min={0}
+                        max={1}
+                        value={audioFeatures?.instrumentalness}
+                    />
+                </Grid>
+                <Grid xs={6}>
+                    <ProgressValue
+                        title={audioT("titles.liveness")}
+                        min={0}
+                        max={1}
+                        value={audioFeatures?.instrumentalness}
+                    />
+                </Grid>
+                <Grid xs={6}>
+                    <ProgressValue
+                        title={audioT("titles.loudness")}
+                        min={-60}
+                        max={0}
+                        value={audioFeatures?.loudness}
+                    />
+                </Grid>
+                <Grid xs={6}>
+                    <ProgressValue
+                        title={audioT("titles.speechiness")}
+                        min={0}
+                        max={1}
+                        value={audioFeatures?.speechiness}
+                    />
+                </Grid>
+                <Grid xs={6}>
+                    <ProgressValue
+                        title={audioT("titles.valence")}
+                        min={0}
+                        max={1}
+                        value={audioFeatures?.valence}
+                    />
+                </Grid>
+            </Grid.Container>
+            
             <Spacer y={3} />
 
             <Grid.Container gap={2}>
                 <Grid xs={4}>
-                    <Card>
-                        <Card.Body css={{ta: 'center'}}>
-                            <Text weight={"bold"} size={"$2xl"} color={"primary"}>{audioFeatures?.loudness.toFixed(1)}</Text>
-                            <Text>{audioT("titles.loudness")}</Text>
-                        </Card.Body>
-                    </Card>
+                    <CardValueTitle
+                        value={audioFeatures?.loudness.toFixed(1)}
+                        title={audioT("titles.loudness")}
+                    />
                 </Grid>
 
                 <Grid xs={4}>
-                    <Card>
-                        <Card.Body css={{ta: 'center'}}>
-                            <Text color={"primary"}>{audioFeatures?.key}</Text>
-                            <Text>{audioT("titles.key")}</Text>
-                        </Card.Body>
-                    </Card>
+                    <CardValueTitle
+                        value={convertNumberToPitchClass(audioFeatures?.key)}
+                        title={audioT("titles.key")}
+                    />
                 </Grid>
 
                 <Grid xs={4}>
-                    <Card>
-                        <Card.Body css={{ta: 'center'}}>
-                            <Text color={"primary"}>{audioFeatures?.mode}</Text>
-                            <Text>{audioT("titles.mode")}</Text>
-                        </Card.Body>
-                    </Card>
+                    <CardValueTitle
+                        value={getModeTranslation()}
+                        title={audioT("titles.mode")}
+                    />
                 </Grid>
 
                 <Grid xs={4}>
-                    <Card>
-                        <Card.Body css={{ta: 'center'}}>
-                            <Text color={"primary"}>{audioFeatures?.timeSignature}</Text>
-                            <Text>{audioT("titles.timeSignature")}</Text>
-                        </Card.Body>
-                    </Card>
+                    <CardValueTitle
+                        value={audioFeatures ? `${audioFeatures.time_signature}/4` : '-'}
+                        title={audioT("titles.timeSignature")}
+                    />
                 </Grid>
 
                 <Grid xs={4}>
-                    <Card>
-                        <Card.Body css={{ta: 'center'}}>
-                            <Text color={"primary"}>{audioFeatures?.tempo.toFixed(1)}</Text>
-                            <Text>{audioT("titles.tempo")}</Text>
-                        </Card.Body>
-                    </Card>
+                    <CardValueTitle
+                        value={audioFeatures?.tempo.toFixed(1)}
+                        title={audioT("titles.tempo")}
+                    />
                 </Grid>
             </Grid.Container>
         </section>
