@@ -1,7 +1,7 @@
 'use client';
 
 import React, {useCallback, useState} from "react";
-import {Container, Spacer, Text} from "@nextui-org/react";
+import {Spacer} from "@nextui-org/react";
 import {Artists} from "@/app/components/artists";
 import {Songs} from "@/app/components/songs";
 import Profile from "@/app/components/profile";
@@ -51,10 +51,6 @@ export function UserData() {
 
     return (
         <>
-
-            <Profile/>
-            <Spacer y={spacerOffset}/>
-
             {renderPlayback()}
 
             <Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>

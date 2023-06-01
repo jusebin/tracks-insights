@@ -9,7 +9,7 @@ export default function ArtistsLinks({artists}: {
     const renderArtists = useCallback(() => {
         return artists.map((artist, index) => {
            return <React.Fragment key={`artist-header-page-${index}`}>
-               <Link color={"text"} href={`artist/${artist.id}`}>{artist.name}</Link>
+               <Link color={"text"} href={`../artist/${artist.id}`}>{artist.name}</Link>
                {index < artists.length - 1 && ", "}
            </React.Fragment>
         });

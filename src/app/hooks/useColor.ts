@@ -6,7 +6,7 @@ export function useColor({imageUrl, amount = 3}: {
     imageUrl?: string,
     amount: number
 }) {
-    const [colors, setColors] = useState<HSLColor | undefined>(undefined);
+    const [colors, setColors] = useState<string | undefined>(undefined);
 
     useEffect(() => {
         if (imageUrl && !colors) {
@@ -18,7 +18,9 @@ export function useColor({imageUrl, amount = 3}: {
                     sample: 30
                 });
                 // @ts-ignore
-                setColors(hexToHsl(data, 100, 60));
+                // const HSL: HSLColor = hexToHsl(data, 100, 60);
+
+                setColors(data);
             })();
         }
     }, [amount, colors, imageUrl]);
