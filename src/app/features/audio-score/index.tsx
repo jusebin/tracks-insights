@@ -98,7 +98,7 @@ export function AudioScore({id}: {
                     />
                 </Grid>
             </Grid.Container>
-            
+
             <Spacer y={3} />
 
             <Grid.Container gap={2}>

@@ -2,11 +2,7 @@ import {useSession} from "next-auth/react";
 import {useEffect, useState} from "react";
 import UsersRecentlyPlayedTracksResponse = SpotifyApi.UsersRecentlyPlayedTracksResponse;
 
-export function useRecentlyPlayed(
-    limit: number,
-    timeValue: number,
-    label: 'before' | 'after'
-) {
+export function useRecentlyPlayedAll(timeValue: number) {
     const {data: session} = useSession();
     const [recentlyPlayed, setRecentlyPlayed] = useState<UsersRecentlyPlayedTracksResponse | undefined>(undefined);
 
@@ -18,15 +14,17 @@ export function useRecentlyPlayed(
                     body: JSON.stringify({
                         access_token: session.access_token,
                         timeValue,
-                        label,
-                        limit
+                        limit: 50,
+                        label: 'after'
                     })
                 })).json();
+
+                console.log('data');
 
                 setRecentlyPlayed(data);
             })();
         }
-    }, [recentlyPlayed, session, limit, timeValue, label]);
+    }, [recentlyPlayed, session, timeValue]);
 
     return {recentlyPlayed}
 }

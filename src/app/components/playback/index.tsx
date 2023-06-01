@@ -18,7 +18,7 @@ export function Playback({id}: {
     return (
         <section>
             <TitleSection title={t('currentlyPlaying')}/>
-            <Link href={`song/${track.id}`}>
+            <Link href={`track/${track.id}`}>
                 <Card>
                     <Card.Body>
                         <Row align={"center"}>

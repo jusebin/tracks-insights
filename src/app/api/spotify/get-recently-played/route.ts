@@ -4,11 +4,10 @@ import UsersRecentlyPlayedTracksResponse = SpotifyApi.UsersRecentlyPlayedTracksR
 
 export async function POST(request: Request) {
     const body = await request.json();
+    const params = `limit=${body.limit}&${body.label === 'before' ? `before=${body.timeValue}` : `after=${body.timeValue}`}`;
 
-    const params = new URLSearchParams({
-        limit: String(body.limit),
-        before: String(Date.now())
-    });
+    console.log('adaytoremember', params);
+    console.log('token', body.access_token)
 
     const response = await fetchSpotifyApi(
         `me/player/recently-played?${params}`,

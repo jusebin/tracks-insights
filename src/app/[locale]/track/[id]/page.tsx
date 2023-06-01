@@ -10,7 +10,9 @@ import {Card, Container, Grid, Image, Text, Row, Button, Link, Col, Spacer} from
 import ArtistsLinks from "@/app/components/artists-links";
 import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
 import {useFormatter, useTranslations} from "use-intl";
-import {AudioScore} from "@/app/components/audio-score";
+import {AudioScore} from "../../../features/audio-score";
+import {RecentlyPlayed} from "../../../features/recently-played";
+import {getDaysInMs} from "@/app/helpers/getDaysInMs";
 
 export default function Track({params: {id}}: {
     params: Params
@@ -24,11 +26,11 @@ export default function Track({params: {id}}: {
         amount: 1
     });
 
+    const OneDayAgoToMS = Date.now() - getDaysInMs();
+
     if (!track) {
         return null;
     }
-
-    console.log(track);
 
     return (
         <ItemLayout>
@@ -89,6 +91,10 @@ export default function Track({params: {id}}: {
                 </Row>
                 <Spacer y={3} />
                 <AudioScore id={track.id} />
+            </Box>
+
+            <Box>
+                <RecentlyPlayed timeValue={OneDayAgoToMS} label={'after'} trackToWatch={track} />
             </Box>
         </ItemLayout>
     );

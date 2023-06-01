@@ -1,5 +1,5 @@
 import React from "react";
-import Providers from "@/app/components/providers";
+import Providers from "../providers";
 import {notFound} from "next/navigation";
 import {NextIntlClientProvider} from "next-intl";
 export const metadata = {
