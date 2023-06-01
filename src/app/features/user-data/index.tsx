@@ -12,7 +12,7 @@ import {useSongs} from "@/app/hooks/useSongs";
 import {useArtists} from "@/app/hooks/useArtists";
 import {TimeRange, timeRanges} from "@/app/constants/timeRanges";
 import {HandleTimeRange} from "@/app/components/handle-time-range";
-import {RecentlyPlayed} from "../../features/recently-played";
+import {RecentlyPlayed} from "../recently-played";
 
 export function UserData() {
     const limitTopItems = 30;
@@ -51,24 +51,23 @@ export function UserData() {
 
     return (
         <>
-            <Container fluid>
-                <Profile/>
-                <Spacer y={spacerOffset}/>
 
-                {renderPlayback()}
+            <Profile/>
+            <Spacer y={spacerOffset}/>
 
-                <Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>
-                <Spacer y={spacerOffset}/>
+            {renderPlayback()}
 
-                <Artists artists={artists} limit={limitTopItems} timeRange={usedTimeRange}/>
-                <Spacer y={spacerOffset}/>
+            <Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>
+            <Spacer y={spacerOffset}/>
 
-                <Genres artists={artists} timeRange={usedTimeRange}/>
-                <Spacer y={spacerOffset}/>
+            <Artists artists={artists} limit={limitTopItems} timeRange={usedTimeRange}/>
+            <Spacer y={spacerOffset}/>
 
-                <RecentlyPlayed timeValue={Date.now()} label={'before'} showLinkToPage />
-                <Spacer y={spacerOffset}/>
-            </Container>
+            <Genres artists={artists} timeRange={usedTimeRange}/>
+            <Spacer y={spacerOffset}/>
+
+            <RecentlyPlayed />
+            <Spacer y={spacerOffset}/>
             <HandleTimeRange usedTimeRange={usedTimeRange} handleCta={handleTimeRangeCta}/>
         </>
     )

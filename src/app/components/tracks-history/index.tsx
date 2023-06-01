@@ -48,9 +48,12 @@ export default function TracksHistory({itemsHistory, trackId}: {
                                         <Image width={60} src={item.track.album.images[0].url}
                                                alt={`cover ${item.track.name}`}/>
                                     </Col>
-                                    <Col css={{pl: "10px"}}>
-                                        <TrackNameAndArtists track={item.track} lineClampArtist={1}
-                                                             lineClampTrack={1}/>
+                                    <Col css={{pl: "10px", pr: "10px"}}>
+                                        <TrackNameAndArtists
+                                            track={item.track}
+                                            lineClampArtist={1}
+                                            lineClampTrack={1}
+                                        />
                                     </Col>
                                 </Row>
                             </Link>
