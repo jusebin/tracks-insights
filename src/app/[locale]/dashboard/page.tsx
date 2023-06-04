@@ -2,7 +2,6 @@
 import {useSession} from "next-auth/react";
 import {UserData} from "../../features/user-data";
 import {redirect} from "next/navigation";
-import {DashboardLayout} from "@/app/layouts/dashboard-layout";
 import {useProfile} from "@/app/hooks/useProfile";
 import ClassicLayout from "@/app/layouts/classic-layout";
 import React from "react";

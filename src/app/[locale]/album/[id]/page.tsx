@@ -4,13 +4,25 @@ import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 import React from "react";
 import ClassicLayout from "@/app/layouts/classic-layout";
 import {useAlbum} from "@/app/hooks/useAlbum";
+import {Row, Spacer, Table} from "@nextui-org/react";
+import {ColValueTitle} from "@/app/components/col-value-title";
+import {useFormatter, useTranslations} from "use-intl";
+import {getTracksDuration} from "@/app/helpers/getTracksDuration";
+import {TitleSection} from "@/app/components/titleSection";
+import {useAlbumTracks} from "@/app/hooks/useAlbumTracks";
+import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
+import {getArtistsNames} from "@/app/helpers/getArtistsNames";
+import TableTracks from "@/app/components/table-tracks";
 
 export default function Album({params: {id}}: {
     params: Params
 }) {
-    const {album} = useAlbum(id);
+    const titlesTranslations = useTranslations("TitlesH2");
+    const albumTranslations = useTranslations('Album');
+    const format = useFormatter();
 
-    console.log(album);
+    const {album} = useAlbum(id);
+    const {albumTracks, offset} = useAlbumTracks(id, album ? album.total_tracks : 0);
 
     if (!album) {
         return null;
@@ -23,7 +35,20 @@ export default function Album({params: {id}}: {
             imgSrc={album.images[0].url}
             url={album.external_urls.spotify}
         >
-            <div>coucou</div>
+            <Row>
+                <ColValueTitle value={album.label} label={albumTranslations('label')} />
+                <ColValueTitle value={`${album.popularity} / 100`} label={albumTranslations('popularity')} />
+                <ColValueTitle value={format.dateTime(new Date(album.release_date), {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric'
+                })} label={albumTranslations('releaseDate')} />
+                <ColValueTitle value={albumTracks.length} label={albumTranslations('tracks')} />
+                <ColValueTitle value={getTracksDuration(albumTracks)} label={albumTranslations('duration')} />
+            </Row>
+            <Spacer y={2} />
+            <TitleSection title={titlesTranslations("albumContent")} />
+            {albumTracks.length && <TableTracks tracks={albumTracks} />}
         </ClassicLayout>
     );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import {Col, Text} from "@nextui-org/react";
 
 export function ColValueTitle({value, label}: {
-    value: string;
+    value: string | number;
     label: string;
 }) {
     return (

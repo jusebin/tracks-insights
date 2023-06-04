@@ -8,7 +8,8 @@
     "topArtists": "トップ{number}アーティスト",
     "topGenres": "トップジャンル",
     "audioFeatures": "オーディオ特徴",
-    "recentlyPlayed": "最近再生した曲"
+    "recentlyPlayed": "最近再生した曲",
+    "albumContent": "アルバムの内容"
   },
   "AudioFeatures": {
     "titles": {
@@ -75,5 +76,14 @@
     "popularity": "人気指数",
     "releaseDate": "発売日",
     "appearsOn": "～に登場する"
+  },
+  "Album": {
+    "label": "レーベル",
+    "popularity": "人気指数",
+    "releaseDate": "発売日",
+    "duration": "演奏時間",
+    "tracks": "トラック",
+    "disc": "ディスク{number}",
+    "track": "トラック"
   }
 }

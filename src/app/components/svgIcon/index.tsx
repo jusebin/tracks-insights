@@ -4,7 +4,7 @@ export function SvgIcon({name, width, height, fill}: {
     height?: number;
     fill?: string
 }) {
-    const availableNames = ['moon', 'sun', 'filter', 'link-external'];
+    const availableNames = ['moon', 'sun', 'filter', 'disc'];
 
     if (!availableNames.includes(name)) {
         return null;
@@ -23,9 +23,9 @@ export function SvgIcon({name, width, height, fill}: {
                 return (
                     <path d="M7 11h10v2H7zM4 7h16v2H4zm6 8h4v2h-4z" />
                 )
-            case 'link-external':
+            case 'disc':
                 return (
-                    <><path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path><path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path></>
+                     <><path fill={fill ? fill : 'currentColor'} d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path fill={fill ? fill : 'currentColor'} d="M12 8a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 6a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"></path></>
                 )
             default:
                 return (

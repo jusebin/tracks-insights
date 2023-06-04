@@ -8,7 +8,8 @@
     "topArtists": "Top {number} artists",
     "topGenres": "Top genres",
     "audioFeatures": "Audio features",
-    "recentlyPlayed": "Recently played"
+    "recentlyPlayed": "Recently played",
+    "albumContent": "Album content"
   },
   "AudioFeatures": {
     "titles": {
@@ -74,5 +75,14 @@
     "popularity": "Popularity",
     "releaseDate": "Release date",
     "appearsOn": "Appears on"
+  },
+  "Album": {
+    "label": "Label",
+    "popularity": "Popularity",
+    "releaseDate": "Release date",
+    "duration": "Duration",
+    "tracks": "Tracks",
+    "disc": "Disc {number}",
+    "track": "Track"
   }
 }
