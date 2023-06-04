@@ -1,7 +1,9 @@
 {
   "Buttons": {
     "signIn": "Spotifyでサインインしてください",
-    "logOut": "ログアウトする"
+    "logOut": "ログアウトする",
+    "showMore": "もっと見る",
+    "showLess": "表示数を少なくする"
   },
   "TitlesH2": {
     "topTracks": "トップ{number}曲",
@@ -85,5 +87,13 @@
     "tracks": "トラック",
     "disc": "ディスク{number}",
     "track": "トラック"
+  },
+  "Artist": {
+    "albums": "アルバム",
+    "followers": "フォロワー",
+    "popularity": "人気指数",
+    "genres": "音楽のジャンル",
+    "discography": "ディスコグラフィー",
+    "appearsOn": "参加作品"
   }
 }

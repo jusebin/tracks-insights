@@ -2,6 +2,7 @@ import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import {Text} from "@nextui-org/react";
 import {getArtistsNames} from "@/app/helpers/getArtistsNames";
 import React from "react";
+import {getLineClampStyle} from "@/app/helpers/getLineClampStyle";
 
 export function TrackNameAndArtists({track, isBold, lineClampTrack, lineClampArtist}: {
     track: TrackObjectFull,
@@ -9,19 +10,8 @@ export function TrackNameAndArtists({track, isBold, lineClampTrack, lineClampArt
     lineClampTrack?: number
     lineClampArtist?: number
 }) {
-    const clampTrackStyle = lineClampTrack ? {
-        display: "-webkit-box",
-        WebkitLineClamp: lineClampTrack,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden"
-    } : undefined;
-
-    const clampArtistStyle = lineClampArtist ? {
-        display: "-webkit-box",
-        WebkitLineClamp: lineClampArtist,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden"
-    } : undefined;
+    const clampTrackStyle = lineClampTrack ? getLineClampStyle(lineClampTrack) : undefined;
+    const clampArtistStyle = lineClampArtist ? getLineClampStyle(lineClampArtist) : undefined;
 
     return (
         <>

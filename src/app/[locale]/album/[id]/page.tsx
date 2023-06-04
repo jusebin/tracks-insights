@@ -10,8 +10,6 @@ import {useFormatter, useTranslations} from "use-intl";
 import {getTracksDuration} from "@/app/helpers/getTracksDuration";
 import {TitleSection} from "@/app/components/titleSection";
 import {useAlbumTracks} from "@/app/hooks/useAlbumTracks";
-import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
-import {getArtistsNames} from "@/app/helpers/getArtistsNames";
 import TableTracks from "@/app/components/table-tracks";
 
 export default function Album({params: {id}}: {

@@ -1,7 +1,9 @@
 {
   "Buttons": {
     "signIn": "S'identifier avec Spotify",
-    "logOut": "Se déconnecter"
+    "logOut": "Se déconnecter",
+    "showMore": "Voir plus",
+    "showLess": "Voir moins"
   },
   "TitlesH2": {
     "topTracks": "Top {number} titres",
@@ -85,5 +87,15 @@
     "tracks": "Pistes",
     "disc": "Disque {number}",
     "track": "Titre"
+  },
+  "Artist": {
+    "albums": "Albums",
+    "followers": "Abonnés",
+    "popularity": "Popularity",
+    "genres": "Genres",
+    "discography": "Discographie",
+    "seeMore": "Voir plus",
+    "seeLess": "Voir moins",
+    "appearsOn": "Apparaît sur"
   }
 }

@@ -10,7 +10,6 @@ export function convertMsToMinutes(ms: number): string {
     seconds = seconds % 60;
     minutes = minutes % 60;
     hours = hours % 60;
-    console.log(hours);
 
     return `${hours > 0 ? padTo2Digits(hours) + ':' : ''}${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`;
 }

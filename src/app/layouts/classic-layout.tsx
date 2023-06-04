@@ -77,8 +77,6 @@ export default function ClassicLayout(
         amount: 1
     });
 
-    console.log(colors);
-
     return (
         <>
             <Header/>
