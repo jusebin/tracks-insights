@@ -43,9 +43,13 @@ export default function Album({params: {id}}: {
             </Row>
             <Spacer y={2} />
             <ArtistPopularTracks tracks={artistTopTracks} />
+            <Spacer y={2} />
             <Albums title={artistTranslations('discography')} albums={albums} filters={["album", "single"]} />
+            <Spacer y={2} />
             <FansAlsoLike artists={relatedArtists} />
+            <Spacer y={2} />
             <Albums title={artistTranslations('appearsOn')} albums={albums} filters={["appears_on"]} />
+            <Spacer y={3} />
         </ClassicLayout>
     );
 }

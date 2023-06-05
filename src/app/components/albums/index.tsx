@@ -21,8 +21,6 @@ export function Albums({title, albums, filters = []}: {
             return null;
         }
 
-        console.log(albums);
-
         return filteredAlbums.slice(0, showMore ? filteredAlbums.length : 6).map((album, index) => {
             return (
                 <Grid key={`${title}--album${index}`} xs={6} sm={3} md={2}>

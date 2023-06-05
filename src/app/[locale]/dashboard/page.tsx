@@ -5,6 +5,7 @@ import {redirect} from "next/navigation";
 import {useProfile} from "@/app/hooks/useProfile";
 import ClassicLayout from "@/app/layouts/classic-layout";
 import React from "react";
+import {useTranslations} from "use-intl";
 
 export default function Dashboard() {
     const {status} = useSession();
@@ -20,7 +21,7 @@ export default function Dashboard() {
 
     return (
         <ClassicLayout
-            type={"profile"}
+            type={profile.type}
             name={profile.display_name ? profile.display_name : profile.id}
             imgSrc={profile.images ? profile.images[0].url : undefined}
             url={profile.external_urls.spotify}

@@ -18,19 +18,20 @@ export default function ClassicLayout(
         trackArtists = []
     }: {
         children: React.ReactNode
-        type: 'profile' | 'artist' | 'album' | 'track',
+        type: 'user' | 'artist' | 'album' | 'track' | 'single' | 'compilation',
         name: string,
         url: string,
         imgSrc?: string,
         trackArtists?: ArtistObjectSimplified[]
     }) {
+    const commonTranslations = useTranslations("Common");
     const t = useTranslations('Song');
     const pictureWidth = 235;
 
 
     const renderHeaderLayoutImage = useCallback(() => {
         switch (type) {
-            case 'profile':
+            case 'user':
                 return (
                     <Avatar
                         src={imgSrc}
@@ -122,7 +123,7 @@ export default function ClassicLayout(
                                         }
                                     }}
                                 >
-                                    {renderHeaderLayoutData()}
+                                    <Text weight={"bold"}>{commonTranslations(`types.${type}`)}</Text>
                                     <Text h1 weight={"black"}>{name}</Text>
                                     <Button
                                         color={"primary"}
