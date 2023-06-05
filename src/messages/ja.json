@@ -1,4 +1,19 @@
 {
+  "Common": {
+    "types": {
+      "album": "アルバム",
+      "artist": "アーティスト",
+      "single":  "シングル",
+      "compilation": "コンピレーション",
+      "track": "曲",
+      "profile": "プロフィール"
+    },
+    "albumType": "アルバム",
+    "artistType": "アーティスト",
+    "singleType": "シングル",
+    "compilationType": "コンピレーション",
+    "trackType": "シングル"
+  },
   "Buttons": {
     "signIn": "Spotifyでサインインしてください",
     "logOut": "ログアウトする",
@@ -94,6 +109,7 @@
     "popularity": "人気指数",
     "genres": "音楽のジャンル",
     "discography": "ディスコグラフィー",
-    "appearsOn": "参加作品"
+    "appearsOn": "参加作品",
+    "fansAlsoLike": "ファンの間で人気"
   }
 }

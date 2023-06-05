@@ -1,18 +1,19 @@
 import AlbumObjectFull = SpotifyApi.AlbumObjectFull;
 import {Box} from "@/app/components/box";
 import {TitleSection} from "@/app/components/titleSection";
-import {Card, Grid, Image, Text, Button, Link} from "@nextui-org/react";
-import React, {useState} from "react";
-import {getLineClampStyle} from "@/app/helpers/getLineClampStyle";
-import {useTranslations} from "use-intl";
+import {Grid} from "@nextui-org/react";
+import React from "react";
 import ShowMoreOrLess from "@/app/components/showMoreOrLess";
 import {useShow} from "@/app/hooks/useShow";
+import CardImageLink from "@/app/components/cardImageLink";
+import {useTranslations} from "use-intl";
 
 export function Albums({title, albums, filters = []}: {
     title: string,
     albums: AlbumObjectFull[],
     filters?: string[]
 }) {
+    const commonTranslation = useTranslations("Common");
     const {showMore, toggleShowMore} = useShow();
     const filteredAlbums = (filters.length && albums.length) ? albums.filter(album => filters.includes(album.album_group || '')) : albums;
     const renderAlbums = () => {
@@ -20,18 +21,17 @@ export function Albums({title, albums, filters = []}: {
             return null;
         }
 
+        console.log(albums);
+
         return filteredAlbums.slice(0, showMore ? filteredAlbums.length : 6).map((album, index) => {
             return (
-                <Grid key={`${title}--album${index}`} xs={2}>
-                    <Card>
-                        <Card.Body>
-                            <Image width={177} src={album.images[0].url} alt={`cover for album ${album.name}`} />
-                            <Box css={{pt: '10px'}}>
-                                <Text weight={"bold"} css={getLineClampStyle(1)}>{album.name}</Text>
-                                <Text color={"$gray800"} size={"$sm"} css={{textTransform: "capitalize"}}>{new Date(album.release_date).getFullYear()} &bull; {album.album_type}</Text>
-                            </Box>
-                        </Card.Body>
-                    </Card>
+                <Grid key={`${title}--album${index}`} xs={6} sm={3} md={2}>
+                    <CardImageLink
+                        img={album.images[0].url}
+                        url={`../album/${album.id}`}
+                        type={`${new Date(album.release_date).getFullYear()} • ${commonTranslation(`types.${album.album_type}`)}`}
+                        name={album.name}
+                    />
                 </Grid>
             )
         });

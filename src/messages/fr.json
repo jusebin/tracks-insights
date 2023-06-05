@@ -1,4 +1,14 @@
 {
+  "Common": {
+    "types": {
+      "album": "Album",
+      "artist": "Artiste",
+      "single" : "Single",
+      "compilation": "Compilation",
+      "track": "Titre",
+      "profile": "Profil"
+    }
+  },
   "Buttons": {
     "signIn": "S'identifier avec Spotify",
     "logOut": "Se déconnecter",
@@ -96,6 +106,7 @@
     "discography": "Discographie",
     "seeMore": "Voir plus",
     "seeLess": "Voir moins",
-    "appearsOn": "Apparaît sur"
+    "appearsOn": "Apparaît sur",
+    "fansAlsoLike": "Les fans aiment aussi"
   }
 }

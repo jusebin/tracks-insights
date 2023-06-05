@@ -12,11 +12,11 @@ import {useArtistTopTracks} from "@/app/hooks/useArtistTopTracks";
 import {useRelatedArtists} from "@/app/hooks/useRelatedArtists";
 import {ArtistPopularTracks} from "@/app/features/artist-popular-tracks";
 import {Albums} from "@/app/components/albums";
+import FansAlsoLike from "@/app/features/fansAlsoLike";
 
 export default function Album({params: {id}}: {
     params: Params
 }) {
-    const titlesTranslations = useTranslations("TitlesH2");
     const artistTranslations = useTranslations('Artist');
 
     const {artist} = useArtist(id);
@@ -28,10 +28,6 @@ export default function Album({params: {id}}: {
     if (!artist) {
         return null;
     }
-
-    // console.log('albums', albums);
-    // console.log('artistTopTracks', artistTopTracks);
-    // console.log('relatedArtists', relatedArtists);
 
     return (
         <ClassicLayout
@@ -46,9 +42,10 @@ export default function Album({params: {id}}: {
                 <ColValueTitle value={new Intl.NumberFormat().format(artist.followers.total)} label={artistTranslations('followers')} />
             </Row>
             <Spacer y={2} />
-            <Albums title={artistTranslations('discography')} albums={albums} filters={["album", "single"]} />
-            <Albums title={artistTranslations('appearsOn')} albums={albums} filters={["appears_on"]} />
             <ArtistPopularTracks tracks={artistTopTracks} />
+            <Albums title={artistTranslations('discography')} albums={albums} filters={["album", "single"]} />
+            <FansAlsoLike artists={relatedArtists} />
+            <Albums title={artistTranslations('appearsOn')} albums={albums} filters={["appears_on"]} />
         </ClassicLayout>
     );
 }
