@@ -1,12 +1,12 @@
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
-import {TitleSection} from "@/app/components/titleSection";
+import {TitleSection} from "../../components/title-section";
 import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
 import {Image, Text, Row, Col, Spacer, Link, Button} from "@nextui-org/react";
 import React, {useState} from "react";
 import {getLineClampStyle} from "@/app/helpers/getLineClampStyle";
 import {Box} from "@/app/components/box";
 import {useShow} from "@/app/hooks/useShow";
-import ShowMoreOrLess from "@/app/components/showMoreOrLess";
+import ShowMoreOrLess from "../../components/show-more-or-less";
 
 export function ArtistPopularTracks({tracks}: {
     tracks: TrackObjectFull[]

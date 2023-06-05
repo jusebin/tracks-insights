@@ -11,7 +11,7 @@ import {useArtistAlbums} from "@/app/hooks/useArtistAlbums";
 import {useArtistTopTracks} from "@/app/hooks/useArtistTopTracks";
 import {useRelatedArtists} from "@/app/hooks/useRelatedArtists";
 import {ArtistPopularTracks} from "@/app/features/artist-popular-tracks";
-import {GridArray} from "@/app/components/gridArray";
+import {GridArray} from "../../../components/grid-array";
 
 export default function Album({params: {id}}: {
     params: Params

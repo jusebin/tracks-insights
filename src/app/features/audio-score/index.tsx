@@ -1,6 +1,6 @@
 import React from "react";
 import {Grid, Spacer} from "@nextui-org/react";
-import {TitleSection} from "@/app/components/titleSection";
+import {TitleSection} from "../../components/title-section";
 import {useTranslations} from "use-intl";
 import {useAudioFeatures} from "@/app/hooks/useAudioFeatures";
 import ProgressValue from "@/app/components/progress-value";

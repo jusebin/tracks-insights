@@ -1,5 +1,5 @@
 import {useAlbum} from "@/app/hooks/useAlbum";
-import {TitleSection} from "@/app/components/titleSection";
+import {TitleSection} from "../../components/title-section";
 import {useTranslations} from "use-intl";
 import {Box} from "@/app/components/box";
 import {Image, Link, Text} from "@nextui-org/react";

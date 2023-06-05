@@ -1,9 +1,9 @@
-import {TitleSection} from "@/app/components/titleSection";
+import {TitleSection} from "../title-section";
 import {Card, Col, Image, Link, Row} from "@nextui-org/react";
 import {useTranslations} from "use-intl";
 import {useTrack} from "@/app/hooks/useTrack";
 import React from "react";
-import {TrackNameAndArtists} from "@/app/components/trackNameAndArtists";
+import {TrackNameAndArtists} from "../track-name-and-artists";
 
 export function Playback({id}: {
     id: string

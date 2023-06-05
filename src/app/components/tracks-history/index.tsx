@@ -3,7 +3,7 @@ import {calcDate} from "@/app/helpers/calcDate";
 import {useTranslations} from "use-intl";
 import React from "react";
 import {Col, Image, Link, Row, Spacer, Text} from "@nextui-org/react";
-import {TrackNameAndArtists} from "@/app/components/trackNameAndArtists";
+import {TrackNameAndArtists} from "../track-name-and-artists";
 
 export default function TracksHistory({itemsHistory, trackId}: {
     itemsHistory: PlayHistoryObject[],

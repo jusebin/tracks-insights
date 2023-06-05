@@ -2,9 +2,6 @@
 
 import React, {useCallback, useState} from "react";
 import {Spacer} from "@nextui-org/react";
-import {Artists} from "@/app/components/artists";
-import {Songs} from "@/app/components/songs";
-import Profile from "@/app/components/profile";
 import {usePlaybackState} from "@/app/hooks/usePlaybackState";
 import {Playback} from "@/app/components/playback";
 import {Genres} from "@/app/components/genres";
@@ -13,7 +10,7 @@ import {useArtists} from "@/app/hooks/useArtists";
 import {TimeRange, timeRanges} from "@/app/constants/timeRanges";
 import {HandleTimeRange} from "@/app/components/handle-time-range";
 import {RecentlyPlayed} from "../recently-played";
-import {GridArray} from "@/app/components/gridArray";
+import {GridArray} from "../../components/grid-array";
 import {useTranslations} from "use-intl";
 
 export function UserData() {
@@ -56,8 +53,6 @@ export function UserData() {
         <>
             {renderPlayback()}
 
-            {/*<Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>*/}
-
             <GridArray
                 title={dashboardTranslations('titles.topTracks')}
                 items={songs}
@@ -73,7 +68,6 @@ export function UserData() {
                 ranking
             />
 
-            {/*<Artists artists={artists} limit={limitTopItems} timeRange={usedTimeRange}/>*/}
             <Spacer y={spacerOffset}/>
 
             <Genres artists={artists} timeRange={usedTimeRange}/>

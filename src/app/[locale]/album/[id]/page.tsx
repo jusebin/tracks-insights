@@ -8,7 +8,7 @@ import {Row, Spacer, Table} from "@nextui-org/react";
 import {ColValueTitle} from "@/app/components/col-value-title";
 import {useFormatter, useTranslations} from "use-intl";
 import {getTracksDuration} from "@/app/helpers/getTracksDuration";
-import {TitleSection} from "@/app/components/titleSection";
+import {TitleSection} from "../../../components/title-section";
 import {useAlbumTracks} from "@/app/hooks/useAlbumTracks";
 import TableTracks from "@/app/components/table-tracks";
 

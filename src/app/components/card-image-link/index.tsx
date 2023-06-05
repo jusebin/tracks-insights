@@ -1,4 +1,4 @@
-import {Card, Col, Image, Link, Row, Text} from "@nextui-org/react";
+import {Card, Image, Link, Text} from "@nextui-org/react";
 import {Box} from "@/app/components/box";
 import {getLineClampStyle} from "@/app/helpers/getLineClampStyle";
 import React from "react";
