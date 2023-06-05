@@ -1,4 +1,4 @@
-import {Navbar, Switch, Text, useTheme} from "@nextui-org/react";
+import {Link, Navbar, Switch, Text, useTheme} from "@nextui-org/react";
 import {SvgIcon} from "@/app/components/svgIcon";
 import React from "react";
 import {useTheme as useNextTheme} from "next-themes";
@@ -12,9 +12,9 @@ export default function Header() {
     const nextTheme = useNextTheme();
 
     return (
-        <Navbar variant={"sticky"} css={{border: "1px solid red"}}>
+        <Navbar variant={"sticky"} css={{zIndex: 999}}>
             <Navbar.Brand>
-                <Text h1 size="$4xl" css={styleGradient}>Tracks Insights</Text>
+                <Text h1 size="$4xl" css={styleGradient}><Link href={"/dashboard"}>Tracks Insights</Link></Text>
             </Navbar.Brand>
             <Navbar.Content>
                 <Navbar.Item>

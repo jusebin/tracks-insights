@@ -11,7 +11,7 @@ import {useArtistAlbums} from "@/app/hooks/useArtistAlbums";
 import {useArtistTopTracks} from "@/app/hooks/useArtistTopTracks";
 import {useRelatedArtists} from "@/app/hooks/useRelatedArtists";
 import {ArtistPopularTracks} from "@/app/features/artist-popular-tracks";
-import {GridArray} from "../../../components/grid-array";
+import {GridArray} from "@/app/components/grid-array";
 
 export default function Album({params: {id}}: {
     params: Params
@@ -29,7 +29,7 @@ export default function Album({params: {id}}: {
 
     return (
         <ClassicLayout
-            type={"album"}
+            type={artist.type}
             name={artist.name}
             imgSrc={artist.images[0].url}
             url={artist.external_urls.spotify}

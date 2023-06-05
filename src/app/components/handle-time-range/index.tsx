@@ -9,7 +9,7 @@ export function HandleTimeRange({usedTimeRange, handleCta}: {
     handleCta: (v: TimeRange) => void
 }) {
     const t = useTranslations('HandleTimeRange');
-    const { setVisible, bindings } = useModal();
+    const {setVisible, bindings} = useModal();
 
     const renderTimeRanges = useCallback(() => {
         return timeRanges.map((timeRange, index) => {
@@ -31,7 +31,7 @@ export function HandleTimeRange({usedTimeRange, handleCta}: {
                 rounded
                 shadow
                 color={"secondary"}
-                icon={<SvgIcon name={"filter"} width={40} height={40} />}
+                icon={<SvgIcon name={"filter"} width={40} height={40}/>}
                 size={'xs'}
                 css={{
                     height: '80px',
@@ -40,6 +40,7 @@ export function HandleTimeRange({usedTimeRange, handleCta}: {
                     bottom: "12px",
                     right: "12px",
                     transform: "scale(0.85)",
+                    zIndex: 999,
                     "@sm": {
                         d: 'none'
                     }
@@ -64,16 +65,17 @@ export function HandleTimeRange({usedTimeRange, handleCta}: {
             <Card
                 variant={"shadow"}
                 css={{
-                maxWidth: "380px",
-                m: "0 auto",
-                position: 'fixed',
-                bottom: "15px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                "@smMax": {
-                    d: 'none'
-                }
-            }}>
+                    maxWidth: "380px",
+                    m: "0 auto",
+                    position: 'fixed',
+                    bottom: "15px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    zIndex: 999,
+                    "@smMax": {
+                        d: 'none'
+                    }
+                }}>
                 <Card.Body>
                     <Row justify={"space-between"}>
                         {renderTimeRanges()}

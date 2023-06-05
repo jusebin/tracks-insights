@@ -15,7 +15,7 @@ import {useTranslations} from "use-intl";
 
 export function UserData() {
     const dashboardTranslations = useTranslations("Dashboard");
-    const limitTopItems = 30;
+    const limitTopItems = 50;
     const spacerOffset = 2;
 
     // Main state
