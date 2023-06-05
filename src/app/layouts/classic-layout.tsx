@@ -27,7 +27,10 @@ export default function ClassicLayout(
     const commonTranslations = useTranslations("Common");
     const t = useTranslations('Song');
     const pictureWidth = 235;
-
+    const {colors} = useColor({
+        imageUrl: imgSrc,
+        amount: 1
+    });
 
     const renderHeaderLayoutImage = useCallback(() => {
         switch (type) {
@@ -55,28 +58,6 @@ export default function ClassicLayout(
                 )
         }
     }, [imgSrc, name, type]);
-
-    const renderHeaderLayoutData = useCallback(() => {
-        switch (type) {
-            case 'track':
-                return (
-                    <Text weight={"bold"}>
-                        <ArtistsLinks artists={trackArtists}/>
-                    </Text>
-                )
-            default:
-                return (
-                    <></>
-                );
-        }
-    }, [type, trackArtists]);
-
-    // const themeUsed = useTheme();
-
-    const {colors} = useColor({
-        imageUrl: imgSrc,
-        amount: 1
-    });
 
     return (
         <>

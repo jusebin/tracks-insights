@@ -3,13 +3,31 @@ import {Box} from "@/app/components/box";
 import {getLineClampStyle} from "@/app/helpers/getLineClampStyle";
 import React, {ReactElement} from "react";
 
-export default function CardImageLink({img, url, type, name, roundImg}: {
+export default function CardImageLink({img, url, type, name, roundImg, children}: {
     img: string,
     url: string,
     type: string,
     name: string,
     roundImg?: boolean
+    children?: React.ReactElement
 }) {
+    const renderBottomPart = () => {
+        if (children) {
+            return (
+                <>
+                    {children}
+                </>
+            )
+        }
+
+        return (
+            <>
+                <Text weight={"bold"} css={getLineClampStyle(1)}>{name}</Text>
+                <Text color={"$gray800"} size={"$sm"} css={{textTransform: "capitalize"}}>{type}</Text>
+            </>
+        )
+    }
+
     return (
         <Card>
             <Card.Body>
@@ -32,8 +50,7 @@ export default function CardImageLink({img, url, type, name, roundImg}: {
                             />
                         </Box>
                         <Box css={{pt: '10px'}}>
-                            <Text weight={"bold"} css={getLineClampStyle(1)}>{name}</Text>
-                            <Text color={"$gray800"} size={"$sm"} css={{textTransform: "capitalize"}}>{type}</Text>
+                            {renderBottomPart()}
                         </Box>
                     </Link>
                 </Box>
