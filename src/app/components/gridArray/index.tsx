@@ -10,15 +10,14 @@ import {useTranslations} from "use-intl";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 
-export function GridArray({title, items, limit}: {
+export function GridArray({title, items, limit, ranking}: {
     title: string,
     items: AlbumObjectFull[] | ArtistObjectFull[] | TrackObjectFull[],
     limit: number
+    ranking?: boolean
 }) {
     const commonTranslation = useTranslations("Common");
     const {showMore, toggleShowMore} = useShow();
-
-
 
     const renderItems = () => {
         if (!items.length) {
@@ -38,6 +37,7 @@ export function GridArray({title, items, limit}: {
                         type={`${preType}${type}`}
                         name={item.name}
                         roundImg={item.type === "artist"}
+                        ranking={ranking ? index + 1 : undefined}
                     />
                 </Grid>
             )

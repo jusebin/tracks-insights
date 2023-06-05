@@ -14,6 +14,13 @@
     "compilationType": "コンピレーション",
     "trackType": "シングル"
   },
+  "Dashboard": {
+    "titles": {
+      "topTracks": "人気曲",
+      "topArtists": "人気アーティスト",
+      "topGenres": "人気ジャンル"
+    }
+  },
   "Buttons": {
     "signIn": "Spotifyでサインインしてください",
     "logOut": "ログアウトする",

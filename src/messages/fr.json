@@ -9,6 +9,13 @@
       "user": "Profil"
     }
   },
+  "Dashboard": {
+    "titles": {
+      "topTracks": "Top titres",
+      "topArtists": "Top artistes",
+      "topGenres": "Top genres"
+    }
+  },
   "Buttons": {
     "signIn": "S'identifier avec Spotify",
     "logOut": "Se déconnecter",

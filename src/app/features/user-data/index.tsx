@@ -13,8 +13,11 @@ import {useArtists} from "@/app/hooks/useArtists";
 import {TimeRange, timeRanges} from "@/app/constants/timeRanges";
 import {HandleTimeRange} from "@/app/components/handle-time-range";
 import {RecentlyPlayed} from "../recently-played";
+import {GridArray} from "@/app/components/gridArray";
+import {useTranslations} from "use-intl";
 
 export function UserData() {
+    const dashboardTranslations = useTranslations("Dashboard");
     const limitTopItems = 30;
     const spacerOffset = 2;
 
@@ -53,16 +56,30 @@ export function UserData() {
         <>
             {renderPlayback()}
 
-            <Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>
+            {/*<Songs songs={songs} limit={limitTopItems} timeRange={usedTimeRange}/>*/}
+
+            <GridArray
+                title={dashboardTranslations('titles.topTracks')}
+                items={songs}
+                limit={6}
+                ranking
+            />
             <Spacer y={spacerOffset}/>
 
-            <Artists artists={artists} limit={limitTopItems} timeRange={usedTimeRange}/>
+            <GridArray
+                title={dashboardTranslations('titles.topArtists')}
+                items={artists}
+                limit={6}
+                ranking
+            />
+
+            {/*<Artists artists={artists} limit={limitTopItems} timeRange={usedTimeRange}/>*/}
             <Spacer y={spacerOffset}/>
 
             <Genres artists={artists} timeRange={usedTimeRange}/>
             <Spacer y={spacerOffset}/>
 
-            <RecentlyPlayed />
+            <RecentlyPlayed/>
             <Spacer y={spacerOffset}/>
             <HandleTimeRange usedTimeRange={usedTimeRange} handleCta={handleTimeRangeCta}/>
         </>
