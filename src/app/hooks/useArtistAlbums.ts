@@ -2,12 +2,12 @@ import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import AlbumObjectFull = SpotifyApi.AlbumObjectFull;
 
-export function useArtistAlbums(id: string) {
+export function useArtistAlbums(id?: string) {
     const {data: session} = useSession();
     const [albums, setAlbums] = useState<AlbumObjectFull[]>([]);
 
     useEffect(() => {
-        if (!!session) {
+        if (!!session && !!id) {
             const getData = async () => {
                 return await (await fetch('/api/spotify/get-artist-albums', {
                     method: 'POST',

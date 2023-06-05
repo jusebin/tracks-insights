@@ -26,6 +26,8 @@ export default function Album({params: {id}}: {
         return null;
     }
 
+    console.log(albumTracks);
+
     return (
         <ClassicLayout
             type={"album"}

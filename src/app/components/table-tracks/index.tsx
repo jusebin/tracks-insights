@@ -55,6 +55,7 @@ export default function TableTracks({tracks}: {
                 key: String(cellIndex),
                 number: track.track_number,
                 name: track.name,
+                id: track.id,
                 duration: convertMsToMinutes(track.duration_ms),
                 artists: track.artists
             });
@@ -112,7 +113,9 @@ export default function TableTracks({tracks}: {
 
                 return (
                     <>
-                        <Text>{cellValue}</Text>
+                        <Text>
+                            <Link color={"text"} href={`../track/${row.id}`}>{cellValue}</Link>
+                        </Text>
                         {row.artists && renderArtists(row.artists, cellValue)}
                     </>
                 );

@@ -9,7 +9,9 @@ import {useFormatter, useTranslations} from "use-intl";
 import {AudioScore} from "@/app/features/audio-score";
 import ClassicLayout from "@/app/layouts/classic-layout";
 import {ColValueTitle} from "@/app/components/col-value-title";
-import AlbumAppear from "@/app/features/album-appear/album-appear";
+import {GridArray} from "@/app/components/grid-array";
+import {useQuery} from "@/app/hooks/useQuery";
+import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
 
 export default function Track({params: {id}}: {
     params: Params
@@ -18,6 +20,23 @@ export default function Track({params: {id}}: {
     const format = useFormatter();
 
     const {track} = useTrack(id);
+
+    const q = track ? `isrc:${track?.external_ids.isrc} artist:${track?.artists[0].name} track:${track.name}` : undefined;
+    const {query} = useQuery('track', q);
+
+    const getAlbumsFromQuery = () => {
+        const albums: AlbumObjectSimplified[] = [];
+
+        if (query && query.tracks && track) {
+            query.tracks.items.forEach((item) => {
+               if (item.name === track.name && item.artists[0].name === track.artists[0].name) {
+                   albums.push(item.album);
+               }
+            });
+        }
+
+        return albums;
+    }
 
     if (!track) {
         return null;
@@ -47,8 +66,14 @@ export default function Track({params: {id}}: {
                     />
                 </Row>
                 <Spacer y={3}/>
-                <AlbumAppear id={track.album.id} />
+
+                <GridArray
+                    title={t('appearsOn')}
+                    items={getAlbumsFromQuery()}
+                    limit={6}
+                />
                 <Spacer y={2}/>
+
                 <AudioScore id={track.id}/>
             </>
         </ClassicLayout>

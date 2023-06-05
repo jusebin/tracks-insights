@@ -9,22 +9,25 @@ import CardImageLink from "../card-image-link";
 import {useTranslations} from "use-intl";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
+import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
 
 export function GridArray({title, items, limit, ranking}: {
     title: string,
-    items: AlbumObjectFull[] | ArtistObjectFull[] | TrackObjectFull[],
+    items: AlbumObjectFull[] | AlbumObjectSimplified[] | ArtistObjectFull[] | TrackObjectFull[],
     limit: number
     ranking?: boolean
 }) {
     const commonTranslation = useTranslations("Common");
     const {showMore, toggleShowMore} = useShow();
 
+    console.log(items);
+
     const renderItems = () => {
         if (!items.length) {
             return null;
         }
 
-        return items.slice(0, showMore ? items.length : limit).map((item: ArtistObjectFull | AlbumObjectFull | TrackObjectFull, index: number) => {
+        return items.slice(0, showMore ? items.length : limit).map((item: ArtistObjectFull | AlbumObjectSimplified | AlbumObjectFull | TrackObjectFull, index: number) => {
             const imgUrl = item.type === "track" ? item.album.images[0].url : item.images[0].url;
             const preType = item.type === "album" ? `${new Date(item.release_date).getFullYear()} • ` : "";
             const type = commonTranslation(`types.${item.type === "album" ? item.album_type : item.type}`);
