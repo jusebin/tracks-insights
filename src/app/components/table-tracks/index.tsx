@@ -66,7 +66,7 @@ export default function TableTracks({tracks}: {
     const renderArtists = (artists: ArtistObjectSimplified[], trackName: string) => {
         return artists.map((artist, index) => {
             return (
-                <React.Fragment>
+                <React.Fragment key={`artist--${index}`}>
                     <Link
                         key={`artist-${artist.id}-${trackName}`}
                         href={`../artist/${artist.id}`}
