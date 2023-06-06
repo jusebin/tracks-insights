@@ -6,7 +6,6 @@ import {Row, Grid, Spacer, Text, Image, Button, Link, Avatar, useTheme, theme} f
 import {useTranslations} from "use-intl";
 import {useColor} from "@/app/hooks/useColor";
 import ArtistObjectSimplified = SpotifyApi.ArtistObjectSimplified;
-import ArtistsLinks from "@/app/components/artists-links";
 
 export default function ClassicLayout(
     {
@@ -15,14 +14,12 @@ export default function ClassicLayout(
         name,
         url,
         imgSrc,
-        trackArtists = []
     }: {
         children: React.ReactNode
         type: 'user' | 'artist' | 'album' | 'track' | 'single' | 'compilation',
         name: string,
         url: string,
         imgSrc?: string,
-        trackArtists?: ArtistObjectSimplified[]
     }) {
     const commonTranslations = useTranslations("Common");
     const t = useTranslations('Song');
@@ -60,7 +57,7 @@ export default function ClassicLayout(
     }, [imgSrc, name, type]);
 
     return (
-        <>
+        <Box css={{w: "100vw"}}>
             <Header/>
             <Box>
                 <Box css={{
@@ -101,6 +98,10 @@ export default function ClassicLayout(
                                         "@smMax": {
                                             w: "100%",
                                             ta: "center"
+                                        },
+                                        "@sm": {
+                                            w: "calc(100% - 235px)",
+                                            pl: "35px"
                                         }
                                     }}
                                 >
@@ -130,6 +131,6 @@ export default function ClassicLayout(
                     {children}
                 </CustomContainer>
             </Box>
-        </>
+        </Box>
     )
 }

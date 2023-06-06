@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
         SPOTIFY_CLIENT_ID: "2838f73d38ad4314b2cc7deea1218566",

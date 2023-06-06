@@ -4,6 +4,15 @@ export interface HSLColor {
     l: number;
 }
 
+/**
+ *
+ * @param hex - a string hexadecimal
+ * @param s - (optional) a number saturation to override it
+ * @param l - (optional) a number lightness to override it
+ * @return HSLColor object
+ * @example hexToHsl("#000") will return {h: 0, s: 0, l: 0}
+ *
+ */
 export function hexToHsl(hex: string, s?: number, l?: number): HSLColor {
     if (!/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex)) {
         throw new Error("Invalid hexa code !");
@@ -56,8 +65,6 @@ export function hexToHsl(hex: string, s?: number, l?: number): HSLColor {
             hue += 360;
         }
     }
-
-    console.log(saturation, lightness);
 
     return { h: hue, s: saturation, l: lightness };
 }

@@ -1,5 +1,18 @@
 import ArtistObjectSimplified = SpotifyApi.ArtistObjectSimplified;
 
+/**
+ *
+ * @param artists - a ArtistObjectSimplified object array
+ * @return string - a string containing the artists names
+ *
+ * artists = [
+ *      {name: "John" ...},
+ *      {name: "Doe" ...}
+ * ]
+ *
+ * getArtistsNames(artists) will return "John, Doe"
+ *
+ */
 export function getArtistsNames(artists: ArtistObjectSimplified[]): string {
     let names = '';
 

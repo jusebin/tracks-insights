@@ -12,7 +12,7 @@ export default function Header() {
     const nextTheme = useNextTheme();
 
     return (
-        <Navbar variant={"sticky"} css={{zIndex: 999}}>
+        <Navbar variant={"floating"} css={{zIndex: 999, w: "100vw"}}>
             <Navbar.Brand>
                 <Text h1 size="$4xl" css={styleGradient}><Link href={"/dashboard"}>Tracks Insights</Link></Text>
             </Navbar.Brand>

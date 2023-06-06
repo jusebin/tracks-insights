@@ -48,7 +48,6 @@ export default function Track({params: {id}}: {
             name={track.name}
             url={track.external_urls.spotify}
             imgSrc={track.album.images[0].url}
-            trackArtists={track.artists}
         >
             <>
                 <Row>
@@ -66,6 +65,12 @@ export default function Track({params: {id}}: {
                     />
                 </Row>
                 <Spacer y={3}/>
+
+                <GridArray
+                    title={"Artists"}
+                    items={track.artists || []}
+                    limit={6}
+                />
 
                 <GridArray
                     title={t('appearsOn')}
