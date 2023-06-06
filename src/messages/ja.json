@@ -7,12 +7,7 @@
       "compilation": "コンピレーション",
       "track": "曲",
       "user": "プロフィール"
-    },
-    "albumType": "アルバム",
-    "artistType": "アーティスト",
-    "singleType": "シングル",
-    "compilationType": "コンピレーション",
-    "trackType": "シングル"
+    }
   },
   "Dashboard": {
     "titles": {
@@ -88,7 +83,6 @@
     "modalTitle": "時間範囲でフィルターする"
   },
   "RecentlyPlayed": {
-    "secs": "{number}秒前",
     "mins": "{number, plural, =0 {ちょうど今} other {#分前}}",
     "hours": "{number}時間前",
     "days": "{number}日前",

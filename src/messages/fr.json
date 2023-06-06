@@ -83,7 +83,6 @@
     "modalTitle": "Filtrer par intervalle de temps"
   },
   "RecentlyPlayed": {
-    "secs": "il y a {number, plural, =1 {1 seconde} other {# secondes}}",
     "mins": "il y a {number, plural, =0 {à l'instant}, =1 {1 minute} other {# minutes}}",
     "hours": "il y a {number, plural, =1 {1 heure} other {# heures}}",
     "days": "il y a {number, plural, =1 {1 jour} other {# jours}}",
@@ -111,8 +110,6 @@
     "popularity": "Popularity",
     "genres": "Genres",
     "discography": "Discographie",
-    "seeMore": "Voir plus",
-    "seeLess": "Voir moins",
     "appearsOn": "Apparaît sur",
     "fansAlsoLike": "Les fans aiment aussi"
   }

@@ -4,11 +4,11 @@ import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 import React from "react";
 import ClassicLayout from "@/app/layouts/classic-layout";
 import {useAlbum} from "@/app/hooks/useAlbum";
-import {Row, Spacer, Table} from "@nextui-org/react";
+import {Row, Spacer} from "@nextui-org/react";
 import {ColValueTitle} from "@/app/components/col-value-title";
 import {useFormatter, useTranslations} from "use-intl";
 import {getTracksDuration} from "@/app/helpers/getTracksDuration";
-import {TitleSection} from "../../../components/title-section";
+import {TitleSection} from "@/app/components/title-section";
 import {useAlbumTracks} from "@/app/hooks/useAlbumTracks";
 import TableTracks from "@/app/components/table-tracks";
 
