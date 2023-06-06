@@ -12,6 +12,8 @@ import {HandleTimeRange} from "@/app/components/handle-time-range";
 import {RecentlyPlayed} from "../recently-played";
 import {GridArray} from "../../components/grid-array";
 import {useTranslations} from "use-intl";
+import CurrentPlaybackResponse = SpotifyApi.CurrentPlaybackResponse;
+import CurrentlyPlayingObject = SpotifyApi.CurrentlyPlayingObject;
 
 export function UserData() {
     const dashboardTranslations = useTranslations("Dashboard");
