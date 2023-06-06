@@ -1,3 +1,5 @@
+'use client';
+
 import React, {useCallback} from "react";
 import Header from "@/app/components/header/header";
 import {Box} from "@/app/components/box";
