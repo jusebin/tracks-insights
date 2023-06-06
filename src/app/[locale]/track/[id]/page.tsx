@@ -12,9 +12,8 @@ import {ColValueTitle} from "@/app/components/col-value-title";
 import {GridArray} from "@/app/components/grid-array";
 import {useQuery} from "@/app/hooks/useQuery";
 import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
-import {useRealArtists} from "@/app/hooks/useRealArtists";
-import {getArtistsNames} from "@/app/helpers/getArtistsNames";
 import {getItemsIds} from "@/app/helpers/getArtistsIds";
+import {useArtists} from "@/app/hooks/useArtists";
 
 export default function Track({params: {id}}: {
     params: Params
@@ -23,7 +22,7 @@ export default function Track({params: {id}}: {
     const format = useFormatter();
 
     const {track} = useTrack(id);
-    const {artists} = useRealArtists(track ? getItemsIds(track.artists).join(',') : '');
+    const {artists} = useArtists(track ? getItemsIds(track.artists).join(',') : '');
 
     const q = track ? `isrc:${track?.external_ids.isrc} artist:${track?.artists[0].name} track:${track.name}` : undefined;
     const {query} = useQuery('track', q);

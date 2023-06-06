@@ -9,9 +9,6 @@ export async function POST(request: Request) {
         ids: body.ids
     })
 
-    console.log(body.access_token);
-    console.log(`artists?${params}`);
-
     const response = (await fetchSpotifyApi(
             `artists?${params}`,
             'GET',

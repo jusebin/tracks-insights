@@ -1,15 +1,11 @@
-'use client';
-
-import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
+import {useEffect, useState} from "react";
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 
-export function useSongs(limit: number, timeRange: string) {
+export function useTopTracks(limit: number, timeRange: string) {
     const {data: session} = useSession();
-    const [songsLoading, setSongsLoading] = useState<boolean>(false);
-    const [songs, setSongs] = useState<TrackObjectFull[]>([]);
-
-    // console.log(session?.access_token);
+    const [topTracksLoading, setTopTracksLoading] = useState<boolean>(false);
+    const [topTracks, setTopTracks] = useState<TrackObjectFull[]>([]);
 
     useEffect(() => {
         if (!!session) {
@@ -25,19 +21,19 @@ export function useSongs(limit: number, timeRange: string) {
                 })).json();
             }
 
-            if (!songs.length) {
-                setSongsLoading(true);
+            if (!topTracks.length) {
+                setTopTracksLoading(true);
             }
 
-            if (songsLoading) {
+            if (topTracksLoading) {
                 (async () => {
                     const data = await getData();
-                    setSongsLoading(false);
-                    setSongs(data.items)
+                    setTopTracksLoading(false);
+                    setTopTracks(data.items)
                 })();
             }
         }
-    }, [limit, timeRange, session, songs, songsLoading]);
+    }, [session, topTracks, topTracksLoading, limit, timeRange]);
 
-    return {songs, songsLoading, setSongsLoading}
+    return {topTracks, topTracksLoading, setTopTracksLoading}
 }

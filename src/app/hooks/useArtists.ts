@@ -1,40 +1,33 @@
-'use client';
 import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
+import MultipleArtistsResponse = SpotifyApi.MultipleArtistsResponse;
 
-export function useArtists(limit: number, timeRange: string) {
+export function useArtists(ids: string) {
     const {data: session} = useSession();
-    const [artistsLoading, setArtistsLoading] = useState<boolean>(false);
     const [artists, setArtists] = useState<ArtistObjectFull[]>([]);
 
     useEffect(() => {
-        if (!!session) {
-            const getData = async () => {
-                return await (await fetch('/api/spotify/get-top-items', {
+        if (!!session && ids.length) {
+            const getData = async (): Promise<MultipleArtistsResponse> => {
+                return await (await fetch('/api/spotify/get-artists', {
                     method: 'POST',
                     body: JSON.stringify({
                         access_token: session.access_token,
-                        type: 'artists',
-                        timeRange,
-                        limit
+                        ids
                     })
                 })).json();
-            };
-
-            if (!artists.length) {
-                setArtistsLoading(true);
             }
 
-            if (artistsLoading) {
+            if (!artists.length) {
                 (async () => {
                     const data = await getData();
-                    setArtistsLoading(false);
-                    setArtists(data.items);
+                    console.log('data', data);
+                    setArtists(data.artists);
                 })();
             }
         }
-    }, [session, artists, limit, timeRange, artistsLoading]);
+    }, [session, artists, ids]);
 
-    return {artists, setArtistsLoading};
+    return {artists};
 }
