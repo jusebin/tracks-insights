@@ -16,9 +16,7 @@
     "@types/react-dom": "18.2.4",
     "canvas": "^2.11.2",
     "canvas-sketch-util": "^1.10.0",
-    "chart.js": "^4.3.0",
     "color.js": "^1.2.0",
-    "colorthief": "^2.4.0",
     "dotenv": "^16.1.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
@@ -30,7 +28,6 @@
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
-    "react-iconly": "^2.2.10",
     "typescript": "5.0.4"
   },
   "devDependencies": {

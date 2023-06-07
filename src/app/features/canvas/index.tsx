@@ -8,7 +8,6 @@ import {lerp} from "canvas-sketch-util/math";
 import useWindow from "@/app/hooks/use-window";
 import {CANVAS_COLORS} from "@/app/constants/canvas-colors";
 import {hexToRGBA} from "@/app/helpers/hex-to-rgba";
-import {setTime} from "@internationalized/date/src/manipulation";
 
 
 interface Point {
