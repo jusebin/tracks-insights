@@ -1,5 +1,7 @@
 import React from "react";
 import {Container} from "@nextui-org/react";
+import Canvas from "@/app/features/canvas";
+import {Box} from "@/app/components/box";
 
 export default function HomeLayout({children}: {
     children: React.ReactNode
@@ -11,9 +13,19 @@ export default function HomeLayout({children}: {
             alignItems={"center"}
             justify={"center"}
             fluid
-            css={{height: '100vh'}}
+            css={{
+                height: '100vh',
+                position: "relative"
+            }}
         >
-            {children}
+            <Canvas />
+            <Box css={{
+                position: "relative",
+                background: "black",
+                p: "40px"
+            }}>
+                {children}
+            </Box>
         </Container>
     );
 }

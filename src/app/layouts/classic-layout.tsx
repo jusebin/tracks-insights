@@ -116,7 +116,7 @@ export default function ClassicLayout(
                                             }
                                         }}
                                     >
-                                        <Link css={{color: "black"}} target={"_blank"} isExternal href={url}>
+                                        <Link color={"text"} target={"_blank"} isExternal href={url}>
                                             {t('openInSpotify')}
                                         </Link>
                                     </Button>
