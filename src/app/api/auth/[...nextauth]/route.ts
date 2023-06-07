@@ -35,7 +35,6 @@ export const authOptions = {
                 return token;
             }
             else {
-                console.log('coucou', token.refresh_token);
                 const params = new URLSearchParams({
                     grant_type: 'refresh_token',
                     refresh_token: token.refresh_token || ''

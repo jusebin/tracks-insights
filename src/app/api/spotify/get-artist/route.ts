@@ -5,8 +5,6 @@ import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 export async function POST(request: Request) {
     const body = await request.json();
 
-    console.log(body.access_token);
-
     const response = (await fetchSpotifyApi(
             `artists/${body.id}`,
             'GET',

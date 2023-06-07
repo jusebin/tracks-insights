@@ -20,8 +20,6 @@ export function GridArray({title, items, limit, ranking}: {
     const commonTranslation = useTranslations("Common");
     const {showMore, toggleShowMore} = useShow();
 
-    console.log(items);
-
     const renderItems = () => {
         if (!items.length) {
             return null;

@@ -19,8 +19,6 @@ export function useRecentlyPlayedAll(timeValue: number) {
                     })
                 })).json();
 
-                console.log('data');
-
                 setRecentlyPlayed(data);
             })();
         }

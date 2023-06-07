@@ -11,9 +11,6 @@ export async function POST(request: Request) {
         type: body.type,
     });
 
-    console.log('GUEULE DE LA REQ', `q?${params}`);
-
-
     const response = (await fetchSpotifyApi(
             `search?${params}`,
             'GET',

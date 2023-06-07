@@ -22,7 +22,6 @@ export function useArtists(ids: string) {
             if (!artists.length) {
                 (async () => {
                     const data = await getData();
-                    console.log('data', data);
                     setArtists(data.artists);
                 })();
             }

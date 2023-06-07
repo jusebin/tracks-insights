@@ -11,9 +11,6 @@ export async function POST(request: Request) {
        offset: String(body.offset)
     });
 
-    console.log(body.access_token);
-    console.log('offset', body.offset)
-
     const response = (await fetchSpotifyApi(
             `albums/${body.id}/tracks?${params}`,
             'GET',

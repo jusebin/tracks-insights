@@ -5,7 +5,7 @@
 
 This project showcases a Spotify user's data regarding their activity on the application. It also displays specific data regarding the tracks, albums, and artists followed by the user, leveraging the Spotify Web API.
 
-It builds thanks to [Netlify](https://www.netlify.com/) which analyze each commit on the `main` branch of this project to make another build on production.
+It builds thanks to [Vercel](https://www.vercel.com/) which analyze each commit on the `main` branch of this project to make another build on production.
 
 As this app is still in development mode from Spotify (see more in [quotas mode Spotify section](https://developer.spotify.com/documentation/web-api/concepts/quota-modes)), 
 the best way to show this is to fork the project and use your own client and secrets keys

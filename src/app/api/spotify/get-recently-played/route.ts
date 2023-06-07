@@ -9,8 +9,6 @@ export async function POST(request: Request) {
        before: String(Date.now())
     });
 
-    console.log('token', body.access_token)
-
     const response = await fetchSpotifyApi(
         `me/player/recently-played?${params}`,
         'GET',
