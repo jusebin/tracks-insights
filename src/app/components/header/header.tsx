@@ -1,15 +1,14 @@
-import {Link, Navbar, Switch, Text, useTheme} from "@nextui-org/react";
-import {SvgIcon} from "@/app/components/svgIcon";
+import {Link, Navbar, Text, Button} from "@nextui-org/react";
 import React from "react";
-import {useTheme as useNextTheme} from "next-themes";
+import {signOut} from "next-auth/react";
+import {useTranslations} from "use-intl";
 
 export default function Header() {
     const styleGradient = {
         textGradient: "45deg, $purple600 -20%, $pink600 50%, $yellow600 70%, $red600 100%"
     };
 
-    const {isDark} = useTheme();
-    const nextTheme = useNextTheme();
+    const buttonsTranslation = useTranslations("Buttons");
 
     return (
         <Navbar variant={"floating"} css={{zIndex: 999, w: "100vw"}}>
@@ -18,13 +17,12 @@ export default function Header() {
             </Navbar.Brand>
             <Navbar.Content>
                 <Navbar.Item>
-                    <Switch
-                        checked={isDark}
-                        iconOn={<SvgIcon name={"moon"} />}
-                        iconOff={<SvgIcon name={"sun"} />}
-                        size={"xl"}
-                        onChange={(e) => nextTheme.setTheme(e.target.checked ? 'dark' : 'light')}
-                    />
+                    <Button
+                        size={"xs"}
+                        color={"error"}
+                        bordered
+                        onPress={() => signOut()}
+                    >{buttonsTranslation('logOut')}</Button>
                 </Navbar.Item>
             </Navbar.Content>
         </Navbar>
