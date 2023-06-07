@@ -58,7 +58,7 @@ export default function ClassicLayout(
     }, [imgSrc, name, type]);
 
     return (
-        <Box css={{w: "100vw"}}>
+        <Box css={{w: "100vw", marginTop: "-75px", pt: "75px"}}>
             <Header/>
             <Box>
                 <Box css={{
@@ -112,11 +112,11 @@ export default function ClassicLayout(
                                         color={"primary"}
                                         css={{
                                             "@smMax": {
-                                                m: "0 auto"
+                                                m: "0 auto",
                                             }
                                         }}
                                     >
-                                        <Link color="text" target={"_blank"} isExternal href={url}>
+                                        <Link css={{color: "black"}} target={"_blank"} isExternal href={url}>
                                             {t('openInSpotify')}
                                         </Link>
                                     </Button>

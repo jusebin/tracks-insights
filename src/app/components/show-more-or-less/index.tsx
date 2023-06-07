@@ -11,7 +11,7 @@ export default function ShowMoreOrLess({show, callback}: {
     return (
         <Box css={{pt: "30px"}}>
             <Button
-                css={{m: "0 auto"}}
+                css={{m: "0 auto", color: "black"}}
                 onPress={callback}
             >
                 {show ? buttonTranslations('showLess') : buttonTranslations('showMore')}

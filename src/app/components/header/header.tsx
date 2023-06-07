@@ -5,13 +5,13 @@ import {useTranslations} from "use-intl";
 
 export default function Header() {
     const styleGradient = {
-        textGradient: "45deg, $purple600 -20%, $pink600 50%, $yellow600 70%, $red600 100%"
+        textGradient: "45deg, $primary 0%, $secondary 100%"
     };
 
     const buttonsTranslation = useTranslations("Buttons");
 
     return (
-        <Navbar variant={"floating"} css={{zIndex: 999, w: "100vw"}}>
+        <Navbar variant={"static"} css={{zIndex: 999}}>
             <Navbar.Brand>
                 <Text h1 size="$4xl" css={styleGradient}><Link href={"/dashboard"}>Tracks Insights</Link></Text>
             </Navbar.Brand>
