@@ -1,11 +1,11 @@
 # Tracks Insights
 [![stability-wip](https://img.shields.io/badge/stability-wip-lightgrey.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#work-in-progress)
 
+![Screen of the desktop version](./screen-desktop.png)
+
 This project showcases a Spotify user's data regarding their activity on the application. It also displays specific data regarding the tracks, albums, and artists followed by the user, leveraging the Spotify Web API.
 
 It builds thanks to [Netlify](https://www.netlify.com/) which analyze each commit on the `main` branch of this project to make another build on production.
-
-See it in action: [https://tracksinsights.juru.rocks](https://tracksinsights.juru.rocks)
 
 As this app is still in development mode from Spotify (see more in [quotas mode Spotify section](https://developer.spotify.com/documentation/web-api/concepts/quota-modes)), 
 the best way to show this is to fork the project and use your own client and secrets keys
@@ -30,15 +30,17 @@ the best way to show this is to fork the project and use your own client and sec
 
 [Spotify Web API documentation](https://developer.spotify.com/documentation/web-api) - Enables the creation of applications that can interact with Spotify's streaming service
 
-## Task list
+## Tasks list
 If you want to know what I did and what I'm developing next
 - [x] Make API calls
 - [x] Create custom hooks which call API
-- [x] Developing all pages
+- [x] Integrate Dashboard, Artist, Track, and Album pages
 - [ ] Create new version of the `Header` component
 - [ ] Desactivate theme swapping and force it to dark theme
-- [ ] Create a `Loading` component to show a skeleton while the data are loading
+- [ ] Create a `Skeleton`component while the data are loading
+- [ ] Integrate the landing page
 - [ ] Submit the app to Spotify validation to remove the [quotas modes](https://developer.spotify.com/documentation/web-api/concepts/quota-modes)
+- [ ] Document all the files
 
 ## Main architecture
  
@@ -63,20 +65,18 @@ If you want to know what I did and what I'm developing next
 ## Getting Started
 
 ### First
-After installing dependencies with a `yarn` or `npm i` , create your own Spotify application, then copy the `Client ID` and the `Client secret` into the file `next.config.js`
+After installing dependencies with a `yarn` or `npm i` , create your own Spotify application, then copy the `Client ID` and the `Client secret` into a `.env.local` file with those other values
+
+[Spotify Dev Dashboard link](https://developer.spotify.com/dashboard)
 
 ```
-const nextConfig = {
-    env: {
-        SPOTIFY_CLIENT_ID: "YOUR_CLIENT_ID",
-        SPOTIFY_CLIENT_SECRET: "YOUR_CLIENT_SECRET",
-        ...
-    }
-}
-
-module.exports = nextConfig
+SPOTIFY_CLIENT_ID=YOUR_SPOTIFY_CLIENT_ID
+SPOTIFY_CLIENT_SECRET=YOUR_SPOTIFY_CLIENT_SECRET
+NEXTAUTH_SECRET=l1hL3QoJgFdKexL0hKyPzIqZK6RFE1Kw4VRN8Yn0Z/yd5l4IUKsHjQ4+KOqLPl0LuflKuLe1U5yt9z4vBVkOBQ==
+NEXTAUTH_URL=http://localhost:3000
+NEXT_PUBLIC_SPOTIFY_TOKEN=https://accounts.spotify.com/api/token
+NEXT_PUBLIC_SPOTIFY_URL=https://api.spotify.com/v1/
 ```
-You're keep the variables `NEXTAUTH_SECRET`, `NEXT_PUBLIC_SPOTIFY_TOKEN` and `NEXT_PUBLIC_SPOTIFY_URL`.
 
 ### Secondly
 In your spotify app, add this url within the `Redirect URIs` section (otherwise, Spotify will stop you from making request from their API).
