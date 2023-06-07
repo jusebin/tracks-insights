@@ -1,7 +1,7 @@
 'use client';
 
 import {useTranslations} from "use-intl";
-import {useRecentlyPlayed} from "@/app/hooks/useRecentlyPlayed";
+import {useRecentlyPlayed} from "@/app/hooks/use-recently-played";
 import React from "react";
 import {TitleSection} from "../../components/title-section";
 import TracksHistory from "@/app/components/tracks-history";

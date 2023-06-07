@@ -3,13 +3,13 @@
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 import React from "react";
 import ClassicLayout from "@/app/layouts/classic-layout";
-import {useAlbum} from "@/app/hooks/useAlbum";
+import {useAlbum} from "@/app/hooks/use-album";
 import {Row, Spacer} from "@nextui-org/react";
 import {ColValueTitle} from "@/app/components/col-value-title";
 import {useFormatter, useTranslations} from "use-intl";
-import {getTracksDuration} from "@/app/helpers/getTracksDuration";
+import {getTracksDuration} from "@/app/helpers/get-tracks-duration";
 import {TitleSection} from "@/app/components/title-section";
-import {useAlbumTracks} from "@/app/hooks/useAlbumTracks";
+import {useAlbumTracks} from "@/app/hooks/use-album-tracks";
 import TableTracks from "@/app/components/table-tracks";
 
 export default function Album({params: {id}}: {

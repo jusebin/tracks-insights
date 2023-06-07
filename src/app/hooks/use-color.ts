@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {average, prominent} from "color.js";
-import {hexToHsl, HSLColor} from "@/app/helpers/hexToHsl";
+import {hexToHsl, HSLColor} from "@/app/helpers/hex-to-hsl";
 
 export function useColor({imageUrl, amount = 3}: {
     imageUrl?: string,
@@ -18,8 +18,6 @@ export function useColor({imageUrl, amount = 3}: {
                     sample: 30
                 });
                 // @ts-ignore
-                // const HSL: HSLColor = hexToHsl(data, 100, 60);
-
                 setColors(data);
             })();
         }

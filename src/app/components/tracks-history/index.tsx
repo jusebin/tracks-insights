@@ -1,5 +1,5 @@
 import PlayHistoryObject = SpotifyApi.PlayHistoryObject;
-import {calcDate} from "@/app/helpers/calcDate";
+import {calcDate} from "@/app/helpers/calc-date";
 import {useTranslations} from "use-intl";
 import React from "react";
 import {Col, Image, Link, Row, Spacer, Text} from "@nextui-org/react";

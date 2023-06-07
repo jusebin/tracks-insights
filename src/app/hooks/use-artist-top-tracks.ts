@@ -2,17 +2,17 @@ import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
-import {useProfile} from "@/app/hooks/useProfile";
+import {useProfile} from "@/app/hooks/use-profile";
 
-export function useRelatedArtists(id: string) {
+export function useArtistTopTracks(id: string) {
     const {data: session} = useSession();
     const {profile} = useProfile();
-    const [relatedArtists, setRelatedArtists] = useState<ArtistObjectFull[]>([]);
+    const [artistTopTracks, setArtistTopTracks] = useState<TrackObjectFull[]>([]);
 
     useEffect(() => {
         if (!!session && !!profile) {
             const getData = async () => {
-                return await (await fetch('/api/spotify/get-related-artists', {
+                return await (await fetch('/api/spotify/get-artist-top-tracks', {
                     method: 'POST',
                     body: JSON.stringify({
                         access_token: session.access_token,
@@ -22,14 +22,14 @@ export function useRelatedArtists(id: string) {
                 })).json();
             }
 
-            if (!relatedArtists.length) {
+            if (!artistTopTracks.length) {
                 (async () => {
                     const data = await getData();
-                    setRelatedArtists(data.artists);
+                    setArtistTopTracks(data.tracks);
                 })();
             }
         }
-    }, [session, relatedArtists, id, profile]);
+    }, [session, artistTopTracks, id, profile]);
 
-    return {relatedArtists}
+    return {artistTopTracks}
 }

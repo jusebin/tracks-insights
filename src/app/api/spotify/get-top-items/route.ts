@@ -1,5 +1,5 @@
 import {NextResponse} from "next/server";
-import {fetchSpotifyApi} from "@/app/helpers/fetchSpotifyApi";
+import {fetchSpotifyApi} from "@/app/helpers/fetch-spotify-api";
 import PagingObject = SpotifyApi.PagingObject;
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import TrackObjectFull = SpotifyApi.TrackObjectFull;

@@ -1,19 +1,19 @@
 'use client';
 
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
-import {useTrack} from "@/app/hooks/useTrack";
+import {useTrack} from "@/app/hooks/use-track";
 import React from "react";
 import {Row, Spacer} from "@nextui-org/react";
-import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
+import {convertMsToMinutes} from "@/app/helpers/convert-ms-to-minutes";
 import {useFormatter, useTranslations} from "use-intl";
 import {AudioScore} from "@/app/features/audio-score";
 import ClassicLayout from "@/app/layouts/classic-layout";
 import {ColValueTitle} from "@/app/components/col-value-title";
 import {GridArray} from "@/app/components/grid-array";
-import {useQuery} from "@/app/hooks/useQuery";
+import {useQuery} from "@/app/hooks/use-query";
 import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
-import {getItemsIds} from "@/app/helpers/getArtistsIds";
-import {useArtists} from "@/app/hooks/useArtists";
+import {getItemsIds} from "@/app/helpers/get-artists-ids";
+import {useArtists} from "@/app/hooks/use-artists";
 
 export default function Track({params: {id}}: {
     params: Params

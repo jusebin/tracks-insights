@@ -1,4 +1,4 @@
-import {hexToHsl, HSLColor} from "@/app/helpers/hexToHsl";
+import {hexToHsl, HSLColor} from "@/app/helpers/hex-to-hsl";
 import {createCanvas, loadImage} from "canvas";
 
 export async function getDominantColor(imageUrl: string): Promise<HSLColor> {

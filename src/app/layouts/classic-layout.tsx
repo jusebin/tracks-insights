@@ -6,7 +6,7 @@ import {Box} from "@/app/components/box";
 import CustomContainer from "@/app/components/custom-container";
 import {Row, Grid, Spacer, Text, Image, Button, Link, Avatar} from "@nextui-org/react";
 import {useTranslations} from "use-intl";
-import {useColor} from "@/app/hooks/useColor";
+import {useColor} from "@/app/hooks/use-color";
 
 export default function ClassicLayout(
     {

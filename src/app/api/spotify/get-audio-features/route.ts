@@ -1,4 +1,4 @@
-import {fetchSpotifyApi} from "@/app/helpers/fetchSpotifyApi";
+import {fetchSpotifyApi} from "@/app/helpers/fetch-spotify-api";
 import {NextResponse} from "next/server";
 import AudioFeaturesResponse = SpotifyApi.AudioFeaturesResponse;
 

@@ -1,4 +1,4 @@
-import {fetchSpotifyApi} from "@/app/helpers/fetchSpotifyApi";
+import {fetchSpotifyApi} from "@/app/helpers/fetch-spotify-api";
 import {NextResponse} from "next/server";
 
 export async function POST(request: Request) {

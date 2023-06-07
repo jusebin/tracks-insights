@@ -2,17 +2,17 @@
 
 import React, {useCallback, useState} from "react";
 import {Spacer} from "@nextui-org/react";
-import {usePlaybackState} from "@/app/hooks/usePlaybackState";
+import {usePlaybackState} from "@/app/hooks/use-playback-state";
 import {Playback} from "@/app/components/playback";
 import {Genres} from "@/app/components/genres";
 
-import {TimeRange, timeRanges} from "@/app/constants/timeRanges";
+import {TimeRange, timeRanges} from "@/app/constants/time-ranges";
 import {HandleTimeRange} from "@/app/components/handle-time-range";
 import {RecentlyPlayed} from "../recently-played";
 import {GridArray} from "../../components/grid-array";
 import {useTranslations} from "use-intl";
-import {useTopTracks} from "@/app/hooks/useTopTracks";
-import {useTopArtists} from "@/app/hooks/useTopArtists";
+import {useTopTracks} from "@/app/hooks/use-top-tracks";
+import {useTopArtists} from "@/app/hooks/use-top-artists";
 
 export function UserData() {
     const dashboardTranslations = useTranslations("Dashboard");

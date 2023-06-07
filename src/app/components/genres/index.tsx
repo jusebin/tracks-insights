@@ -2,12 +2,12 @@ import {Badge, Row, Spacer} from "@nextui-org/react";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import React, {useMemo} from "react";
 import {TitleSection} from "../title-section";
-import {TimeRange} from "@/app/constants/timeRanges";
+import {TimeRange} from "@/app/constants/time-ranges";
 import {useTranslations} from "use-intl";
 import {Box} from "@/app/components/box";
 import ProgressValue from "@/app/components/progress-value";
 import ShowMoreOrLess from "@/app/components/show-more-or-less";
-import {useShow} from "@/app/hooks/useShow";
+import {useShow} from "@/app/hooks/use-show";
 
 interface Genre {
     score: number;

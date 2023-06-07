@@ -4,7 +4,7 @@ import {TitleSection} from "../title-section";
 import {Grid} from "@nextui-org/react";
 import React from "react";
 import ShowMoreOrLess from "../show-more-or-less";
-import {useShow} from "@/app/hooks/useShow";
+import {useShow} from "@/app/hooks/use-show";
 import CardImageLink from "../card-image-link";
 import {useTranslations} from "use-intl";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;

@@ -1,8 +1,8 @@
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import {Text} from "@nextui-org/react";
-import {getArtistsNames} from "@/app/helpers/getArtistsNames";
+import {getArtistsNames} from "@/app/helpers/get-artists-names";
 import React from "react";
-import {getLineClampStyle} from "@/app/helpers/getLineClampStyle";
+import {getLineClampStyle} from "@/app/helpers/get-line-clamp-style";
 
 export function TrackNameAndArtists({track, isBold, lineClampTrack, lineClampArtist}: {
     track: TrackObjectFull,

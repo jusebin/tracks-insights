@@ -6,10 +6,10 @@ import ClassicLayout from "@/app/layouts/classic-layout";
 import {Row, Spacer} from "@nextui-org/react";
 import {ColValueTitle} from "@/app/components/col-value-title";
 import {useTranslations} from "use-intl";
-import {useArtist} from "@/app/hooks/useArtist";
-import {useArtistAlbums} from "@/app/hooks/useArtistAlbums";
-import {useArtistTopTracks} from "@/app/hooks/useArtistTopTracks";
-import {useRelatedArtists} from "@/app/hooks/useRelatedArtists";
+import {useArtist} from "@/app/hooks/use-artist";
+import {useArtistAlbums} from "@/app/hooks/use-artist-albums";
+import {useArtistTopTracks} from "@/app/hooks/use-artist-top-tracks";
+import {useRelatedArtists} from "@/app/hooks/use-related-artists";
 import {ArtistPopularTracks} from "@/app/features/artist-popular-tracks";
 import {GridArray} from "@/app/components/grid-array";
 

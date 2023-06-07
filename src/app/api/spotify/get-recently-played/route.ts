@@ -1,5 +1,5 @@
 import {NextResponse} from "next/server";
-import {fetchSpotifyApi} from "@/app/helpers/fetchSpotifyApi";
+import {fetchSpotifyApi} from "@/app/helpers/fetch-spotify-api";
 import UsersRecentlyPlayedTracksResponse = SpotifyApi.UsersRecentlyPlayedTracksResponse;
 
 export async function POST(request: Request) {

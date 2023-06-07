@@ -1,6 +1,6 @@
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import TrackObjectSimplified = SpotifyApi.TrackObjectSimplified;
-import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
+import {convertMsToMinutes} from "@/app/helpers/convert-ms-to-minutes";
 
 /**
  *

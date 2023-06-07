@@ -1,6 +1,6 @@
 import {Box} from "@/app/components/box";
 import {useEffect, useRef} from "react";
-import {useIntersection} from "@/app/hooks/useIntersection";
+import {useIntersection} from "@/app/hooks/use-intersection";
 
 export function Intersection({callback, margin}: {
     callback: (prop?: any) => void | any,

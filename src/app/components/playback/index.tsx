@@ -1,7 +1,7 @@
 import {TitleSection} from "../title-section";
 import {Card, Col, Image, Link, Row} from "@nextui-org/react";
 import {useTranslations} from "use-intl";
-import {useTrack} from "@/app/hooks/useTrack";
+import {useTrack} from "@/app/hooks/use-track";
 import React from "react";
 import {TrackNameAndArtists} from "../track-name-and-artists";
 

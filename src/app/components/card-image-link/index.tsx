@@ -1,6 +1,6 @@
 import {Card, Image, Link, Text} from "@nextui-org/react";
 import {Box} from "@/app/components/box";
-import {getLineClampStyle} from "@/app/helpers/getLineClampStyle";
+import {getLineClampStyle} from "@/app/helpers/get-line-clamp-style";
 import React from "react";
 
 export default function CardImageLink({img, url, type, name, roundImg, ranking}: {

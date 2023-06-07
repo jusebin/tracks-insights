@@ -1,4 +1,4 @@
-import {PITCH_CLASS} from "@/app/constants/pitchClass";
+import {PITCH_CLASS} from "@/app/constants/pitch-class";
 
 /**
  *

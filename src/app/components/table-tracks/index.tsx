@@ -1,7 +1,7 @@
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import {Link, Row, Table, Text} from "@nextui-org/react";
 import React, {Key} from "react";
-import {convertMsToMinutes} from "@/app/helpers/convertMsToMinutes";
+import {convertMsToMinutes} from "@/app/helpers/convert-ms-to-minutes";
 import {SvgIcon} from "@/app/components/svgIcon";
 import {useTranslations} from "use-intl";
 import ArtistObjectSimplified = SpotifyApi.ArtistObjectSimplified;

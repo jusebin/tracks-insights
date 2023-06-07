@@ -1,4 +1,4 @@
-import {TimeRange, timeRanges} from "@/app/constants/timeRanges";
+import {TimeRange, timeRanges} from "@/app/constants/time-ranges";
 import React, {useCallback} from "react";
 import {Row, Button, Card, Modal, Text, useModal} from "@nextui-org/react";
 import {useTranslations} from "use-intl";

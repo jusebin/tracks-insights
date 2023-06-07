@@ -1,4 +1,4 @@
-import {useAlbum} from "@/app/hooks/useAlbum";
+import {useAlbum} from "@/app/hooks/use-album";
 import {TitleSection} from "../../components/title-section";
 import {useTranslations} from "use-intl";
 import {Box} from "@/app/components/box";

@@ -2,10 +2,10 @@ import React from "react";
 import {Grid, Spacer} from "@nextui-org/react";
 import {TitleSection} from "../../components/title-section";
 import {useTranslations} from "use-intl";
-import {useAudioFeatures} from "@/app/hooks/useAudioFeatures";
+import {useAudioFeatures} from "@/app/hooks/use-audio-features";
 import ProgressValue from "@/app/components/progress-value";
 import CardValueTitle from "@/app/components/card-value-title";
-import {convertNumberToPitchClass} from "@/app/helpers/convertNumberToPitchClass";
+import {convertNumberToPitchClass} from "@/app/helpers/convert-number-to-pitch-class";
 
 export function AudioScore({id}: {
     id: string
