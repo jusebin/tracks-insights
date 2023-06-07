@@ -1,3 +1,5 @@
+'use client';
+
 import {useEffect, useRef} from "react";
 
 // I ignore the next import because there id no Typescript definition of this package, I will send a Pull Request to the owner
@@ -103,7 +105,7 @@ export default function Canvas() {
                     context.fillRect(0, 0, windowSize[0], windowSize[1]);
                     drawGrid(grid);
                     revealGrid(grid);
-                    window.requestAnimationFrame(draw);
+                    requestAnimationFrame(draw);
                 }
 
                 setTimeout(() => {
