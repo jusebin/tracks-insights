@@ -31,6 +31,7 @@ export default function Canvas() {
             const context: RenderingContext | null = canvas.getContext('2d');
 
             if (context) {
+                let canvasScale = 2;
                 const createGrid = () => {
                     const points: Point[] = [];
                     const count = 25;
@@ -84,14 +85,6 @@ export default function Canvas() {
                     const value = 0.01;
 
                     for (const cell of grid) {
-                        if (cell.position[0] > 0.25 && cell.position[0] < 0.75) {
-                            coefficient = 0.5;
-                        }
-
-                        if (cell.position[0] > 0.75 && cell.position[0] < 1) {
-                            coefficient = 0.3;
-                        }
-
                         cell.opacity = cell.opacity >= 1 ? 1 : cell.opacity + (value * coefficient);
                         cell.color = hexToRGBA(cell.colorHex, cell.opacity);
                     }
