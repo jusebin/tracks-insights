@@ -34,7 +34,7 @@ export default function Canvas() {
                 let canvasScale = 2;
                 const createGrid = () => {
                     const points: Point[] = [];
-                    const count = 25;
+                    const count = 20;
                     for (let x = 0; x < count; x++) {
                         for (let y = 0; y < count; y++) {
                             const u = count <= 1 ? 0.5 : x / (count - 1);
@@ -57,7 +57,7 @@ export default function Canvas() {
 
                 const drawMiddleRect = () => {
                     context.fillStyle = '#000';
-                    context.fillRect(0, windowSize[1] / 2 - 210 / 2, windowSize[0], 210);
+                    context.fillRect(0, windowSize[1] / 2 - 210 / 2, windowSize[0], 220);
                 }
 
                 const drawGrid = (grid: Point[]) => {
@@ -101,9 +101,7 @@ export default function Canvas() {
                     requestAnimationFrame(draw);
                 }
 
-                setTimeout(() => {
-                    draw();
-                }, 1000);
+                draw();
             }
         }
     }, [ref, windowSize]);

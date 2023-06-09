@@ -13,6 +13,7 @@ export default function useWindow() {
                 setWindowSize([window.innerWidth, window.innerHeight]);
             }
 
+            setWindowSize([window.innerWidth, window.innerHeight]);
             window.addEventListener('resize', handleWindowSize);
 
             return () => window.removeEventListener('resize', handleWindowSize);
