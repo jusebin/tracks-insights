@@ -1,4 +1,5 @@
-import {Card, Image, Link, Text} from "@nextui-org/react";
+import {Card, Link, Text} from "@nextui-org/react";
+import Image from 'next/image'
 import {Box} from "@/app/components/box";
 import {getLineClampStyle} from "@/app/helpers/get-line-clamp-style";
 import React from "react";
@@ -18,19 +19,24 @@ export default function CardImageLink({img, url, type, name, roundImg, ranking}:
                     <Box>
                         <Link href={url} css={{d: "block", w: "100%"}}>
                             <Box css={{
+                                width: "100%",
                                 height: 0,
                                 paddingBottom: "100%",
                                 overflow: "hidden",
-                                position: "relative"
+                                position: "relative",
+                                background: "$gray800",
+                                borderRadius: roundImg ? '100%' : 0,
+                                maxWidth: "217px",
+                                maxHeight: "217px"
                             }}>
                                 <Image
                                     src={img}
                                     alt={`cover for ${type} ${name}`}
-                                    css={{
-                                        borderRadius: roundImg ? '100%' : 0,
-                                        aspectRatio: "1/1",
-                                        objectFit: "cover"
-                                    }}
+                                    loading={"lazy"}
+                                    width="0"
+                                    height="0"
+                                    sizes="100vw"
+                                    style={{ width: '100%', height: 'auto' }}
                                 />
                             </Box>
                             <Box css={{pt: '10px'}}>
