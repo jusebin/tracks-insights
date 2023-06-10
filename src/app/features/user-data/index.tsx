@@ -3,7 +3,7 @@
 import React, {useCallback, useState} from "react";
 import {Spacer} from "@nextui-org/react";
 import {usePlaybackState} from "@/app/hooks/use-playback-state";
-import {Playback} from "@/app/components/playback";
+import {Playback} from "../playback";
 import {Genres} from "@/app/components/genres";
 
 import {TimeRange, timeRanges} from "@/app/constants/time-ranges";

@@ -2,7 +2,8 @@ import PlayHistoryObject = SpotifyApi.PlayHistoryObject;
 import {calcDate} from "@/app/helpers/calc-date";
 import {useTranslations} from "use-intl";
 import React from "react";
-import {Col, Image, Link, Row, Spacer, Text} from "@nextui-org/react";
+import Image from "next/image";
+import {Col, Link, Row, Spacer, Text} from "@nextui-org/react";
 import {TrackNameAndArtists} from "../track-name-and-artists";
 
 export default function TracksHistory({itemsHistory, trackId}: {
@@ -42,21 +43,26 @@ export default function TracksHistory({itemsHistory, trackId}: {
                 <React.Fragment key={`recently-played-${index}`}>
                     <Row align={"center"} justify={"space-between"}>
                         <Col>
-                            <Link href={`track/${item.track.id}`} css={{d: 'block'}}>
-                                <Row>
-                                    <Col css={{width: '80px'}}>
-                                        <Image width={60} src={item.track.album.images[0].url}
-                                               alt={`cover ${item.track.name}`}/>
-                                    </Col>
-                                    <Col css={{pl: "10px", pr: "10px"}}>
-                                        <TrackNameAndArtists
-                                            track={item.track}
-                                            lineClampArtist={1}
-                                            lineClampTrack={1}
-                                        />
-                                    </Col>
-                                </Row>
-                            </Link>
+                            <Row>
+                                <Col css={{width: '80px'}}>
+                                    <Image
+                                        loading={"lazy"}
+                                        width="0"
+                                        height="0"
+                                        sizes="100vw"
+                                        style={{width: '100%', height: 'auto', aspectRatio: "1/1"}}
+                                        src={item.track.album.images[1].url}
+                                        alt={`cover ${item.track.name}`}/>
+                                </Col>
+                                <Col css={{pl: "10px", pr: "10px"}}>
+                                    <TrackNameAndArtists
+                                        track={item.track}
+                                        lineClampArtist={1}
+                                        lineClampTrack={1}
+                                        withLink
+                                    />
+                                </Col>
+                            </Row>
                         </Col>
                         <Col css={{
                             '@smMax': {

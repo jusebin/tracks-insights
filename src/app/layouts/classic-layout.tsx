@@ -4,7 +4,8 @@ import React, {useCallback} from "react";
 import Header from "@/app/components/header/header";
 import {Box} from "@/app/components/box";
 import CustomContainer from "@/app/components/custom-container";
-import {Row, Grid, Spacer, Text, Image, Button, Link, Avatar} from "@nextui-org/react";
+import Image from "next/image";
+import {Row, Grid, Spacer, Text, Button, Link, Avatar} from "@nextui-org/react";
 import {useTranslations} from "use-intl";
 import {useColor} from "@/app/hooks/use-color";
 
@@ -47,11 +48,31 @@ export default function ClassicLayout(
             default:
                 return (
                     <>
-                        {imgSrc && <Image
-                            width={pictureWidth}
-                            src={imgSrc}
-                            alt={`Cover for ${type} ${name}`}
-                        />}
+                        {imgSrc &&
+                            <Box css={{
+                                borderRadius: type === 'artist' ? "100%" : 0,
+                                position: "relative",
+                                height: 0,
+                                width: "100%",
+                                overflow: "hidden",
+                                pb: "100%"
+                            }}>
+                                <Box css={{
+                                    position: "absolute",
+                                    width: "100%",
+                                    height: "100%",
+                                    background: "$gray800"
+                                }}>
+                                    <Image
+                                        width={pictureWidth}
+                                        height={pictureWidth}
+                                        src={imgSrc}
+                                        alt={`Cover for ${type} ${name}`}
+                                        priority={true}
+                                    />
+                                </Box>
+                            </Box>
+                        }
                     </>
                 )
         }

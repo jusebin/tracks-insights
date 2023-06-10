@@ -4,8 +4,9 @@ import {Box} from "@/app/components/box";
 import {getLineClampStyle} from "@/app/helpers/get-line-clamp-style";
 import React from "react";
 
-export default function CardImageLink({img, url, type, name, roundImg, ranking}: {
+export default function CardImageLink({img, imgBlur, url, type, name, roundImg, ranking}: {
     img: string,
+    imgBlur: string,
     url: string,
     type: string,
     name: string,
@@ -37,6 +38,8 @@ export default function CardImageLink({img, url, type, name, roundImg, ranking}:
                                     height="0"
                                     sizes="100vw"
                                     style={{ width: '100%', height: 'auto' }}
+                                    placeholder={"blur"}
+                                    blurDataURL={imgBlur}
                                 />
                             </Box>
                             <Box css={{pt: '10px'}}>
