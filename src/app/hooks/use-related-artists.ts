@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
-import {useProfile} from "@/app/hooks/use-profile";
+import useProfile from "@/app/hooks/use-profile";
 
 export default function useRelatedArtists(id: string) {
     const {data: session} = useSession();
