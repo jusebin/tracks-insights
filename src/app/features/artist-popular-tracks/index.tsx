@@ -24,12 +24,16 @@ export default function ArtistPopularTracks({tracks}: {
 
             return (
                 <React.Fragment key={`track--${index}`}>
-                    <Link block href={`../track/${track.id}`}>
+                    <Link block href={`../track/${track.id}`} css={{
+                        d: 'block',
+                        w: "100%",
+                        maxWidth: "100%"
+                    }}>
                         <Row align={"center"}>
-                            <Col css={{w: `${numberWidth}px`}}>
+                            <Col css={{w: "50px"}}>
                                 <Text color={"$gray800"}>{index + 1}</Text>
                             </Col>
-                            <Col css={{w: `calc(75vw - ${numberWidth}px)`}}>
+                            <Col>
                                 <Row align={"center"}>
                                     <Image
                                         width={32}
@@ -44,7 +48,7 @@ export default function ArtistPopularTracks({tracks}: {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col css={{w: `calc(25vw - 70px)`}}>
+                            <Col>
                                 <Text css={{ta: 'right'}}>{convertMsToMinutes(track.duration_ms)}</Text>
                             </Col>
                         </Row>

@@ -16,6 +16,7 @@ import {useSession} from "next-auth/react";
 import {fetchAlbum} from "@/app/libs/fetchAlbum";
 import {fetchAlbumTracks} from "@/app/libs/fetchAlbumTracks";
 import {fetchArtists} from "@/app/libs/fetchArtists";
+import HeaderLayout from "@/app/features/header-layout";
 
 export default function AlbumData({id}: {
     id: string
@@ -54,28 +55,38 @@ export default function AlbumData({id}: {
     } : null, fetchArtists, {suspense: true});
 
     return (
-        <CustomContainer>
-            <Row>
-                <ColValueTitle value={`${album?.popularity} / 100`} label={albumTranslations('popularity')}/>
-                <ColValueTitle value={format.dateTime(new Date(album?.release_date || 0), {
-                    year: 'numeric',
-                    month: 'numeric',
-                    day: 'numeric'
-                })} label={albumTranslations('releaseDate')}/>
-                <ColValueTitle value={albumTracks ? albumTracks.length : 0} label={albumTranslations('tracks')}/>
-                <ColValueTitle value={getTracksDuration(albumTracks || [])} label={albumTranslations('duration')}/>
-            </Row>
-            <Spacer y={2}/>
-
-            <GridArray
-                title={commonTranslations('titles.artists')}
-                items={artists || []}
-                limit={6}
+        <>
+            <HeaderLayout
+                type={'album'}
+                name={album.name}
+                url={album?.external_urls.spotify}
+                imgSrc={album.images[1].url}
             />
-            <Spacer y={2}/>
 
-            <TitleSection title={titlesTranslations("albumContent")}/>
-            {!!albumTracks && <TableTracks tracks={albumTracks}/>}
-        </CustomContainer>
+            <CustomContainer>
+                <Row>
+                    <ColValueTitle value={`${album?.popularity} / 100`} label={albumTranslations('popularity')}/>
+                    <ColValueTitle value={format.dateTime(new Date(album?.release_date || 0), {
+                        year: 'numeric',
+                        month: 'numeric',
+                        day: 'numeric'
+                    })} label={albumTranslations('releaseDate')}/>
+                    <ColValueTitle value={albumTracks ? albumTracks.length : 0} label={albumTranslations('tracks')}/>
+                    <ColValueTitle value={getTracksDuration(albumTracks || [])} label={albumTranslations('duration')}/>
+                </Row>
+                <Spacer y={2}/>
+
+                <GridArray
+                    title={commonTranslations('titles.artists')}
+                    items={artists || []}
+                    limit={6}
+                />
+                <Spacer y={2}/>
+
+                <TitleSection title={titlesTranslations("albumContent")}/>
+                {!!albumTracks && <TableTracks tracks={albumTracks}/>}
+            </CustomContainer>
+        </>
+
     )
 }

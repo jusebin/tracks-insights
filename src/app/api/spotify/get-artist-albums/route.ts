@@ -1,7 +1,7 @@
 import {fetchSpotifyApi} from "@/app/helpers/fetch-spotify-api";
 import {NextResponse} from "next/server";
-import AlbumObjectFull = SpotifyApi.AlbumObjectFull;
 import PagingObject = SpotifyApi.PagingObject;
+import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
 
 export async function POST(request: Request) {
     const body = await request.json();
@@ -18,5 +18,5 @@ export async function POST(request: Request) {
         )
     );
 
-    return NextResponse.json<PagingObject<AlbumObjectFull[]>>(response);
+    return NextResponse.json<PagingObject<AlbumObjectSimplified[]>>(response);
 }
