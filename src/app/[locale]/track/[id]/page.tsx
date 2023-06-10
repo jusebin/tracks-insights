@@ -1,7 +1,7 @@
 'use client';
 
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
-import React, {lazy} from "react";
+import React, {lazy, Suspense} from "react";
 import {Row, Spacer} from "@nextui-org/react";
 import {useFormatter, useTranslations} from "use-intl";
 import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
@@ -12,6 +12,7 @@ import {getItemsIds} from "@/app/helpers/get-artists-ids";
 
 // Components
 import {AudioScore} from "@/app/features/audio-score";
+
 const ClassicLayout = lazy(() => import( "@/app/layouts/classic-layout"));
 const GridArray = lazy(() => import( "@/app/components/grid-array"));
 const ColValueTitle = lazy(() => import( "@/app/components/col-value-title"));
@@ -38,33 +39,29 @@ export default function Track({params: {id}}: {
 
         if (query && query.tracks && track) {
             query.tracks.items.forEach((item) => {
-               if (item.name === track.name && item.artists[0].name === track.artists[0].name) {
-                   albums.push(item.album);
-               }
+                if (item.name === track.name && item.artists[0].name === track.artists[0].name) {
+                    albums.push(item.album);
+                }
             });
         }
 
         return albums;
     }
 
-    if (!track) {
-        return null;
-    }
-
     return (
         <ClassicLayout
             type={'track'}
-            name={track.name}
-            url={track.external_urls.spotify}
-            imgSrc={track.album.images[0].url}
+            name={track?.name || ''}
+            url={track?.external_urls.spotify || ''}
+            imgSrc={track?.album.images[0].url}
         >
-            <>
+            <Suspense fallback={<div>Loading</div>}>
                 <Row>
-                    <ColValueTitle value={convertMsToMinutes(track.duration_ms)} label={t('duration')} />
-                    <ColValueTitle value={`${track.popularity} / 100`} label={t('popularity')} />
+                    <ColValueTitle value={convertMsToMinutes(track?.duration_ms || 0)} label={t('duration')}/>
+                    <ColValueTitle value={`${track?.popularity} / 100`} label={t('popularity')}/>
                     <ColValueTitle
                         value={
-                            format.dateTime(new Date(track.album.release_date), {
+                            format.dateTime(new Date(track?.album.release_date || new Date()), {
                                 year: 'numeric',
                                 month: 'numeric',
                                 day: 'numeric'
@@ -88,8 +85,8 @@ export default function Track({params: {id}}: {
                 />
                 <Spacer y={2}/>
 
-                <AudioScore id={track.id}/>
-            </>
+                <AudioScore id={track?.id || ''}/>
+            </Suspense>
         </ClassicLayout>
     );
 }
