@@ -15,7 +15,7 @@ export default function CardImageLink({img, imgBlur, url, type, name, roundImg, 
 }) {
     return (
         <Box css={{position: "relative"}}>
-            <Card >
+            <Card>
                 <Card.Body>
                     <Box>
                         <Link href={url} css={{d: "block", w: "100%"}}>

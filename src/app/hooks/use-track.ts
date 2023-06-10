@@ -10,6 +10,10 @@ export default function useTrack(id: string) {
     useEffect(() => {
         if (!!session) {
             const getData = async () => {
+                await new Promise(resolve => {
+                    setTimeout(resolve, 3000);
+                });
+
                 return await (await fetch('/api/spotify/get-track', {
                     method: 'POST',
                     body: JSON.stringify({

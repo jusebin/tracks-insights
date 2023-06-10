@@ -37,3 +37,6 @@ next-env.d.ts
 envs/.env.development
 .idea/
 yarn.lock
+
+# Local Netlify folder
+.netlify

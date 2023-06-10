@@ -7,7 +7,7 @@ import ProgressValue from "@/app/components/progress-value";
 import CardValueTitle from "@/app/components/card-value-title";
 import {convertNumberToPitchClass} from "@/app/helpers/convert-number-to-pitch-class";
 
-export function AudioScore({id}: {
+export default function AudioScore({id}: {
     id: string
 }) {
     const titleT = useTranslations("TitlesH2");
