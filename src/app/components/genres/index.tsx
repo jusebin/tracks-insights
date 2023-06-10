@@ -1,7 +1,7 @@
 import {Badge, Row, Spacer} from "@nextui-org/react";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import React, {useMemo} from "react";
-import {TitleSection} from "../title-section";
+import TitleSection from "../title-section";
 import {TimeRange} from "@/app/constants/time-ranges";
 import {useTranslations} from "use-intl";
 import {Box} from "@/app/components/box";

@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import AlbumObjectFull = SpotifyApi.AlbumObjectFull;
 
-export function useAlbum(id: string) {
+export default function useAlbum(id: string) {
     const {data: session} = useSession();
     const [albumLoading, setAlbumLoading] = useState(false);
     const [album, setAlbum] = useState<AlbumObjectFull | undefined>(undefined);

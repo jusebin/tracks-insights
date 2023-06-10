@@ -1,19 +1,25 @@
 'use client';
 
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
-import {useTrack} from "@/app/hooks/use-track";
-import React from "react";
+import React, {lazy} from "react";
 import {Row, Spacer} from "@nextui-org/react";
-import {convertMsToMinutes} from "@/app/helpers/convert-ms-to-minutes";
 import {useFormatter, useTranslations} from "use-intl";
-import {AudioScore} from "@/app/features/audio-score";
-import ClassicLayout from "@/app/layouts/classic-layout";
-import {ColValueTitle} from "@/app/components/col-value-title";
-import {GridArray} from "@/app/components/grid-array";
-import {useQuery} from "@/app/hooks/use-query";
 import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
+
+// Helpers
+import {convertMsToMinutes} from "@/app/helpers/convert-ms-to-minutes";
 import {getItemsIds} from "@/app/helpers/get-artists-ids";
-import {useArtists} from "@/app/hooks/use-artists";
+
+// Components
+import {AudioScore} from "@/app/features/audio-score";
+const ClassicLayout = lazy(() => import( "@/app/layouts/classic-layout"));
+const GridArray = lazy(() => import( "@/app/components/grid-array"));
+const ColValueTitle = lazy(() => import( "@/app/components/col-value-title"));
+
+// Custom hooks
+import useTrack from "@/app/hooks/use-track";
+import useArtists from "@/app/hooks/use-artists";
+import useQuery from "@/app/hooks/use-query";
 
 export default function Track({params: {id}}: {
     params: Params

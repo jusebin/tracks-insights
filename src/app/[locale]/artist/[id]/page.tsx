@@ -1,17 +1,22 @@
 'use client';
 
+import React, {lazy} from "react";
 import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
-import React from "react";
-import ClassicLayout from "@/app/layouts/classic-layout";
 import {Row, Spacer} from "@nextui-org/react";
-import {ColValueTitle} from "@/app/components/col-value-title";
+
 import {useTranslations} from "use-intl";
-import {useArtist} from "@/app/hooks/use-artist";
-import {useArtistAlbums} from "@/app/hooks/use-artist-albums";
-import {useArtistTopTracks} from "@/app/hooks/use-artist-top-tracks";
-import {useRelatedArtists} from "@/app/hooks/use-related-artists";
-import {ArtistPopularTracks} from "@/app/features/artist-popular-tracks";
-import {GridArray} from "@/app/components/grid-array";
+
+// Components
+import ClassicLayout from "@/app/layouts/classic-layout";
+const ColValueTitle = lazy(() => import("@/app/components/col-value-title"));
+const ArtistPopularTracks = lazy(() => import("@/app/features/artist-popular-tracks"));
+const GridArray = lazy(() => import("@/app/components/grid-array"));
+
+// Custom hooks
+import useArtist from "@/app/hooks/use-artist";
+import useArtistAlbums from "@/app/hooks/use-artist-albums";
+import useArtistTopTracks from "@/app/hooks/use-artist-top-tracks";
+import useRelatedArtists from "@/app/hooks/use-related-artists";
 
 export default function Album({params: {id}}: {
     params: Params
@@ -60,7 +65,7 @@ export default function Album({params: {id}}: {
 
             <GridArray
                 title={artistTranslations('appearsOn')}
-                items={albums.filter(album => ["appears_on"].includes(album.album_group || ""))}
+                items={albums.filter((album) => ["appears_on"].includes(album.album_group || ""))}
                 limit={6}
             />
             <Spacer y={3} />

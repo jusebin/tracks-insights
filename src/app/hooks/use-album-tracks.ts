@@ -2,7 +2,7 @@ import {useSession} from "next-auth/react";
 import {useEffect, useState} from "react";
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 
-export function useAlbumTracks(id: string, trackLength: number) {
+export default function useAlbumTracks(id: string, trackLength: number) {
     const {data: session} = useSession();
     const [offset, setOffset] = useState<number>(0);
     const [albumTracks, setAlbumTracks] = useState<TrackObjectFull[]>([]);

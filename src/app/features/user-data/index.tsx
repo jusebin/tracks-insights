@@ -9,12 +9,12 @@ import {Genres} from "@/app/components/genres";
 import {TimeRange, timeRanges} from "@/app/constants/time-ranges";
 import {HandleTimeRange} from "@/app/components/handle-time-range";
 import {RecentlyPlayed} from "../recently-played";
-import {GridArray} from "../../components/grid-array";
+import GridArray from "../../components/grid-array";
 import {useTranslations} from "use-intl";
 import {useTopTracks} from "@/app/hooks/use-top-tracks";
 import {useTopArtists} from "@/app/hooks/use-top-artists";
 
-export function UserData() {
+export default function UserData() {
     const dashboardTranslations = useTranslations("Dashboard");
     const limitTopItems = 50;
     const spacerOffset = 2;

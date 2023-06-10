@@ -1,6 +1,6 @@
 import AlbumObjectFull = SpotifyApi.AlbumObjectFull;
 import {Box} from "@/app/components/box";
-import {TitleSection} from "../title-section";
+import TitleSection from "../title-section";
 import {Grid} from "@nextui-org/react";
 import React from "react";
 import ShowMoreOrLess from "../show-more-or-less";
@@ -11,7 +11,7 @@ import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
 
-export function GridArray({title, items, limit, ranking}: {
+export default function GridArray({title, items, limit, ranking}: {
     title: string,
     items: AlbumObjectFull[] | AlbumObjectSimplified[] | ArtistObjectFull[] | TrackObjectFull[],
     limit: number

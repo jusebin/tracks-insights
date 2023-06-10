@@ -3,7 +3,7 @@ import {useSession} from "next-auth/react";
 import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import MultipleArtistsResponse = SpotifyApi.MultipleArtistsResponse;
 
-export function useArtists(ids: string) {
+export default function useArtists(ids: string) {
     const {data: session} = useSession();
     const [artists, setArtists] = useState<ArtistObjectFull[]>([]);
 

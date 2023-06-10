@@ -1,9 +1,8 @@
 import {useEffect, useState} from "react";
-import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import {useSession} from "next-auth/react";
 import SearchResponse = SpotifyApi.SearchResponse;
 
-export function useQuery(type: 'album' | 'track' | 'artist' | 'playlist', q?: string, ) {
+export default function useQuery(type: 'album' | 'track' | 'artist' | 'playlist', q?: string, ) {
     const {data: session} = useSession();
     const [queryLoading, setQueryLoading] = useState(false);
     const [query, setQuery] = useState<SearchResponse | undefined>(undefined);

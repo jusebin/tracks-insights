@@ -1,8 +1,8 @@
-import {TitleSection} from "../../components/title-section";
+import TitleSection from "../../components/title-section";
 import Image from "next/image";
 import {Card, Col, Row} from "@nextui-org/react";
 import {useTranslations} from "use-intl";
-import {useTrack} from "@/app/hooks/use-track";
+import useTrack from "@/app/hooks/use-track";
 import React from "react";
 import {TrackNameAndArtists} from "../../components/track-name-and-artists";
 import {Box} from "@/app/components/box";

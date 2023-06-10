@@ -1,7 +1,7 @@
 import React from "react";
 import {Text, Spacer} from "@nextui-org/react";
 
-export function TitleSection({title, subtitle}: {
+export default function TitleSection({title, subtitle}: {
     title: string,
     subtitle?: string
 }) {

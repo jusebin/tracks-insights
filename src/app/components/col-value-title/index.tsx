@@ -1,7 +1,7 @@
 import React from "react";
 import {Col, Text} from "@nextui-org/react";
 
-export function ColValueTitle({value, label}: {
+export default function ColValueTitle({value, label}: {
     value: string | number;
     label: string;
 }) {

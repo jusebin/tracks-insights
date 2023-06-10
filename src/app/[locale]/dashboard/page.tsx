@@ -1,11 +1,15 @@
 'use client';
+
 import {useSession} from "next-auth/react";
-import {UserData} from "../../features/user-data";
 import {redirect} from "next/navigation";
-import {useProfile} from "@/app/hooks/use-profile";
-import ClassicLayout from "@/app/layouts/classic-layout";
 import React from "react";
-import {useTranslations} from "use-intl";
+
+// Components
+import UserData from "@/app/features/user-data";
+import ClassicLayout from "@/app/layouts/classic-layout";
+
+// Custom hooks
+import useProfile from "@/app/hooks/use-profile";
 
 export default function Dashboard() {
     const {status} = useSession();

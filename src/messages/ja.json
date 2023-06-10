@@ -1,5 +1,8 @@
 {
   "Common": {
+    "titles": {
+      "artists": "アーティスト"
+    },
     "types": {
       "album": "アルバム",
       "artist": "アーティスト",

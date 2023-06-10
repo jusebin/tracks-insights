@@ -4,7 +4,7 @@ import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import {useProfile} from "@/app/hooks/use-profile";
 
-export function useRelatedArtists(id: string) {
+export default function useRelatedArtists(id: string) {
     const {data: session} = useSession();
     const {profile} = useProfile();
     const [relatedArtists, setRelatedArtists] = useState<ArtistObjectFull[]>([]);

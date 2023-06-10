@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import UserObjectPrivate = SpotifyApi.UserObjectPrivate;
 
-export function useProfile() {
+export default function useProfile() {
     const [profile, setProfile] = useState<UserObjectPrivate | undefined>(undefined);
     const {data: session} = useSession();
 

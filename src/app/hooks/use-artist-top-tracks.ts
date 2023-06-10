@@ -1,10 +1,9 @@
 import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
-import ArtistObjectFull = SpotifyApi.ArtistObjectFull;
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
 import {useProfile} from "@/app/hooks/use-profile";
 
-export function useArtistTopTracks(id: string) {
+export default function useArtistTopTracks(id: string) {
     const {data: session} = useSession();
     const {profile} = useProfile();
     const [artistTopTracks, setArtistTopTracks] = useState<TrackObjectFull[]>([]);

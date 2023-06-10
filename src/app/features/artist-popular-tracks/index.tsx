@@ -1,5 +1,5 @@
 import TrackObjectFull = SpotifyApi.TrackObjectFull;
-import {TitleSection} from "../../components/title-section";
+import TitleSection from "../../components/title-section";
 import {convertMsToMinutes} from "@/app/helpers/convert-ms-to-minutes";
 import Image from "next/image";
 import {Text, Row, Col, Spacer, Link} from "@nextui-org/react";
@@ -7,9 +7,8 @@ import React from "react";
 import {getLineClampStyle} from "@/app/helpers/get-line-clamp-style";
 import {useShow} from "@/app/hooks/use-show";
 import ShowMoreOrLess from "../../components/show-more-or-less";
-import {Box} from "@/app/components/box";
 
-export function ArtistPopularTracks({tracks}: {
+export default function ArtistPopularTracks({tracks}: {
     tracks: TrackObjectFull[]
 }) {
     const {showMore, toggleShowMore} = useShow(tracks.length > 5);
@@ -38,6 +37,7 @@ export function ArtistPopularTracks({tracks}: {
                                         sizes="100vw"
                                         src={track.album.images[2].url}
                                         alt={`cover for title ${track.name}`}
+                                        loading={"lazy"}
                                     />
                                     <Col css={{pl: '15px'}}>
                                         <Text css={getLineClampStyle(1)}>{track.name}</Text>
