@@ -25,6 +25,10 @@ export function Genres({artists, timeRange}: {
     const genres: Genre[] = useMemo(() => {
         const temp: Genre[] = [];
 
+        if (!artists.length) {
+            return temp;
+        }
+
         for (const artist of artists) {
             for (const genre of artist.genres) {
                 const tempItem = temp.find((item) => item.label === genre);
@@ -42,6 +46,7 @@ export function Genres({artists, timeRange}: {
 
         return temp;
     }, [artists]);
+
     const renderGenres = () => {
         return genres.map((genre, index) => {
             return <Badge key={`badge-genre-${index}`} variant={"flat"} css={{mb: '5px'}}>

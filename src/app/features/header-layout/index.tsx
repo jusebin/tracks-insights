@@ -30,10 +30,11 @@ export default function HeaderLayout(
     const renderHeaderLayoutImage = useCallback(() => {
         switch (type) {
             case 'user':
+                const textLabel = name?.charAt(0) || '';
                 return (
                     <Avatar
                         src={imgSrc}
-                        text={!imgSrc ? name.charAt(0) : undefined}
+                        text={!imgSrc ? textLabel : undefined}
                         css={{
                             w: `${pictureWidth}px`,
                             h: `${pictureWidth}px`,

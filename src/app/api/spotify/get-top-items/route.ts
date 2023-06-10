@@ -7,7 +7,7 @@ import TrackObjectFull = SpotifyApi.TrackObjectFull;
 export async function POST(request: Request) {
     const body = await request.json();
     const params = new URLSearchParams({
-        limit: String(body.limit),
+        limit: String(50),
         offset: String(0),
         time_range: body.timeRange
     });
