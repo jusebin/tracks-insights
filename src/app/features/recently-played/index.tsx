@@ -5,11 +5,12 @@ import {useRecentlyPlayed} from "@/app/hooks/use-recently-played";
 import React from "react";
 import TitleSection from "../../components/title-section";
 import TracksHistory from "@/app/components/tracks-history";
+import UsersRecentlyPlayedTracksResponse = SpotifyApi.UsersRecentlyPlayedTracksResponse;
 
-export function RecentlyPlayed() {
+export function RecentlyPlayed({recentlyPlayed}: {
+    recentlyPlayed: UsersRecentlyPlayedTracksResponse
+}) {
     const translationsTitles = useTranslations('TitlesH2');
-
-    const {recentlyPlayed} = useRecentlyPlayed();
 
     return (
         <section>

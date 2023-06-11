@@ -13,7 +13,7 @@ import AlbumObjectSimplified = SpotifyApi.AlbumObjectSimplified;
 
 export default function GridArray({title, items, limit, ranking}: {
     title: string,
-    items: AlbumObjectFull[] | AlbumObjectSimplified[] | ArtistObjectFull[] | TrackObjectFull[],
+    items: (AlbumObjectFull | AlbumObjectSimplified | ArtistObjectFull | TrackObjectFull)[],
     limit: number
     ranking?: boolean
 }) {

@@ -17,6 +17,7 @@ import {fetchTopItems} from "@/app/libs/fetch-top-items";
 import HeaderLayout from "@/app/features/header-layout";
 import {fetchProfile} from "@/app/libs/fetchProfile";
 import CustomContainer from "@/app/components/custom-container";
+import {fetchRecentlyPlayed} from "@/app/libs/fetch-recently-played";
 
 export default function UserData() {
     const dashboardTranslations = useTranslations("Dashboard");
@@ -28,7 +29,7 @@ export default function UserData() {
     // Custom hooks
     const {data: session} = useSession();
 
-    const {data: profile} = useSWR(session ? ['/api/spotify/get-profile', {
+    const {data: profile} = useSWR(session ? ['get-profile', {
         access_token: session.access_token
     }] : null, fetchProfile, {suspense: true});
 
@@ -48,11 +49,9 @@ export default function UserData() {
         access_token: session.access_token
     }] : null, fetchTopItems, {suspense: true});
 
-    // const handleTimeRangeCta = useCallback((timeRange: TimeRange) => {
-    //     setUsedTimeRange(timeRange);
-    //     setTopTracksLoading(true);
-    //     setTopArtistsLoading(true);
-    // }, [setTopTracksLoading, setTopArtistsLoading]);
+    const {data: recentlyPlayed} = useSWR(session ? ['recently-played', {
+        access_token: session.access_token
+    }] : null, fetchRecentlyPlayed, {suspense: true});
 
     const renderPlayback = () => {
         if (
@@ -76,7 +75,7 @@ export default function UserData() {
             return profile.display_name ? profile.display_name : profile.id
         }
 
-        return 'J';
+        return ' ';
     }, [profile]);
 
     return (
@@ -111,9 +110,9 @@ export default function UserData() {
                 <Genres artists={topArtists || []} timeRange={usedTimeRange}/>
                 <Spacer y={spacerOffset}/>
 
-                <RecentlyPlayed/>
+                <RecentlyPlayed recentlyPlayed={recentlyPlayed} />
                 <Spacer y={spacerOffset}/>
-                <HandleTimeRange usedTimeRange={usedTimeRange} handleCta={() => { console.log( 'coucou')}}/>
+                <HandleTimeRange usedTimeRange={usedTimeRange} handleCta={setUsedTimeRange}/>
             </CustomContainer>
         </>
     )

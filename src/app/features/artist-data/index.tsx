@@ -26,9 +26,9 @@ export default function ArtistData({id}: {
         access_token: session.access_token
     }] : null, fetchArtist, {suspense: true});
 
-    const {data: profile} = useSWR(session ? {
+    const {data: profile} = useSWR(session ? ['get-profile', {
         access_token: session.access_token
-    } : null, fetchProfile, {suspense: true});
+    }] : null, fetchProfile, {suspense: true});
 
     const {data: artistAlbums} = useSWR(session ? ['/api/spotify/get-artist-albums', {
         id,

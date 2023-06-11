@@ -11,6 +11,7 @@ import ClassicLayout from "@/app/layouts/classic-layout";
 // Custom hooks
 import useProfile from "@/app/hooks/use-profile";
 import Header from "@/app/components/header/header";
+import Loading from "@/app/[locale]/dashboard/loading";
 
 export default function Dashboard() {
     const {status} = useSession();
@@ -27,7 +28,7 @@ export default function Dashboard() {
     return (
         <>
             <Header/>
-            <Suspense fallback={<div>coucou</div>}>
+            <Suspense fallback={<Loading fakeImgRounded />}>
                 <UserData/>
             </Suspense>
         </>
