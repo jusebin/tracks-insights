@@ -28,7 +28,8 @@ export default function CardImageLink({img, imgBlur, url, type, name, roundImg, 
                                 background: "$gray800",
                                 borderRadius: roundImg ? '100%' : 0,
                                 maxWidth: "217px",
-                                maxHeight: "217px"
+                                maxHeight: "217px",
+                                m: "0 auto"
                             }}>
                                 <Image
                                     src={img}
