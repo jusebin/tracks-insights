@@ -49,10 +49,10 @@ export default function HeaderLayout(
                             <Box css={{
                                 borderRadius: type === 'artist' ? "100%" : 0,
                                 position: "relative",
-                                height: 0,
-                                width: "100%",
+                                height: `${pictureWidth}px`,
+                                width: `${pictureWidth}px`,
                                 overflow: "hidden",
-                                pb: "100%"
+                                m: "0 auto"
                             }}>
                                 <Box css={{
                                     position: "absolute",
@@ -78,7 +78,10 @@ export default function HeaderLayout(
     return (
         <>
             <Box css={{
-                linearGradient: `180deg, ${colors ? colors : "$secondary"} 50%, transparent 100%`
+                linearGradient: `180deg, ${colors ? colors : "$secondary"} 50%, transparent 100%`,
+                "@smMax": {
+                    pt: "30px"
+                }
             }}>
                 <CustomContainer>
                     <Row
