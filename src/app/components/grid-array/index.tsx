@@ -32,7 +32,7 @@ export default function GridArray({title, items, limit, ranking}: {
             const type = commonTranslation(`types.${item.type === "album" ? item.album_type : item.type}`);
 
             return (
-                <Grid key={`${title}--album${index}`} xs={6} sm={3} md={2}>
+                <Grid key={`${title}--album${index}`} xs={6} sm={3} md={2} justify={"center"}>
                     <CardImageLink
                         img={imgUrl}
                         imgBlur={imgBlurUrl}
