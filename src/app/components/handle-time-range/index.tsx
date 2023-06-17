@@ -36,7 +36,7 @@ export function HandleTimeRange({usedTimeRange, handleCta}: {
                 css={{
                     height: '80px',
                     p: 0,
-                    position: 'fixed',
+                    position: 'sticky',
                     bottom: "12px",
                     right: "12px",
                     transform: "scale(0.85)",
@@ -67,7 +67,7 @@ export function HandleTimeRange({usedTimeRange, handleCta}: {
                 css={{
                     maxWidth: "380px",
                     m: "0 auto",
-                    position: 'fixed',
+                    position: 'sticky',
                     bottom: "15px",
                     left: "50%",
                     transform: "translateX(-50%)",
