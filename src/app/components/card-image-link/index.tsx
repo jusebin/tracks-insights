@@ -4,9 +4,8 @@ import {Box} from "@/app/components/box";
 import {getLineClampStyle} from "@/app/helpers/get-line-clamp-style";
 import React from "react";
 
-export default function CardImageLink({img, imgBlur, url, type, name, roundImg, ranking}: {
+export default function CardImageLink({img, url, type, name, roundImg, ranking}: {
     img: string,
-    imgBlur: string,
     url: string,
     type: string,
     name: string,
@@ -14,35 +13,20 @@ export default function CardImageLink({img, imgBlur, url, type, name, roundImg, 
     ranking?: number
 }) {
     return (
-        <Box css={{position: "relative"}}>
+        <Box css={{position: "relative", maxWidth: "240px", width: "100%"}}>
             <Card>
                 <Card.Body>
                     <Box>
                         <Link href={url} css={{d: "block", w: "100%"}}>
-                            <Box css={{
-                                width: "100%",
-                                height: 0,
-                                paddingBottom: "100%",
-                                overflow: "hidden",
-                                position: "relative",
-                                background: "$gray800",
-                                borderRadius: roundImg ? '100%' : 0,
-                                maxWidth: "217px",
-                                maxHeight: "217px",
-                                m: "0 auto"
-                            }}>
-                                <Image
-                                    src={img}
-                                    alt={`cover for ${type} ${name}`}
-                                    loading={"lazy"}
-                                    width="0"
-                                    height="0"
-                                    sizes="100vw"
-                                    style={{ width: '100%', height: 'auto' }}
-                                    placeholder={"blur"}
-                                    blurDataURL={imgBlur}
-                                />
-                            </Box>
+                            <Image
+                                src={img}
+                                alt={`cover for ${type} ${name}`}
+                                loading={"lazy"}
+                                width="0"
+                                height="0"
+                                sizes="100vw"
+                                style={{ width: '100%', height: 'auto', aspectRatio:"1/1", borderRadius: `${roundImg ? "100%" : 0}`}}
+                            />
                             <Box css={{pt: '10px'}}>
                                 <Text weight={"bold"} css={getLineClampStyle(1)}>{name}</Text>
                                 <Text color={"$gray800"} size={"$sm"} css={{textTransform: "capitalize"}}>{type}</Text>
