@@ -27,7 +27,6 @@ export default function GridArray({title, items, limit, ranking}: {
 
         return items.slice(0, showMore ? items.length : limit).map((item: ArtistObjectFull | AlbumObjectSimplified | AlbumObjectFull | TrackObjectFull, index: number) => {
             const imgUrl = item.type === "track" ? item.album.images[0].url : item.images[0].url;
-            const imgBlurUrl = item.type === "track" ? item.album.images[2].url : item.images[2].url;
             const preType = item.type === "album" ? `${new Date(item.release_date).getFullYear()} • ` : "";
             const type = commonTranslation(`types.${item.type === "album" ? item.album_type : item.type}`);
 

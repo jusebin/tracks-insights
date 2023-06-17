@@ -32,8 +32,6 @@ export default function AlbumData({id}: {
         access_token: session.access_token
     } : null, fetchAlbum, {suspense: true});
 
-    // console.log(album);
-
     const {data: albumTracks} = useSWR(album && session ? {
         id,
         tracksLength: album.total_tracks,
@@ -58,9 +56,9 @@ export default function AlbumData({id}: {
         <>
             <HeaderLayout
                 type={'album'}
-                name={album.name}
+                name={album?.name || ''}
                 url={album?.external_urls.spotify}
-                imgSrc={album.images[1].url}
+                imgSrc={album?.images[1].url || ''}
             />
 
             <CustomContainer>

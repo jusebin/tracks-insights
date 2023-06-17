@@ -21,7 +21,7 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "get-image-colors": "^4.0.1",
-    "next": "13.4.4",
+    "next": "^13.4.6",
     "next-auth": "^4.22.1",
     "next-intl": "^2.14.6",
     "next-themes": "^0.2.1",
