@@ -1,6 +1,5 @@
 import React from "react";
 import {Container} from "@nextui-org/react";
-import Canvas from "@/app/features/canvas";
 import {Box} from "@/app/components/box";
 import {useTranslations} from "use-intl";
 
