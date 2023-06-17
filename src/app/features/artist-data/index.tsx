@@ -81,7 +81,11 @@ export default function ArtistData({id}: {
             />
 
             <CustomContainer>
-                <Row>
+                <Row css={{
+                    "@smMax": {
+                        pt: "40px"
+                    }
+                }}>
                     <ColValueTitle
                         value={realAlbums.length}
                         label={artistTranslations('albums')}

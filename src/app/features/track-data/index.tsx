@@ -71,7 +71,11 @@ export default function TrackData({id}: {
             />
 
             <CustomContainer>
-                <Row>
+                <Row css={{
+                    "@smMax": {
+                        pt: "40px"
+                    }
+                }}>
                     <ColValueTitle value={convertMsToMinutes(track?.duration_ms || 0)} label={t('duration')}/>
                     <ColValueTitle value={`${track?.popularity} / 100`} label={t('popularity')}/>
                     <ColValueTitle

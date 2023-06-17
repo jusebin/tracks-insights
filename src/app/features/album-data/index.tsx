@@ -62,7 +62,11 @@ export default function AlbumData({id}: {
             />
 
             <CustomContainer>
-                <Row>
+                <Row css={{
+                    "@smMax": {
+                        pt: "40px"
+                    }
+                }}>
                     <ColValueTitle value={`${album?.popularity} / 100`} label={albumTranslations('popularity')}/>
                     <ColValueTitle value={format.dateTime(new Date(album?.release_date || 0), {
                         year: 'numeric',

@@ -14,7 +14,10 @@ export default function HeaderLayoutSkeleton({fakeImgRounded}: {
                 w: `${pictureWidth}px`,
                 h: `${pictureWidth}px`,
                 background: '$gray100',
-                borderRadius
+                borderRadius,
+                "@smMax": {
+                    margin: "0 auto"
+                }
             }}>
 
             </Box>
@@ -30,7 +33,10 @@ export default function HeaderLayoutSkeleton({fakeImgRounded}: {
                     align={"center"}
                     justify={"center"}
                     css={{
-                        minHeight: "40vh"
+                        minHeight: "40vh",
+                        "@smMax": {
+                            pt: "30px"
+                        }
                     }}
                 >
                     <Grid.Container
@@ -70,21 +76,33 @@ export default function HeaderLayoutSkeleton({fakeImgRounded}: {
                             <Box css={{
                                 w: "70px",
                                 h: "20px",
-                                background: "$gray100"
+                                background: "$gray100",
+                                "@smMax": {
+                                    margin: "0 auto"
+                                }
                             }}/>
 
                             <Box css={{
                                 w: "600px",
                                 h: "60px",
                                 mt: "20px",
-                                background: "$gray100"
+                                background: "$gray100",
+                                "@smMax": {
+                                    width: "300px",
+                                    ml: "auto",
+                                    mr: "auto"
+                                }
                             }}/>
 
                             <Box css={{
                                 w: "200px",
                                 h: "50px",
                                 mt: "20px",
-                                background: "$gray100"
+                                background: "$gray100",
+                                "@smMax": {
+                                    ml: "auto",
+                                    mr: "auto"
+                                }
                             }}/>
                         </Grid>
                     </Grid.Container>
