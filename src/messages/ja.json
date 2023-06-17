@@ -1,7 +1,8 @@
 {
   "Common": {
     "titles": {
-      "artists": "アーティスト"
+      "artists": "アーティスト",
+      "catchphrase": "一瞬でお気に入りのトップトラックやアーティストを探索してください。"
     },
     "types": {
       "album": "アルバム",

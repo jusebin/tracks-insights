@@ -1,7 +1,8 @@
 {
   "Common": {
     "titles": {
-      "artists": "Artistes"
+      "artists": "Artistes",
+      "catchphrase": "Explorez vos tops pistes et artistes préférés en un clin d'oeil"
     },
     "types": {
       "album": "Album",

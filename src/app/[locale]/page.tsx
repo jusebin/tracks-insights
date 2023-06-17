@@ -10,10 +10,7 @@ import HomeLayout from "@/app/layouts/home-layout";
 export default function Home() {
     const {status} = useSession();
     const t = useTranslations('Buttons');
-
-    const styleGradient = {
-        textGradient: "45deg, $purple600 -20%, $pink600 50%, $yellow600 70%, $red600 100%"
-    };
+    const catchphraseTranslations = useTranslations("Common");
 
     if (status === 'authenticated') {
         redirect('/dashboard');
@@ -28,9 +25,16 @@ export default function Home() {
             <Row justify={"center"}>
                 <Text
                     h1
-                    css={styleGradient}
+                    css={{textAlign: 'center', fontSize: "20vw"}}
                     weight={"black"}
                 >Tracks Insights</Text>
+            </Row>
+            <Row justify={"center"}>
+                <Text
+                    h2
+                    css={{textAlign: 'center', maxWidth: "670px"}}
+                    weight={"black"}
+                >{catchphraseTranslations('titles.catchphrase')}</Text>
             </Row>
             <Row justify={"center"}>
                 <Button

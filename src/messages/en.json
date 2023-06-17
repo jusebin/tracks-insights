@@ -1,7 +1,8 @@
 {
   "Common": {
     "titles": {
-      "artists": "Artists"
+      "artists": "Artists",
+      "catchphrase": "Explore your top tracks and favorite artists in the blink of an eye."
     },
     "types": {
       "album": "Album",
