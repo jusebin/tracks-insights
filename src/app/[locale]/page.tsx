@@ -6,11 +6,21 @@ import {useTranslations} from "use-intl";
 import {redirect} from "next/navigation";
 import React from "react";
 import HomeLayout from "@/app/layouts/home-layout";
+import {PLAYLISTS} from "@/app/constants/playlists";
+import useSWR from "swr";
+import {fetchPlaylist} from "@/app/libs/fetch-playlist";
 
-export default function Home() {
+export default function Home({params: {locale}}: {
+    params: {locale: string}
+}) {
     const {status} = useSession();
     const t = useTranslations('Buttons');
     const catchphraseTranslations = useTranslations("Common");
+    const playlist = PLAYLISTS.find((playlist) => playlist.code === locale);
+
+    const {data: playlistData} = useSWR({
+        playlistId: playlist?.id
+    }, fetchPlaylist);
 
     if (status === 'authenticated') {
         redirect('/dashboard');
@@ -25,7 +35,7 @@ export default function Home() {
             <Row justify={"center"}>
                 <Text
                     h1
-                    css={{textAlign: 'center', fontSize: "20vw"}}
+                    css={{textAlign: 'center', fontSize: "10vw"}}
                     weight={"black"}
                 >Tracks Insights</Text>
             </Row>
